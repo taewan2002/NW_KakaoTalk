@@ -9,15 +9,18 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public class getBTC {
+public class getCoinData {
     private String market;
     private String trade_date;
     private String trade_price;
+    private String changeRate;
 
-    public getBTC() {
+    public getCoinData(String market) {
+        String url = "https://api.upbit.com/v1/ticker?markets=KRW-";
+        url += market;
         try {
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.upbit.com/v1/ticker?markets=KRW-BTC"))
+                    .uri(URI.create(url))
                     .header("accept", "application/json")
                     .method("GET", HttpRequest.BodyPublishers.noBody())
                     .build();
@@ -30,6 +33,7 @@ public class getBTC {
                 this.market = temp.get("market").toString();
                 this.trade_date = temp.get("trade_date").toString();
                 this.trade_price = temp.get("trade_price").toString();
+                this.changeRate = temp.get("signed_change_rate").toString();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -50,5 +54,10 @@ public class getBTC {
             temp = trade_price.charAt(trade_price.length() - i - 1) + temp;
         }
         return temp;
+    }
+    public String getChangeRate() {
+        changeRate = Float.toString(Float.parseFloat(changeRate) * 100);
+        changeRate = changeRate.substring(0, 5) + "%";
+        return changeRate;
     }
 }
