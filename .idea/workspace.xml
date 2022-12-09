@@ -4,22 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/GUI/friends.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/friends.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/login.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/sginUp.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/sginUp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/function/ListeningThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/function/cache_download.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/function/chatting_client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/function/directorychoose.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/function/file_client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/function/file_server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/function/filechoose.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/function/protocol.java" afterDir="false" />
+    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="test1">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/openAPI.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/openAPI/gson-2.8.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/openAPI/json-simple-1.1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/stockData.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/stockData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/function/ImgSetSize.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/function/clean_cache.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/function/get_data.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/function/imgchoose.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/function/imgdownload.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/function/loginregister.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/function/md5.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public_data/getBTC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public_data/getETH.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public_data/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KakaoTalk.iml" beforeDir="false" afterPath="$PROJECT_DIR$/KakaoTalk.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/sginUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/sginUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/function/ListeningThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/function/ListeningThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +35,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
+        <option value="package.json" />
+        <option value="JavaScript File" />
+        <option value="TypeScript File" />
         <option value="Class" />
       </list>
     </option>
@@ -47,16 +57,99 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/taewan/IdeaProjects/KakaoTalk",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="public_data" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/function" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/public_data" />
+      <recent name="$PROJECT_DIR$/openAPI" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.test">
+    <configuration name="ApiTestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="public_data.ApiTestApplication" />
+      <module name="KakaoTalk" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="public_data.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="stockData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI.stockData" />
+      <module name="KakaoTalk" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="GUI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="public_data.test" />
+      <module name="KakaoTalk" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="public_data.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test1" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="public_data.test1" />
+      <module name="KakaoTalk" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="public_data.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.test" />
+        <item itemvalue="Application.ApiTestApplication" />
+        <item itemvalue="Application.stockData" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -65,11 +158,36 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670568984234</updated>
-      <workItem from="1670568985270" duration="1476000" />
+      <workItem from="1670568985270" duration="3887000" />
+      <workItem from="1670573800337" duration="2100000" />
+      <workItem from="1670576190090" duration="8331000" />
     </task>
+    <task id="LOCAL-00001" summary="test1">
+      <created>1670570617039</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1670570617039</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="test1" />
+    <option name="LAST_COMMIT_MESSAGE" value="test1" />
   </component>
 </project>

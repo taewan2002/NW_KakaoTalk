@@ -8,9 +8,7 @@ import java.util.ArrayList;
 public class ListeningThread extends Thread { // 서버에서 보낸 메세지 읽는 Thread
 	Socket socket = null;
 	String follow_yes_or_no;
-
 	int post_num=-1;
-
 	int follower_num=-1;
 	int follow_num=-1;
 	private static ArrayList<String> myroom_list = new ArrayList<>();
@@ -105,5 +103,4 @@ public class ListeningThread extends Thread { // 서버에서 보낸 메세지 �
 			System.out.println(e);
 		}
 	}
-
 }

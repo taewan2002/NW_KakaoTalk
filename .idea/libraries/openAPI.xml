@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="openAPI">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/openAPI" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/openAPI" recursive="false" />
+  </library>
+</component>
