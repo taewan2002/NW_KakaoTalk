@@ -4,15 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="코인 정보 불러오기 upbit api">
-      <change afterPath="$PROJECT_DIR$/src/GUI/CoinData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/public_data/getData.java" afterDir="false" />
+    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="코인 정보 불러오기 upbit api, getCoinData">
+      <change afterPath="$PROJECT_DIR$/src/IMG/BTC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IMG/bch.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IMG/btg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IMG/eos.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IMG/eth.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IMG/icx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IMG/qtum.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IMG/trx.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IMG/xem.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IMG/xrp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/public_data/makeCoinInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/stockData.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/CoinData.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/stockData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public_data/getBTC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/public_data/getBTC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public_data/getETH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/public_data/getETH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public_data/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/public_data/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/CoinData.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/CoinData.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/CoinData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/CoinData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/sginUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/sginUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public_data/test.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,27 +52,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/taewan/IdeaProjects/KakaoTalk",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/taewan/IdeaProjects/KakaoTalk&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="public_data" />
@@ -72,11 +82,12 @@
       <recent name="$PROJECT_DIR$/src/function" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/IMG" />
       <recent name="$PROJECT_DIR$/src/public_data" />
       <recent name="$PROJECT_DIR$/openAPI" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.test">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="ApiTestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="public_data.ApiTestApplication" />
       <module name="KakaoTalk" />
@@ -86,6 +97,13 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="KakaoTalk" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -131,6 +149,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.test" />
         <item itemvalue="Application.ApiTestApplication" />
         <item itemvalue="Application.stockData" />
@@ -147,7 +166,8 @@
       <updated>1670568984234</updated>
       <workItem from="1670568985270" duration="3887000" />
       <workItem from="1670573800337" duration="2100000" />
-      <workItem from="1670576190090" duration="10237000" />
+      <workItem from="1670576190090" duration="16798000" />
+      <workItem from="1670595604778" duration="3974000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1670570617039</created>
@@ -163,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670586737097</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="코인 정보 불러오기 upbit api, getCoinData">
+      <created>1670588549263</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670588549263</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +210,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test1" />
     <MESSAGE value="코인 정보 불러오기 upbit api" />
-    <option name="LAST_COMMIT_MESSAGE" value="코인 정보 불러오기 upbit api" />
+    <MESSAGE value="코인 정보 불러오기 upbit api, getCoinData" />
+    <option name="LAST_COMMIT_MESSAGE" value="코인 정보 불러오기 upbit api, getCoinData" />
   </component>
 </project>
