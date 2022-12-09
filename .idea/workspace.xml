@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="" />
+    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/GUI/friends.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/friends.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/login.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/sginUp.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GUI/sginUp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/function/ListeningThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/function/cache_download.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/function/chatting_client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/function/directorychoose.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/function/file_client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/function/file_server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/function/filechoose.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/function/protocol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2IfO58fuPxWEStm5oHW96ICiDx1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -21,6 +50,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -32,7 +65,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1670568984234</updated>
+      <workItem from="1670568985270" duration="1476000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
