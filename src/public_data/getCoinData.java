@@ -57,7 +57,7 @@ public class getCoinData {
     }
     public String getChangeRate() {
         changeRate = Float.toString(Float.parseFloat(changeRate) * 100);
-        changeRate = changeRate.substring(0, 5) + "%";
+        // changeRate = changeRate.substring(0, 5) + "%";
         return changeRate;
     }
 }
