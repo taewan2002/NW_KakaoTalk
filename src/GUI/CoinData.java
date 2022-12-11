@@ -19,12 +19,16 @@ public class CoinData extends JFrame {
     private JButton more;
     private ArrayList<String> market = new ArrayList<>();
 
-    public CoinData(){
-        ImgSetSize friendIcon = new ImgSetSize("src/IMG/friendButtonIconNoActive.png", 35,35);
+    public CoinData() {
+        String time = new getCoinData("BTC").getTime();
+        timeNow.setText(time);
+        timeNow.setEnabled(false);
+        timeNow.setHorizontalAlignment(JTextField.CENTER);
+        ImgSetSize friendIcon = new ImgSetSize("src/IMG/friendButtonIconNoActive.png", 35, 35);
         friendButton.setIcon(friendIcon.getImg());
-        ImgSetSize roomIcon = new ImgSetSize("src/IMG/chattingButtonIconActive.png", 35,35);
+        ImgSetSize roomIcon = new ImgSetSize("src/IMG/chattingButtonIconActive.png", 35, 35);
         roomButton.setIcon(roomIcon.getImg());
-        ImgSetSize dataIcon = new ImgSetSize("src/IMG/BTC.png", 35,35);
+        ImgSetSize dataIcon = new ImgSetSize("src/IMG/BTC.png", 35, 35);
         publicDataButton.setIcon(dataIcon.getImg());
         ImgSetSize refreshButton = new ImgSetSize("src/IMG/refresh.png", 35,25);
         refresh.setIcon(refreshButton.getImg());
@@ -49,7 +53,7 @@ public class CoinData extends JFrame {
         GridBagConstraints gbc = new GridBagConstraints();
 
 
-        for(int k=0; k<market.size(); k++){
+        for (int k = 0; k < market.size(); k++) {
             getCoinData pane = new getCoinData(market.get(k));
             gbc.fill = GridBagConstraints.BOTH;
             gbc.ipadx = 0;
@@ -67,7 +71,7 @@ public class CoinData extends JFrame {
         }
 
 
-        setBounds(0,0,480,650);
+        setBounds(0, 0, 480, 650);
         setSize(480, 650);
         setVisible(true);
         friendButton.addActionListener(new ActionListener() {
@@ -91,5 +95,19 @@ public class CoinData extends JFrame {
                 setVisible(false);
             }
         });
+        refresh.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setDate();
+            }
+        });
+    }
+    public void setDate(){
+        try {
+            new CoinData();
+            setVisible(false);
+        } catch (Exception e1) {
+            setDate();
+        }
     }
 }

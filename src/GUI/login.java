@@ -4,6 +4,7 @@ import javax.swing.*;
 import function.*;
 
 import java.awt.event.*;
+import java.io.File;
 
 public class login extends JFrame{
     private JPanel main;
@@ -14,8 +15,31 @@ public class login extends JFrame{
     private JLabel kakaoicon;
     private JButton signupButton;
     private JPasswordField password;
+    public String makedir(){
+        // 캐싱된 체팅 파일들 모두 지우고 다시 만들기
+
+        String path = "chatting_data";
+        File Folder = new File(path);
+
+        // 해당 디렉토리가 없을경우 디렉토리를 생성합니다.
+        if (!Folder.exists()) {
+            try{
+                Folder.mkdir(); //폴더 생성합니다.
+                System.out.println("폴더가 생성되었습니다.");
+                return Folder.getAbsolutePath();
+            }
+            catch(Exception e){
+                e.getStackTrace();
+            }
+        }else {
+            System.out.println("이미 폴더가 생성되어 있습니다.");
+            return null;
+        }
+        return null;
+    }
 
     public login(){
+        makedir(); // 캐싱된 체팅 파일들 모두 지우고 다시 만들기
         ImgSetSize kakaolabel = new ImgSetSize("src/IMG/kakaoIcon.png", 200,100);
         kakaoicon.setIcon(kakaolabel.getImg());
 
@@ -105,6 +129,24 @@ public class login extends JFrame{
         login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+//                로그인 기능 구현
+//                String getId = id.getText();
+//                char[] temp = password.getPassword();
+//                String getPw = new String(temp);
+//                System.out.println("ID: " + getId + "\tPWD: " + getPw + "\n");
+//                loginregister manager = new loginregister();
+//                int session_id = manager.login(getId,getPw);
+//                if(session_id!=-1){
+//                    chatting_client client = new chatting_client(getId);
+//                    client.run();
+//                    ListeningThread t1 = client.get_listening();
+//                    friends a = new friends(session_id,getId,client,t1);
+//                    setVisible(false);
+//                    a.setVisible(true);
+//                }
+//                else{
+//                    System.out.println("x");
+//                }
                 new friends();
                 setVisible(false);
             }
