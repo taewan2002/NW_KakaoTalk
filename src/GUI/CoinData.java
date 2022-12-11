@@ -17,10 +17,10 @@ public class CoinData extends JFrame {
         market.add("BTC");
         market.add("ETH");
         market.add("XRP");
-        market.add("BCH"); // 이미지 오류
-        // market.add("EOS"); // 이미지 오류
+        market.add("BCH");
+        market.add("EOS"); // 이미지 오류(찾기힘듬);;
         market.add("TRX");
-        market.add("QTUM"); // 이미지 오류
+        market.add("QTUM");
         market.add("BTG");
         market.add("ICX");
         market.add("XEM");
