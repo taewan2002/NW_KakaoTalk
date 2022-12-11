@@ -4,25 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="코인 정보 불러오기 upbit api, getCoinData">
-      <change afterPath="$PROJECT_DIR$/src/IMG/BTC.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IMG/bch.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IMG/btg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IMG/eos.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IMG/eth.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IMG/icx.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IMG/qtum.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IMG/trx.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IMG/xem.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IMG/xrp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/public_data/makeCoinInfo.java" afterDir="false" />
+    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="coinData 폼 제작 및 구현">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/CoinData.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/CoinData.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/CoinData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/CoinData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/sginUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/sginUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public_data/test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public_data/getCoinData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/public_data/getCoinData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +26,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -108,6 +98,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="getData2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="getData2" />
+      <module name="KakaoTalk" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="stockData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI.stockData" />
       <module name="KakaoTalk" />
@@ -150,6 +147,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.getData2" />
         <item itemvalue="Application.test" />
         <item itemvalue="Application.ApiTestApplication" />
         <item itemvalue="Application.stockData" />
@@ -168,6 +166,9 @@
       <workItem from="1670573800337" duration="2100000" />
       <workItem from="1670576190090" duration="16798000" />
       <workItem from="1670595604778" duration="3974000" />
+      <workItem from="1670725355073" duration="76000" />
+      <workItem from="1670725433516" duration="409000" />
+      <workItem from="1670746283535" duration="750000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1670570617039</created>
@@ -212,5 +213,8 @@
     <MESSAGE value="코인 정보 불러오기 upbit api" />
     <MESSAGE value="코인 정보 불러오기 upbit api, getCoinData" />
     <option name="LAST_COMMIT_MESSAGE" value="코인 정보 불러오기 upbit api, getCoinData" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main Coverage Results" MODIFIED="1670747029056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
