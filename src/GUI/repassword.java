@@ -66,8 +66,8 @@ public class repassword extends JFrame{
                     commit.doClick();
                 }
                 else if(e.getKeyCode() == KeyEvent.VK_TAB){
-                    newPassword.setText("");
-                    newPassword.requestFocus();
+                    duplicate.setText("");
+                    duplicate.requestFocus();
                 }
             }
             @Override
