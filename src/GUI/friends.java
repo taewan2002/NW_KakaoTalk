@@ -17,6 +17,7 @@ public class friends extends JFrame{
     private JTextField search_friend;
     private JButton searchButton;
     private JButton inviteFriend;
+    private JButton more;
 
     public friends(){
 
@@ -51,6 +52,13 @@ public class friends extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 new CoinData();
+                setVisible(false);
+            }
+        });
+        more.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new more();
                 setVisible(false);
             }
         });

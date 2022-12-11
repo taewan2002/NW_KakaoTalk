@@ -16,6 +16,7 @@ public class chats extends JFrame{
     private JTextField search_room;
     private JButton searchButton;
     private JButton createRoom;
+    private JButton more;
 
     public chats(){
 
@@ -53,6 +54,13 @@ public class chats extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 new CoinData();
+                setVisible(false);
+            }
+        });
+        more.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new more();
                 setVisible(false);
             }
         });

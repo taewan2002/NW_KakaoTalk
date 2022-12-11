@@ -16,6 +16,7 @@ public class CoinData extends JFrame {
     private JButton publicDataButton;
     private JButton refresh;
     private JTextField timeNow;
+    private JButton more;
     private ArrayList<String> market = new ArrayList<>();
 
     public CoinData(){
@@ -78,6 +79,13 @@ public class CoinData extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new chats();
+                setVisible(false);
+            }
+        });
+        more.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new more();
                 setVisible(false);
             }
         });
