@@ -1,6 +1,7 @@
 package GUI;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class invite extends JFrame{
     private JPanel main;
@@ -10,11 +11,14 @@ public class invite extends JFrame{
     private JPanel invite;
 
     public invite(){
-
         setContentPane(main);
         setSize(480,650);
-        setBounds(0,0,480,650);
         setVisible(true);
+        Dimension frameSize = getSize();
+        Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((windowSize.width - frameSize.width) / 2,
+                (windowSize.height - frameSize.height) / 2);
+
 
     }
 }

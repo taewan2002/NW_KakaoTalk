@@ -1,13 +1,16 @@
 package GUI;
 
-public class more {
-    /**
-     * 더보기화면 구성
-     * 1. 비밀번호 변경
-     * 2. 회원정보 보기
-     * 3. 친구삭제
-     * 4. 로그아웃
-     * 5. 회원탈퇴
-     *
-     */
+import javax.swing.*;
+import java.awt.*;
+
+public class more extends JFrame {
+    public more(){
+        setSize(480,650);
+        setVisible(true);
+        Dimension frameSize = getSize();
+        Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((windowSize.width - frameSize.width) / 2,
+                (windowSize.height - frameSize.height) / 2);
+
+    }
 }

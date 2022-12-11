@@ -3,6 +3,7 @@ package GUI;
 import javax.swing.*;
 import function.*;
 
+import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 
@@ -118,12 +119,14 @@ public class login extends JFrame{
             public void keyReleased(KeyEvent e) {}
         });
 
-
-
         setContentPane(main);
         setSize(480,650);
-        setBounds(0,0,480,650);
         setVisible(true);
+        Dimension frameSize = getSize();
+        Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((windowSize.width - frameSize.width) / 2,
+                (windowSize.height - frameSize.height) / 2);
+
 
         //로그인 버튼
         login.addActionListener(new ActionListener() {
@@ -156,7 +159,8 @@ public class login extends JFrame{
         searchId.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new find();
+                setVisible(false);
             }
         });
 
@@ -173,7 +177,8 @@ public class login extends JFrame{
         repassword.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new find();
+                setVisible(false);
             }
         });
     }

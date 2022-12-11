@@ -3,6 +3,7 @@ package GUI;
 import function.ImgSetSize;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 public class signUp extends JFrame{
@@ -168,8 +169,12 @@ public class signUp extends JFrame{
 
         setContentPane(main);
         setSize(480,650);
-        setBounds(0,0,480,650);
         setVisible(true);
+        Dimension frameSize = getSize();
+        Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((windowSize.width - frameSize.width) / 2,
+                (windowSize.height - frameSize.height) / 2);
+
         signup.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
