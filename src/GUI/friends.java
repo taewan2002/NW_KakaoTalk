@@ -47,5 +47,12 @@ public class friends extends JFrame{
                 setVisible(false);
             }
         });
+        publicDataButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CoinData();
+                setVisible(false);
+            }
+        });
     }
 }

@@ -23,7 +23,7 @@ public class chats extends JFrame{
         friendButton.setIcon(friendIcon.getImg());
         ImgSetSize roomIcon = new ImgSetSize("src/IMG/chattingButtonIconActive.png", 35,35);
         roomButton.setIcon(roomIcon.getImg());
-        ImgSetSize dataIcon = new ImgSetSize("src/IMG/BTC.png", 35,35);
+        ImgSetSize dataIcon = new ImgSetSize("src/IMG/btcBlack.png", 35,35);
         publicDataButton.setIcon(dataIcon.getImg());
 
         setContentPane(main);
@@ -47,6 +47,13 @@ public class chats extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
 
+            }
+        });
+        publicDataButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new CoinData();
+                setVisible(false);
             }
         });
     }

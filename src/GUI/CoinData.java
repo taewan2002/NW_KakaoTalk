@@ -2,6 +2,8 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import function.ImgSetSize;
@@ -9,11 +11,21 @@ import public_data.getCoinData;
 public class CoinData extends JFrame {
     JPanel Scorll;
     JPanel mainPanel;
-    private JButton back;
+    private JButton friendButton;
+    private JButton roomButton;
+    private JButton publicDataButton;
     private JButton refresh;
+    private JTextField timeNow;
     private ArrayList<String> market = new ArrayList<>();
 
     public CoinData(){
+        ImgSetSize friendIcon = new ImgSetSize("src/IMG/friendButtonIconNoActive.png", 35,35);
+        friendButton.setIcon(friendIcon.getImg());
+        ImgSetSize roomIcon = new ImgSetSize("src/IMG/chattingButtonIconActive.png", 35,35);
+        roomButton.setIcon(roomIcon.getImg());
+        ImgSetSize dataIcon = new ImgSetSize("src/IMG/BTC.png", 35,35);
+        publicDataButton.setIcon(dataIcon.getImg());
+
         market.add("BTC");
         market.add("ETH");
         market.add("XRP");
@@ -51,7 +63,23 @@ public class CoinData extends JFrame {
             Scorll.setVisible(true);
         }
 
+
+        setBounds(0,0,480,650);
         setSize(480, 650);
         setVisible(true);
+        friendButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new friends();
+                setVisible(false);
+            }
+        });
+        roomButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new chats();
+                setVisible(false);
+            }
+        });
     }
 }
