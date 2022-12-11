@@ -23,6 +23,8 @@ public class chats extends JFrame{
         friendButton.setIcon(friendIcon.getImg());
         ImgSetSize roomIcon = new ImgSetSize("src/IMG/chattingButtonIconActive.png", 35,35);
         roomButton.setIcon(roomIcon.getImg());
+        ImgSetSize dataIcon = new ImgSetSize("src/IMG/BTC.png", 35,35);
+        publicDataButton.setIcon(dataIcon.getImg());
 
         setContentPane(main);
         setSize(480,650);
