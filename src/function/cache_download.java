@@ -1,5 +1,7 @@
 package function;
 
+import chatting_function.chatting_client;
+
 import java.io.*;
 import java.net.Socket;
 public class cache_download { // 캐시 다운로드
@@ -11,7 +13,7 @@ public class cache_download { // 캐시 다운로드
     String time;
     public String filename;
     String path;
-    public cache_download(Socket socket, String fileName, String roomnumber, String time,int type,chatting_client A) {
+    public cache_download(Socket socket, String fileName, String roomnumber, String time, int type,chatting_client A) {
         this.socket=socket;
         this.filename=fileName;
         this.roomnumber=roomnumber;

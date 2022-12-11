@@ -1,4 +1,6 @@
-package function;
+package chatting_function;
+import function.protocol;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -56,8 +58,9 @@ public class chatting_client implements Runnable { // 채팅 클라이언트
         protocol content = new protocol(typeofrequest, sender, roomnumber);
         chat_message(content); // 방 나가기
     }
-    public void send_messege(int typeofrequest, String roomnumber, String sender, String messege, String time, boolean file_exist, String file_name){
-        protocol content = new protocol(typeofrequest, roomnumber, sender, messege, time, file_exist, file_name);
+    public void send_messege(int typeofrequest, String roomnumber, String sender, String messege, boolean file_exist, String file_name){
+        protocol content = new protocol(typeofrequest, roomnumber, sender, messege, file_exist, file_name);
+        // 보낼때 자동으로 시간 설정
         chat_message(content); // 메시지 보내기
     }
     public void logout(int typeofrequest, String sender){
@@ -76,7 +79,7 @@ public class chatting_client implements Runnable { // 채팅 클라이언트
             protocol time = new protocol();
             time.setTime();
             file=new file_client(sc, filename, roomnumber, time.getTime(),1,A);
-            A.send_messege(4, roomnumber, user_id, null, time.getTime(), file_exist, time.getTime()+filetype);
+            A.send_messege(4, roomnumber, user_id, null, file_exist, time.getTime()+filetype);
             file_exist = false;
         }catch (Exception e){
             System.out.println(e);

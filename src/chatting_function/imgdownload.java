@@ -1,4 +1,4 @@
-package function;
+package chatting_function;
 
 import java.io.*;
 import java.net.Socket;

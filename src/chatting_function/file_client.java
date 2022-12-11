@@ -1,4 +1,6 @@
-package function;
+package chatting_function;
+
+import function.protocol;
 
 import javax.sound.sampled.*;
 import java.io.*;
@@ -105,7 +107,7 @@ public class file_client{
                         File file = new File(filename);
                         pw.println((int) file.length()); //4파일크기
                         pw.flush();
-                        A.send_messege(4, roomnumber, A.user_id, "파일 전송 완료", time.getTime(), true, name_send1 + filetype);
+                        A.send_messege(4, roomnumber, A.user_id, "파일 전송 완료", true, name_send1 + filetype);
                         os = S.getOutputStream();
                         DataOutputStream dataOutput = new DataOutputStream(os); //output 스크림 생성
                         System.out.println((int) file.length()); // 송신 파일 사이즈 콘솔출력

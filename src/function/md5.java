@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class md5 {
     public static String encMD5(String pwd) {
+        // MD5 암호화
         String MD5 = "";
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
