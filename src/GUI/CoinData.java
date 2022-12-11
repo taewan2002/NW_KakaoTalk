@@ -20,6 +20,7 @@ public class CoinData extends JFrame {
     private ArrayList<String> market = new ArrayList<>();
 
     public CoinData() {
+
         String time = new getCoinData("BTC").getTime();
         timeNow.setText(time);
         timeNow.setEnabled(false);
@@ -32,6 +33,8 @@ public class CoinData extends JFrame {
         publicDataButton.setIcon(dataIcon.getImg());
         ImgSetSize refreshButton = new ImgSetSize("src/IMG/refresh.png", 35,25);
         refresh.setIcon(refreshButton.getImg());
+        ImgSetSize moreicon = new ImgSetSize("src/IMG/moreicon.png", 35,35);
+        more.setIcon(moreicon.getImg());
 
         market.add("BTC");
         market.add("ETH");
@@ -69,11 +72,12 @@ public class CoinData extends JFrame {
             Scorll.updateUI();
             Scorll.setVisible(true);
         }
-
-
-        setBounds(0, 0, 480, 650);
-        setSize(480, 650);
+        setSize(480,650);
         setVisible(true);
+        Dimension frameSize = getSize();
+        Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((windowSize.width - frameSize.width) / 2,
+                (windowSize.height - frameSize.height) / 2);
         friendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

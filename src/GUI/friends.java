@@ -3,6 +3,7 @@ package GUI;
 import function.ImgSetSize;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -31,11 +32,16 @@ public class friends extends JFrame{
         searchButton.setIcon(search.getImg());
         ImgSetSize invite_friend = new ImgSetSize("src/IMG/invite_friend.png", 35,25);
         inviteFriend.setIcon(invite_friend.getImg());
+        ImgSetSize moreicon = new ImgSetSize("src/IMG/moreicon.png", 35,35);
+        more.setIcon(moreicon.getImg());
 
         setContentPane(main);
         setSize(480,650);
-        setBounds(0,0,480,650);
         setVisible(true);
+        Dimension frameSize = getSize();
+        Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((windowSize.width - frameSize.width) / 2,
+                (windowSize.height - frameSize.height) / 2);
 
 
         searchButton.addActionListener(new ActionListener() {
@@ -69,7 +75,7 @@ public class friends extends JFrame{
         inviteFriend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new friends();
+                new invite();
                 setVisible(false);
             }
         });
