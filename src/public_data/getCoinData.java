@@ -48,14 +48,28 @@ public class getCoinData {
     }
 
     public String getTrade_price() {
-        String temp = "";
-        for (int i = 0; i < trade_price.length(); i++) {
-            if (i % 3 == 0 && i != 0) {
-                temp = "," + temp;
-            }
-            temp = trade_price.charAt(trade_price.length() - i - 1) + temp;
+        // 소숫점이 있으면, 정수부분부터 ,로 자르기
+        if (trade_price.contains(".")) {
+            int index = trade_price.indexOf(".");
+            trade_price = trade_price.substring(0, index);
         }
-        return temp;
+        // 3자리마다 , 넣기
+        int len = trade_price.length();
+        int cnt = 0;
+        String temp = "";
+        for (int i = len - 1; i >= 0; i--) {
+            temp += trade_price.charAt(i);
+            cnt++;
+            if (cnt == 3 && i != 0) {
+                temp += ",";
+                cnt = 0;
+            }
+        }
+        trade_price = "";
+        for (int i = temp.length() - 1; i >= 0; i--) {
+            trade_price += temp.charAt(i);
+        }
+        return trade_price;
     }
 
     public String getChangeRate() {
