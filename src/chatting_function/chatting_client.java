@@ -1,5 +1,6 @@
 package chatting_function;
 import function.protocol;
+import function.readTxt;
 
 import java.io.*;
 import java.net.Socket;
@@ -25,7 +26,11 @@ public class chatting_client implements Runnable { // 채팅 클라이언트
 
     public chatting_client(String user_id) {
         try {
-            this.socket = new Socket("swiftsjh.tplinkdns.com", 25588); // 소켓 연결
+            readTxt read = new readTxt();
+            String host = read.getHost();
+            ArrayList<String> tmp = read.getPort();
+            int port = Integer.parseInt(tmp.get(2));
+            this.socket = new Socket(host, port); // 소켓 연결
             this.oos = new ObjectOutputStream(socket.getOutputStream());
             this.ois = new ObjectInputStream(socket.getInputStream());
             this.dos = new DataOutputStream(socket.getOutputStream());
@@ -75,7 +80,11 @@ public class chatting_client implements Runnable { // 채팅 클라이언트
             filechoose choice = new filechoose();
             String filename = choice.jFileChooserUtil();
             String filetype = filename.substring(filename.lastIndexOf("."));
-            Socket sc = new Socket("swiftsjh.tplinkdns.com", 25589);
+            readTxt read = new readTxt();
+            String host = read.getHost();
+            ArrayList<String> tmp = read.getPort();
+            int port = Integer.parseInt(tmp.get(1));
+            Socket sc = new Socket(host, port);
             protocol time = new protocol();
             time.setTime();
             file=new file_client(sc, filename, roomnumber, time.getTime(),1,A);

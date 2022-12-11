@@ -4,6 +4,8 @@ import chatting_function.chatting_client;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
+
 public class cache_download { // 캐시 다운로드
     Socket socket = null;
     String filetype;
@@ -28,7 +30,11 @@ public class cache_download { // 캐시 다운로드
         public void run() {
             path="chatting_data/"+roomnumber+"/"+".txt"; // 캐시 파일 경로
             try {
-                Socket S = new Socket("swiftsjh.tplinkdns.com", 25589); //서버에 접속
+                readTxt read = new readTxt();
+                String host = read.getHost();
+                ArrayList<String> temp = read.getPort();
+                int port = Integer.parseInt(temp.get(1));
+                Socket S = new Socket(host, port); //서버에 접속
                 protocol time = new protocol();
                 time.setTime();
                 String name_send1 = time.getTime();

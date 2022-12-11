@@ -8,12 +8,16 @@ import java.io.BufferedReader;
 public class readTxt {
     String host;
     ArrayList<String> port = new ArrayList<String>();
-    // port(1) = 9898, 로그인포트, listeningThread 포트
-    // port(2) = 25589, 캐시파일 다운로드 포트, 파일 client, server 포트
-    // port(3) = 25588, chatting 포트
-    // port(4) = 9998, getData 포트
+    // port(0) = 9898, 로그인포트, listeningThread 포트
+    // port(1) = 25589, 캐시파일 다운로드 포트, 파일 client, server 포트
+    // port(2) = 25588, chatting 포트
+    // port(3) = 9998, getData 포트
+    // port(4) = 9797, imgdownload 포트
 
     public readTxt() {
+
+    }
+    public void setData(){
         try{
             // host.txt, port.txt 파일에서 정보 불러와서 저장하기
             File hostfile = new File("host.txt");

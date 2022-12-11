@@ -4,8 +4,17 @@ import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 public class get_data{
+    private String host;
+    private int port;
     public get_data(){
-        // 빈 생성자
+        try{
+            readTxt read = new readTxt();
+            host = read.getHost();
+            ArrayList<String> temp = read.getPort();
+            port = Integer.parseInt(temp.get(1));
+        }catch (Exception e){
+            e.getStackTrace();
+        }
     }
     private InputStream is;
     private OutputStream os;
@@ -155,7 +164,7 @@ public class get_data{
     }
     public void start(){
         try{
-            Socket socket = new Socket("swiftsjh.tplinkdns.com",9998);
+            Socket socket = new Socket(host,port);
             System.out.println("서버 연결 성공");
             this.is = socket.getInputStream();
             this.os = socket.getOutputStream();

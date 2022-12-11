@@ -1,7 +1,10 @@
 package chatting_function;
 
+import function.readTxt;
+
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class imgdownload extends Thread{
 
@@ -23,7 +26,11 @@ public class imgdownload extends Thread{
     public void run(){
         System.out.println("이미지 다운로드 쓰레드 실행");
         try{
-            socket = new Socket("swiftsjh.tplinkdns.com",9797);
+            readTxt read = new readTxt();
+            String host = read.getHost();
+            ArrayList<String> tmp = read.getPort();
+            int port = Integer.parseInt(tmp.get(4));
+            socket = new Socket(host,port);
             OutputStream os = socket.getOutputStream();
             PrintWriter pw = new PrintWriter(os);
             String a = makedir(writer);

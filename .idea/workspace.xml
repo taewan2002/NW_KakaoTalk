@@ -4,20 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="코인데이터 화면 예외처리함">
+    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="protocol문서 수정함">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/more.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/more.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/function/ListeningThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting_function/ListeningThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/function/cache_download.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/function/cache_download.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/function/chatting_client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting_function/chatting_client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/function/directorychoose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting_function/directorychoose.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/function/file_client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting_function/file_client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/function/file_server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting_function/file_server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/function/filechoose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting_function/filechoose.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/function/imgchoose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting_function/imgchoose.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/function/imgdownload.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting_function/imgdownload.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/function/md5.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/function/md5.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/function/protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/function/protocol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/connectionInfo/port.txt" beforeDir="false" afterPath="$PROJECT_DIR$/connectionInfo/port.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chatting_function/chatting_client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting_function/chatting_client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chatting_function/file_client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting_function/file_client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/function/readTxt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/function/readTxt.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +169,7 @@
       <workItem from="1670725433516" duration="409000" />
       <workItem from="1670746283535" duration="3786000" />
       <workItem from="1670770269623" duration="1166000" />
-      <workItem from="1670771448533" duration="1954000" />
+      <workItem from="1670771448533" duration="2559000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1670570617039</created>
@@ -221,7 +213,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670771336346</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="protocol문서 수정함">
+      <created>1670773463093</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1670773463093</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +244,8 @@
     <MESSAGE value="코인 변동률 0.0일때 발생하는 오류 해결" />
     <MESSAGE value="코인 이미지 오류 수정" />
     <MESSAGE value="코인데이터 화면 예외처리함" />
-    <option name="LAST_COMMIT_MESSAGE" value="코인데이터 화면 예외처리함" />
+    <MESSAGE value="protocol문서 수정함" />
+    <option name="LAST_COMMIT_MESSAGE" value="protocol문서 수정함" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main 커버리지 결과" MODIFIED="1670746914059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

@@ -1,10 +1,12 @@
 package chatting_function;
 
 import function.protocol;
+import function.readTxt;
 
 import javax.sound.sampled.*;
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class file_client{
     Socket socket = null;
@@ -36,7 +38,11 @@ public class file_client{
                 path = flch.jFileChooserUtil();
             }
             try {
-                Socket S = new Socket("swiftsjh.tplinkdns.com", 25589); //서버에 접속
+                readTxt read = new readTxt();
+                String host = read.getHost();
+                ArrayList<String> temp = read.getPort();
+                int port = Integer.parseInt(temp.get(1));
+                Socket S = new Socket(host, port); //서버에 접속
 
                 protocol time = new protocol();
                 time.setTime();
