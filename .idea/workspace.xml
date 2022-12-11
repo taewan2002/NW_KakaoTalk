@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="코인 이미지 오류 수정">
-      <change beforePath="$PROJECT_DIR$/src/GUI/CoinData.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/CoinData.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/CoinData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/CoinData.java" afterDir="false" />
-    </list>
+    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="코인데이터 화면 form수정" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
