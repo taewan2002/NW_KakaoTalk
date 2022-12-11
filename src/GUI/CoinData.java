@@ -9,8 +9,8 @@ import public_data.getCoinData;
 public class CoinData extends JFrame {
     JPanel Scorll;
     JPanel mainPanel;
-    private JButton button1;
-    private JButton button2;
+    private JButton back;
+    private JButton refresh;
     private ArrayList<String> market = new ArrayList<>();
 
     public CoinData(){

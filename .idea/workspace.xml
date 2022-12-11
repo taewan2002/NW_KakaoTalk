@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="코인 변동률 0.0일때 발생하는 오류 해결">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="코인 이미지 오류 수정">
+      <change beforePath="$PROJECT_DIR$/src/GUI/CoinData.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/CoinData.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/CoinData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/CoinData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IMG/eos.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMG/eos.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IMG/qtum.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +167,7 @@
       <workItem from="1670595604778" duration="3974000" />
       <workItem from="1670725355073" duration="76000" />
       <workItem from="1670725433516" duration="409000" />
-      <workItem from="1670746283535" duration="3369000" />
+      <workItem from="1670746283535" duration="3786000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1670570617039</created>
@@ -199,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670747239162</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="코인 이미지 오류 수정">
+      <created>1670751669485</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670751669485</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,7 +226,8 @@
     <MESSAGE value="코인 정보 불러오기 upbit api" />
     <MESSAGE value="코인 정보 불러오기 upbit api, getCoinData" />
     <MESSAGE value="코인 변동률 0.0일때 발생하는 오류 해결" />
-    <option name="LAST_COMMIT_MESSAGE" value="코인 변동률 0.0일때 발생하는 오류 해결" />
+    <MESSAGE value="코인 이미지 오류 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="코인 이미지 오류 수정" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main Coverage Results" MODIFIED="1670747029056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
