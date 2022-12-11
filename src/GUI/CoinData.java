@@ -7,7 +7,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import function.ImgSetSize;
-import public_data.getCoinData;
+import public_data.*;
+
 public class CoinData extends JFrame {
     JPanel Scorll;
     JPanel mainPanel;
@@ -98,16 +99,9 @@ public class CoinData extends JFrame {
         refresh.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setDate();
+                new setCoinData();
+                setVisible(false);
             }
         });
-    }
-    public void setDate(){
-        try {
-            new CoinData();
-            setVisible(false);
-        } catch (Exception e1) {
-            setDate();
-        }
     }
 }

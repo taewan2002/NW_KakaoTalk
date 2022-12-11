@@ -1,6 +1,7 @@
 package GUI;
 
 import function.ImgSetSize;
+import public_data.setCoinData;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -57,7 +58,7 @@ public class chats extends JFrame{
         publicDataButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new CoinData();
+                new setCoinData();
                 setVisible(false);
             }
         });
