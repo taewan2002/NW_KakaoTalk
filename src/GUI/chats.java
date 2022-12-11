@@ -26,6 +26,10 @@ public class chats extends JFrame{
         roomButton.setIcon(roomIcon.getImg());
         ImgSetSize dataIcon = new ImgSetSize("src/IMG/btcBlack.png", 35,35);
         publicDataButton.setIcon(dataIcon.getImg());
+        ImgSetSize search = new ImgSetSize("src/IMG/search.png", 35,25);
+        searchButton.setIcon(search.getImg());
+        ImgSetSize create = new ImgSetSize("src/IMG/roomCreate.png", 35,25);
+        createRoom.setIcon(create.getImg());
 
         setContentPane(main);
         setSize(480,650);

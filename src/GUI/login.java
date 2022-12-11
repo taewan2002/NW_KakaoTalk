@@ -12,7 +12,7 @@ public class login extends JFrame{
     private JTextField id;
     private JButton login;
     private JLabel kakaoicon;
-    private JButton signup;
+    private JButton signupButton;
     private JPasswordField password;
 
     public login(){
@@ -119,10 +119,11 @@ public class login extends JFrame{
         });
 
         //회원가입
-        signup.addActionListener(new ActionListener() {
+        signupButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new signUp();
+                setVisible(false);
             }
         });
 

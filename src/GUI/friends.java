@@ -27,6 +27,10 @@ public class friends extends JFrame{
         roomButton.setIcon(roomIcon.getImg());
         ImgSetSize dataIcon = new ImgSetSize("src/IMG/btcBlack.png", 35,35);
         publicDataButton.setIcon(dataIcon.getImg());
+        ImgSetSize search = new ImgSetSize("src/IMG/search.png", 35,25);
+        searchButton.setIcon(search.getImg());
+        ImgSetSize invite_friend = new ImgSetSize("src/IMG/invite_friend.png", 35,25);
+        inviteFriend.setIcon(invite_friend.getImg());
 
         setContentPane(main);
         setSize(480,650);
@@ -59,6 +63,13 @@ public class friends extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 new more();
+                setVisible(false);
+            }
+        });
+        inviteFriend.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new friends();
                 setVisible(false);
             }
         });

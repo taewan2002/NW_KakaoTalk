@@ -26,6 +26,8 @@ public class CoinData extends JFrame {
         roomButton.setIcon(roomIcon.getImg());
         ImgSetSize dataIcon = new ImgSetSize("src/IMG/BTC.png", 35,35);
         publicDataButton.setIcon(dataIcon.getImg());
+        ImgSetSize refreshButton = new ImgSetSize("src/IMG/refresh.png", 35,25);
+        refresh.setIcon(refreshButton.getImg());
 
         market.add("BTC");
         market.add("ETH");
