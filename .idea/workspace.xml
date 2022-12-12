@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="사진 수정 및 invite.png, exit.png 설정">
-      <change afterPath="$PROJECT_DIR$/src/IMG/makeRoom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IMG/revert.png" afterDir="false" />
+    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="코인데이터 화면 form수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/invite.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/invite.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/invite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/invite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IMG/invite.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMG/invite.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/chats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/chattingRoom.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chattingRoom.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/chattingRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chattingRoom.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="tw" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,32 +43,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/taewan/IdeaProjects/KakaoTalk&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
-    ]
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/white/IdeaProjects/KakaoTalk",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="public_data" />
@@ -80,13 +73,13 @@
       <recent name="$PROJECT_DIR$/src/function" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/IMG" />
       <recent name="C:\Users\Administrator\IdeaProjects\KakaoTalk\src\IMG" />
+      <recent name="$PROJECT_DIR$/src/IMG" />
       <recent name="$PROJECT_DIR$/src/public_data" />
       <recent name="$PROJECT_DIR$/openAPI" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="애플리케이션.Main">
     <configuration name="ApiTestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="public_data.ApiTestApplication" />
       <module name="KakaoTalk" />
@@ -155,11 +148,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.test" />
-        <item itemvalue="Application.stockData" />
-        <item itemvalue="Application.getData2" />
-        <item itemvalue="Application.ApiTestApplication" />
+        <item itemvalue="애플리케이션.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -179,7 +168,6 @@
       <workItem from="1670725433516" duration="409000" />
       <workItem from="1670746283535" duration="3786000" />
       <workItem from="1670770269623" duration="884000" />
-      <workItem from="1670830832864" duration="2873000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1670570617039</created>
@@ -216,42 +204,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670751669485</updated>
     </task>
-    <task id="LOCAL-00006" summary="이미지파일 수정">
-      <created>1670814957078</created>
+    <task id="LOCAL-00006" summary="코인데이터 화면 form수정">
+      <created>1670823504458</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1670814957078</updated>
+      <updated>1670823504458</updated>
     </task>
-    <task id="LOCAL-00007" summary="모든 클래스에 user_id, client, t1 매개변수 추가">
-      <created>1670821145803</created>
+    <task id="LOCAL-00007" summary="코인데이터 화면 form수정">
+      <created>1670827331022</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1670821145803</updated>
+      <updated>1670827331022</updated>
     </task>
-    <task id="LOCAL-00008" summary="회원가입 기능 추가">
-      <created>1670825201291</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1670825201291</updated>
-    </task>
-    <task id="LOCAL-00009" summary="친구 추가 리스트 만듬 모든 친구 목록 불러옴">
-      <created>1670830055376</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1670830055376</updated>
-    </task>
-    <task id="LOCAL-00010" summary="사진 수정 및 invite.png, exit.png 설정">
-      <created>1670830887189</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1670830887189</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,14 +241,10 @@
     <MESSAGE value="코인 정보 불러오기 upbit api, getCoinData" />
     <MESSAGE value="코인 변동률 0.0일때 발생하는 오류 해결" />
     <MESSAGE value="코인 이미지 오류 수정" />
-    <MESSAGE value="이미지파일 수정" />
-    <MESSAGE value="모든 클래스에 user_id, client, t1 매개변수 추가" />
-    <MESSAGE value="회원가입 기능 추가" />
-    <MESSAGE value="친구 추가 리스트 만듬 모든 친구 목록 불러옴" />
-    <MESSAGE value="사진 수정 및 invite.png, exit.png 설정" />
-    <option name="LAST_COMMIT_MESSAGE" value="사진 수정 및 invite.png, exit.png 설정" />
+    <MESSAGE value="코인데이터 화면 form수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="코인데이터 화면 form수정" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main Coverage Results" MODIFIED="1670747029056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main 커버리지 결과" MODIFIED="1670746914059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
