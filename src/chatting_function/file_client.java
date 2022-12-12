@@ -18,12 +18,15 @@ public class file_client{
     public String filename;
     String path;
 
-    public file_client(Socket socket, String fileName, String roomnumber, String time,int type,chatting_client A) {
+    public String user_id;
+
+    public file_client(Socket socket,String sender ,String fileName, String roomnumber, String time,int type,chatting_client A) {
         this.socket=socket;
         this.filename=fileName;
         this.roomnumber=roomnumber;
         this.time=time;
         this.type=type;
+        this.user_id = sender;
         this.A=A;
         sending tmp =new sending();
         tmp.run(); // 쓰레드 시작
@@ -113,7 +116,7 @@ public class file_client{
                         File file = new File(filename);
                         pw.println((int) file.length()); //4파일크기
                         pw.flush();
-                        A.send_messege(4, roomnumber, A.user_id, "파일 전송 완료", true, name_send1 + filetype);
+                        A.send_messege(4, roomnumber, user_id, "파일 전송 완료", true, name_send1 + filetype);
                         os = S.getOutputStream();
                         DataOutputStream dataOutput = new DataOutputStream(os); //output 스크림 생성
                         System.out.println((int) file.length()); // 송신 파일 사이즈 콘솔출력
