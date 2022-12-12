@@ -26,10 +26,17 @@ public class friends extends JFrame{
     private chatting_client client;
     private ListeningThread t1;
     private ArrayList<String> friend_list = new ArrayList<String>();
+    private ArrayList<String> onlinList;
+
 
     public friends(String user_id, chatting_client client, ListeningThread t1){
+        get_data get = new get_data();
+        get.setType50(user_id);
+        get.start();
+        this.onlinList = get.getList(); // 온라인 유저 목록 불러오기
         this.user_id = user_id;
         this.client = client;
+        System.out.println(onlinList);
         this.t1 = t1;
 
 

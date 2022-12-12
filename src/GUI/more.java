@@ -2,6 +2,8 @@ package GUI;
 
 import chatting_function.ListeningThread;
 import chatting_function.chatting_client;
+import function.*;
+import java.util.ArrayList;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,6 +23,7 @@ public class more extends JFrame {
         Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((windowSize.width - frameSize.width) / 2,
                 (windowSize.height - frameSize.height) / 2);
+
 
     }
 }

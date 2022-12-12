@@ -43,6 +43,19 @@ public class login extends JFrame{
     }
 
     public login(){
+        // 프로그램아이콘 가득차게 이미지 넣기
+        ImageIcon icon = new ImageIcon("src/IMG/img.png");
+        Image img = icon.getImage();
+        Image changeImg = img.getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        ImageIcon changeIcon = new ImageIcon(changeImg);
+        setIconImage(changeIcon.getImage());
+
+        // 프로그램 이름 설정하기
+        setTitle("카카오톡");
+
+
+
+
         makedir(); // 캐싱된 체팅 파일들 모두 지우고 다시 만들기
         ImgSetSize kakaolabel = new ImgSetSize("src/IMG/kakaoIcon.png", 200,100);
         kakaoicon.setIcon(kakaolabel.getImg());
