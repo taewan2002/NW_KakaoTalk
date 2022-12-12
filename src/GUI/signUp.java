@@ -5,6 +5,7 @@ import function.ImgSetSize;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import function.loginregister;
 
 public class signUp extends JFrame{
     private JPanel main;
@@ -182,30 +183,20 @@ public class signUp extends JFrame{
                 String password_data = new String(password.getPassword());
                 String Email_data = Email.getText();
                 String phone_data = phone.getText();
-
-                new login();
-                setVisible(false);
+                System.out.println("ID: " + id_data + "\tPWD: " + password_data + "\tEmail: " + Email_data + "\tPhone: " + phone_data);
+                loginregister registermanager = new loginregister();
+                int status = registermanager.register(id_data,password_data);
+                if(status!= -1 && status != 2){
+                    JOptionPane.showMessageDialog(null, "회원가입 성공");
+                    login a = new login();
+                    setVisible(false);
+                    a.setVisible(true);
+                } else if (status==2) {
+                    JOptionPane.showMessageDialog(null, "이미 존재하는 아이디입니다.");
+                } else {
+                    JOptionPane.showMessageDialog(null, "회원가입에 실패하였습니다.");
+                }
             }
         });
     }
-
-    /**
-     * -- roadmap
-     * -- 회원가입 화면 실행
-     * -- 이메일
-     * -- 이름
-     * -- 생년월일
-     * -- 아이디 입력 + (중복확인버튼) --> primary key
-     * -- 비밀번호 입력 + 비밀번호 한번 더 입력
-     *
-     * 회원가입 성공시
-     * id = id.getText();
-     * pw = pw.getPassword();
-     * pw = md5(pw); // 비밀번호 암호화
-     * new login();
-     *
-     * 중복시
-     * System.out.println("이미 존재하는 아이디 입니다.");
-     * System.out.println("비밀번호가 다릅니다..");
-     */
 }

@@ -1,5 +1,5 @@
 package chatting_function;
-import function.protocol;
+import chatting.protocol;
 import function.readTxt;
 
 import java.io.*;

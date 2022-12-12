@@ -1,6 +1,6 @@
 package chatting_function;
 
-import function.protocol;
+import chatting.protocol;
 
 import java.io.*;
 import java.net.Socket;

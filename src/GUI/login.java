@@ -43,7 +43,6 @@ public class login extends JFrame{
     }
 
     public login(){
-        new readTxt();
         makedir(); // 캐싱된 체팅 파일들 모두 지우고 다시 만들기
         ImgSetSize kakaolabel = new ImgSetSize("src/IMG/kakaoIcon.png", 200,100);
         kakaoicon.setIcon(kakaolabel.getImg());
@@ -140,10 +139,11 @@ public class login extends JFrame{
                 String getId = id.getText();
                 char[] temp = password.getPassword();
                 String getPw = new String(temp);
-                System.out.println("ID: " + getId + "\tPWD: " + getPw + "\n");
+                System.out.println("ID: " + getId + "\tPWD: " + getPw);
                 loginregister manager = new loginregister();
                 int session_id = manager.login(getId,getPw);
                 if(session_id!=-1){
+                    System.out.println("로그인 성공");
                     chatting_client client = new chatting_client(getId);
                     client.run();
                     ListeningThread t1 = client.get_listening();

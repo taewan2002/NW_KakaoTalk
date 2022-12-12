@@ -39,8 +39,6 @@ public class readTxt {
         }catch(Exception e) {
             e.getStackTrace();
         }
-        System.out.println("host : " + host);
-        System.out.println("port : " + port);
     }
     public String getHost(){
         return host;
