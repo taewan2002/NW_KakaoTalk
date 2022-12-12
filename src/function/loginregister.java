@@ -12,8 +12,7 @@ public class loginregister {
             readTxt read = new readTxt();
             host = read.getHost();
             port = Integer.parseInt(read.getPort().get(0));
-            System.out.println("host : " + host);
-            System.out.println("port : " + port);
+            System.out.println("host : " + host + ", port : " + port + "로 회원가입 시도");
             Socket socket = new Socket(host,port);
 
             OutputStream os = socket.getOutputStream();
@@ -36,10 +35,12 @@ public class loginregister {
 
             int register_status=-1;
             register_status = di.readInt(); //get register status
-            if(register_status!=-1){
+            if(register_status!=2){
                 System.out.println("회원가입 성공");
+                System.out.println(register_status);
                 return  register_status;
             } else if (register_status==2) {
+                System.out.println(register_status);
                 System.out.println("중복된 아이디 존재");
                 return register_status;
             }
@@ -55,10 +56,9 @@ public class loginregister {
             readTxt read = new readTxt();
             host = read.getHost();
             port = Integer.parseInt(read.getPort().get(0));
-            System.out.println("host : " + host);
-            System.out.println("port : " + port);
             int id_len =id.getBytes().length;
             int pwd_len=password.getBytes().length;
+            System.out.println("host : " + host + ", port : " + port + "로 로그인 시도");
             Socket socket= new Socket(host,port);
             OutputStream os=socket.getOutputStream();
             InputStream is=socket.getInputStream();

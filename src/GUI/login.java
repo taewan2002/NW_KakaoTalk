@@ -43,7 +43,6 @@ public class login extends JFrame{
     }
 
     public login(){
-        new readTxt();
         makedir(); // 캐싱된 체팅 파일들 모두 지우고 다시 만들기
         ImgSetSize kakaolabel = new ImgSetSize("src/IMG/kakaoIcon.png", 200,100);
         kakaoicon.setIcon(kakaolabel.getImg());
