@@ -3,6 +3,8 @@ package GUI;
 import chatting.protocol;
 import chatting_function.ListeningThread;
 import chatting_function.chatting_client;
+import chatting_function.file_client;
+import chatting_function.imgchoose;
 import function.ImgSetSize;
 import public_data.getCoinData;
 
@@ -28,19 +30,23 @@ public class chattingRoom extends JFrame {
     private JScrollPane chatPanel;
     private JPanel chat;
     private JPanel main;
+    private String room_id;
 
     boolean running = true;
     BufferedInputStream reader = null;
 
     private class read extends Thread{
         private GridBagConstraints gbc;
+        private JScrollPane chatPanel_thread;
 
-        public read(GridBagConstraints gbc){
+        public read(GridBagConstraints gbc, JScrollPane chatPanel){
             this.gbc = gbc;
+            this.chatPanel_thread = chatPanel;
         }
         public void run() {
             int i=0;
             int k=0;
+            boolean t = false;
             byte[] b = new byte[100000];
             while (running) {
                 try {
@@ -58,7 +64,7 @@ public class chattingRoom extends JFrame {
                             //w[2]: message
                             //w[3]: file boolean
                             //w[4]: file name
-                            System.out.println(k);
+                            // System.out.println(k);
                             chatSchema pane = new chatSchema(w[0].substring(8,10),w[0].substring(10,12),w[1],w[2],w[3],w[4]);
                             gbc.fill = GridBagConstraints.BOTH;
                             gbc.gridx = 0;
@@ -72,17 +78,28 @@ public class chattingRoom extends JFrame {
                             k++;
 
 
-                            chatPanel.getVerticalScrollBar().setValue(chatPanel.getVerticalScrollBar().getMaximum());
-
-
-                            b= new byte[100000];
-                            i=0;
+                            b = new byte[100000];
+                            i = 0;
+                            if (t == true){
+                                try {
+                                    Thread.sleep(50);
+                                    chatPanel_thread.getVerticalScrollBar().setValue(chatPanel_thread.getVerticalScrollBar().getMaximum());
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                            chatPanel_thread.getVerticalScrollBar().setValue(chatPanel_thread.getVerticalScrollBar().getMaximum());
                         }else{
-                            b[i]=tmp;
+                            b[i] = tmp;
                             i++;
                         }
                     } else {
                         try {
+                            if (t == false) {
+                                t = true;
+                                Thread.sleep(50);
+                                chatPanel_thread.getVerticalScrollBar().setValue(chatPanel_thread.getVerticalScrollBar().getMaximum());
+                            }
                             sleep(100);
                         } catch (InterruptedException ex) {
                             running = false;
@@ -95,9 +112,15 @@ public class chattingRoom extends JFrame {
         }
     }
     public chattingRoom(String user_id, chatting_client client, ListeningThread t1, String room_id){
+        // 스크롤 패널 행스크롤 금지
+        chatPanel.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        // 스크롤 속도 조절
+        chatPanel.getVerticalScrollBar().setUnitIncrement(16);
+
         this.user_id = user_id;
         this.client = client;
         this.t1 = t1;
+        this.room_id = room_id;
 
         setContentPane(main);
         chat.setBackground(new Color(186,206,224));
@@ -124,7 +147,7 @@ public class chattingRoom extends JFrame {
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
 
-        new read(gbc).start();
+        new read(gbc, chatPanel).start();
 
         message.addKeyListener(new KeyListener() {
             @Override
@@ -148,6 +171,13 @@ public class chattingRoom extends JFrame {
                 protocol time = new protocol();
                 //client에 message와 room_id보내기
                 client.send_messege(4,room_id, user_id, messageSend,false,null);
+                message.setText("");
+            }
+        });
+        fileOption.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new file_client(null,user_id,null,room_id,null,1,client);
             }
         });
     }
@@ -164,6 +194,8 @@ public class chattingRoom extends JFrame {
         private JLabel user;
         private JTextArea text;
         private JLabel time;
+
+        private JButton file_down;
         public chatSchema(String hours, String minutes, String send_user_id ,String message, String file_bool, String file_name){
             this.hours = hours;
             this.minutes = minutes;
@@ -214,7 +246,24 @@ public class chattingRoom extends JFrame {
                 gbc.gridheight = 1;
                 gbc.weightx = 0.75;
                 gbc.weighty = 0.5;
-                bullon.add(text,gbc);
+
+                text.setEnabled(false);
+                if(file_bool.equals("true")){
+                    file_down = new JButton("file_down");
+                    file_down.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            String a = file_name;
+                            a.trim();
+                            new file_client(null,send_user_id ,a ,room_id,null,2, client);
+                        }
+                    });
+
+                    bullon.add(file_down,gbc);
+                }
+                else{
+                    bullon.add(text,gbc);
+                }
 
                 gbc.gridx = 0;
                 gbc.gridy = 1;
@@ -245,7 +294,24 @@ public class chattingRoom extends JFrame {
                 gbc.gridheight = 1;
                 gbc.weightx = 0.75;
                 gbc.weighty = 0.5;
-                bullon.add(text,gbc);
+
+                text.setEnabled(false);
+                if(file_bool.equals("true")){
+                    file_down = new JButton("file_down");
+                    file_down.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            String a = file_name;
+                            a.trim();
+                            new file_client(null,send_user_id ,a ,room_id,null,2, client);
+                        }
+                    });
+
+                    bullon.add(file_down,gbc);
+                }
+                else{
+                    bullon.add(text,gbc);
+                }
 
                 gbc.gridx = 3;
                 gbc.gridy = 1;

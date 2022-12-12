@@ -87,7 +87,7 @@ public class chatting_client implements Runnable { // 채팅 클라이언트
             Socket sc = new Socket(host, port);
             protocol time = new protocol();
             time.setTime();
-            file=new file_client(sc, filename, roomnumber, time.getTime(),1,A);
+            file=new file_client(sc,user_id ,filename, roomnumber, time.getTime(),1,A);
             A.send_messege(4, roomnumber, user_id, null, file_exist, time.getTime()+filetype);
             file_exist = false;
         }catch (Exception e){

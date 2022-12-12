@@ -65,6 +65,8 @@ public class file_server implements Runnable {
                 br = new BufferedReader(new InputStreamReader(is));
                 String type=br.readLine(); //요청 타입 읽기
                 System.out.println("type : "+type);
+                String user_id=br.readLine(); //유저 아이디
+                System.out.println("유저:"+user_id);
                 String room_number=br.readLine(); //방 고유 번호 읽기
                 System.out.println("방 번호:"+room_number);
                 String new_file_name=br.readLine(); //파일 이름 읽기

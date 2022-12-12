@@ -162,7 +162,7 @@ public class chats extends JFrame{
                 public void actionPerformed(ActionEvent e) {
                     chattingRoom a = new chattingRoom(user_id,client,t1,room_id);
                     a.setVisible(true);
-                    dispose();
+
                 }
             });
             out.addActionListener(new ActionListener() {
