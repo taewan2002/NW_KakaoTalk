@@ -38,7 +38,7 @@ public class getCoinData {
                 this.changeRate = temp.get("signed_change_rate").toString();
             }
         } catch (Exception e) {
-            System.out.println(market+ "의 데이터 불러오기 실패, 다시 시도 중...");
+
         }
     }
 

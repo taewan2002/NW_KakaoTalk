@@ -10,6 +10,7 @@ public class setCoinData {
             new CoinData();
         }catch (Exception e){
             new setCoinData(); // 오류가 발생하면 다시 시도
+            System.out.println("https://api.upbit.com의 데이터 불러오기 실패, 다시 시도 중...");
         }
     }
 }
