@@ -66,7 +66,6 @@ public class chats extends JFrame{
 
         for(int i = 0;i<room_id.size();i++){
             System.out.println(room_id.get(i));
-            new cache_download(null,room_id.get(i),room_id.get(i),"1",2,client);
         }
         roomPanel.getVerticalScrollBar().setUnitIncrement(15);
 
