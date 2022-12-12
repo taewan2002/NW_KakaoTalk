@@ -2,13 +2,14 @@ package GUI;
 
 import chatting_function.ListeningThread;
 import chatting_function.chatting_client;
-import function.ImgSetSize;
+import function.*;
 import public_data.setCoinData;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class friends extends JFrame{
     private JPanel main;
@@ -24,6 +25,7 @@ public class friends extends JFrame{
     private String user_id;
     private chatting_client client;
     private ListeningThread t1;
+    private ArrayList<String> friend_list = new ArrayList<String>();
 
     public friends(String user_id, chatting_client client, ListeningThread t1){
         this.user_id = user_id;

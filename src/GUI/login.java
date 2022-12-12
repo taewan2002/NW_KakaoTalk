@@ -139,10 +139,11 @@ public class login extends JFrame{
                 String getId = id.getText();
                 char[] temp = password.getPassword();
                 String getPw = new String(temp);
-                System.out.println("ID: " + getId + "\tPWD: " + getPw + "\n");
+                System.out.println("ID: " + getId + "\tPWD: " + getPw);
                 loginregister manager = new loginregister();
                 int session_id = manager.login(getId,getPw);
                 if(session_id!=-1){
+                    System.out.println("로그인 성공");
                     chatting_client client = new chatting_client(getId);
                     client.run();
                     ListeningThread t1 = client.get_listening();
