@@ -43,13 +43,20 @@ public class get_data{
     private ArrayList<String> Tag_list;
     private String message;
     private String file_name;
-
     private String feed_id;
     private String post_id;
     private String poster_id;
-
-
     private int like_num;
+    private String name;
+    private String phoneNum;
+    private String email;
+
+
+    public void setType8(String name, String phoneNum){
+        this.typeofrequest = 8;
+        this.name = name;
+        this.phoneNum = phoneNum;
+    }
     public void setType49(int typeofrequest, String user_id, String feed_id){
         this.typeofrequest = typeofrequest;
         this.user_id = user_id;
@@ -160,6 +167,7 @@ public class get_data{
     }
     public String getFeed_id(){return feed_id;}
     public String getposter_id(){return poster_id;}
+    public String getEmail(){return email;}
 
     public int getLikeNum() {
         return like_num;
@@ -184,8 +192,24 @@ public class get_data{
             this.pw = new PrintWriter(bos);
             if(typeofrequest == 1){
 
-            }
-            else if(typeofrequest == 49){
+            } else if (typeofrequest == 8) {
+                // 아이디찾기
+                protocol p = new protocol(typeofrequest, name, phoneNum);
+                request(p);
+                this.ois = new ObjectInputStream(is);
+                while(true){
+                    try{
+                        protocol t = (protocol) ois.readObject();
+                        if(t.getTypeofrequest() == 8){
+                            email = t.getEmail();
+                            break;
+                        }
+                    }
+                    catch(Exception e){
+                        System.out.println(e);
+                    }
+                }
+            } else if(typeofrequest == 49){
                 protocol p = new protocol(typeofrequest, user_id, feed_id);
                 request(p);
                 this.ois = new ObjectInputStream(is);

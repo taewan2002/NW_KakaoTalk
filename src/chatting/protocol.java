@@ -20,6 +20,7 @@ public class protocol implements Serializable {
     private String password;
     private String email;
     private String phone;
+    private String name;
     public protocol(){}
 
     // 요청 프로토콜
@@ -56,8 +57,9 @@ public class protocol implements Serializable {
         this.typeofrequest = a;
         this.sender = b;
         this.roomnumber = c;
-        this.email = b;
         this.phone = c;
+        this.name = b;
+        this.email = c;
     }
 
     // 체팅 보내기 4
@@ -116,6 +118,9 @@ public class protocol implements Serializable {
     }
     public String getPhone() {
         return phone;
+    }
+    public String getName(){
+        return name;
     }
     public String getId() {
         return id;

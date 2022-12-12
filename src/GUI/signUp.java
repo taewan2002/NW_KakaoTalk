@@ -185,7 +185,7 @@ public class signUp extends JFrame{
                 String phone_data = phone.getText();
                 System.out.println("ID: " + id_data + "\tPWD: " + password_data + "\tEmail: " + Email_data + "\tPhone: " + phone_data);
                 loginregister registermanager = new loginregister();
-                int status = registermanager.register(id_data,password_data);
+                int status = registermanager.register(id_data,password_data,Email_data,phone_data);
                 if(status!= -1 && status != 2){
                     JOptionPane.showMessageDialog(null, "회원가입 성공");
                     login a = new login();

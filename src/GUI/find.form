@@ -50,7 +50,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
-              <text value="Email"/>
+              <text value="Name"/>
             </properties>
           </component>
           <component id="61e57" class="javax.swing.JTextField" binding="phoneid">

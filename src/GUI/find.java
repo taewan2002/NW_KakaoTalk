@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import function.*;
 
 public class find extends JFrame{
     private JTextField emailid;
@@ -38,19 +39,17 @@ public class find extends JFrame{
         findid.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String Email_password = emailid.getText();
-                String phone_password = phoneid.getText();
+                String name = emailid.getText();
+                String phone = phoneid.getText();
 
                 JOptionPane id_option = new JOptionPane();
-                if(/**아이디 존재**/false){
-                    String id = new String("asd");//아이디 받아오기
-                    id_option.showMessageDialog(null, id);
-
-                    new login();
-                    setVisible(false);
-                }
-                else{
-                    id_option.showMessageDialog(null, "아이디가 없음");
+                get_data data = new get_data();
+                data.setType8(name, phone);
+                data.start();
+                if (data.getEmail() == null) {
+                    id_option.showMessageDialog(null, "일치하는 정보가 없습니다.", "ID 찾기", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    id_option.showMessageDialog(null, "회원님의 ID는 " + data.getEmail() + " 입니다.", "ID 찾기", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         });
