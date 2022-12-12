@@ -6,6 +6,7 @@ import chatting_function.chatting_client;
 import chatting_function.file_client;
 import chatting_function.imgchoose;
 import function.ImgSetSize;
+import function.cache_download;
 import public_data.getCoinData;
 
 import javax.swing.*;
@@ -112,6 +113,7 @@ public class chattingRoom extends JFrame {
         }
     }
     public chattingRoom(String user_id, chatting_client client, ListeningThread t1, String room_id){
+        new cache_download(null,room_id,room_id,"1",2,client);
         // 스크롤 패널 행스크롤 금지
         chatPanel.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         // 스크롤 속도 조절
