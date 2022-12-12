@@ -82,10 +82,10 @@ public class chats extends JFrame{
             member_list = getData.get_users_in_room();
             roomPanel pane = new roomPanel(member_list,room_id.get(i));
             gbc.fill = GridBagConstraints.BOTH;
-            gbc.ipadx = 850;
-            gbc.ipady = 100;
+            gbc.ipadx = 0;
+            gbc.ipady = 10;
             gbc.gridx = 0;
-            gbc.gridy = i*100;
+            gbc.gridy = i;
             Gbag.setConstraints(pane,gbc);
             room.add(pane);
             room.updateUI();
@@ -129,33 +129,54 @@ public class chats extends JFrame{
     public class roomPanel extends JPanel{
         private  ArrayList<String> member_list = new ArrayList<>();
         private String room_id;
-        private JLabel member;
+        private JTextArea member;
         private JButton in;
         private JButton out;
         public roomPanel(ArrayList<String> member , String id){
             this.member_list = member;
             this.room_id = id;
-            this.member = new JLabel();
-            String a = new String();
-            for(int i =0;i<member_list.size();i++){
-                a = a + " " + member_list.get(i);
+            this.member = new JTextArea();
+            String a = member_list.get(0);
+            for(int i = 1;i<member_list.size();i++){
+                a = a + " , " + member_list.get(i);
                 System.out.println(member_list.get(i));
             }
             this.member.setText(a);
             this.in = new JButton("in");
             this.out = new JButton("out");
 
-            setLayout(new FlowLayout(FlowLayout.LEFT));
-            setSize(850,100);
+            GridBagLayout Gbag = new GridBagLayout();
+            setLayout(Gbag);
+            GridBagConstraints gbc = new GridBagConstraints();
+            gbc.weightx = 1.0;
+            gbc.weighty = 1.0;
+            this.member.setBackground(new Color(180,255,255));
+            this.in.setBackground(new Color(255,250,50));
+            this.out.setBackground(new Color(255,100,50));
 
-            this.in.setBackground(new Color(255,255,255));
-            this.out.setBackground(new Color(255,255,255));
-            this.in.setSize(100,100);
-            this.out.setSize(100,100);
-            this.member.setSize(750,100);
-            add(this.in);
-            add(this.out);
-            add(this.member);
+            gbc.fill = GridBagConstraints.BOTH;
+            gbc.gridx = 4;
+            gbc.gridy = 0;
+            gbc.gridwidth = 1;
+            gbc.gridheight = 1;
+            add(this.out,gbc);
+
+            gbc.fill = GridBagConstraints.BOTH;
+            gbc.gridx = 3;
+            gbc.gridy = 0;
+            gbc.gridwidth = 1;
+            gbc.gridheight = 1;
+            add(this.in,gbc);
+
+            this.member.setLineWrap(true);
+            this.member.setWrapStyleWord(true);
+            this.member.setEditable(false);
+            gbc.fill = GridBagConstraints.BOTH;
+            gbc.gridx = 0;
+            gbc.gridy = 0;
+            gbc.gridwidth = 3;
+            gbc.gridheight = 1;
+            add(this.member,gbc);
             in.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {

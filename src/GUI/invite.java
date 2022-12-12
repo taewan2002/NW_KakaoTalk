@@ -9,10 +9,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class invite extends JFrame{
@@ -22,6 +18,7 @@ public class invite extends JFrame{
     private JScrollPane invitePanel;
     private JPanel invite;
     private JButton addFriend;
+    private JTextField friend;
     private String user_id;
     private chatting_client client;
     private ListeningThread t1;
@@ -42,9 +39,9 @@ public class invite extends JFrame{
         invitePanel.getVerticalScrollBar().setUnitIncrement(15);
 
         // 친구추가 버튼
-        addFriend.setIcon(new ImgSetSize("src/IMG/invite_friend.png", 50, 50).getImg());
+        addFriend.setIcon(new ImgSetSize("src/IMG/invite_friend.png", 30, 30).getImg());
 
-        search.setIcon(new ImgSetSize("src/IMG/search.png", 50, 50).getImg());
+        search.setIcon(new ImgSetSize("src/IMG/search.png", 30, 30).getImg());
 
         GridBagLayout Gbag = new GridBagLayout();
         invite.setLayout(Gbag);
@@ -54,8 +51,8 @@ public class invite extends JFrame{
         for(int i = 0;i<friend_list.size();i++){
             friend pane = new friend(friend_list.get(i));
             gbc.fill = GridBagConstraints.BOTH;
-            gbc.ipadx = 850;
-            gbc.ipady = 100;
+            gbc.ipadx = 0;
+            gbc.ipady = 0;
             gbc.gridx = 0;
             gbc.gridy = i;
             Gbag.setConstraints(pane,gbc);
@@ -74,6 +71,8 @@ public class invite extends JFrame{
         setLocation((windowSize.width - frameSize.width) / 2,
                 (windowSize.height - frameSize.height) / 2);
 
+        friend.setDisabledTextColor(new Color(0,0,0));
+        friend.setEditable(false);
         search.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -83,8 +82,8 @@ public class invite extends JFrame{
                     if(friend_list.get(i).contains(email)){
                         friend pane = new friend(friend_list.get(i));
                         gbc.fill = GridBagConstraints.BOTH;
-                        gbc.ipadx = 850;
-                        gbc.ipady = 100;
+                        gbc.ipadx = 0;
+                        gbc.ipady = 0;
                         gbc.gridx = 0;
                         gbc.gridy = i;
                         Gbag.setConstraints(pane,gbc);
@@ -142,7 +141,11 @@ public class invite extends JFrame{
             invitePanel.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
             this.friend_id = friend_id;
 
-            setLayout(new FlowLayout(FlowLayout.LEFT));
+            GridBagLayout Gbag = new GridBagLayout();
+            setLayout(Gbag);
+            GridBagConstraints gbc = new GridBagConstraints();
+            gbc.weightx = 1.0;
+            gbc.weighty = 1.0;
 
             invite_friend = new JButton();
             ImgSetSize invite = new ImgSetSize("src/IMG/invite.png", 50, 50);
@@ -157,12 +160,27 @@ public class invite extends JFrame{
             friend_name = new JLabel();
             String text = friend_id;
             friend_name.setText(text);
-            friend_name.setPreferredSize(new Dimension(330,50));
             friend_name.setHorizontalAlignment(JLabel.CENTER);
 
+            gbc.fill = GridBagConstraints.BOTH;
+            gbc.gridx = 0;
+            gbc.gridy = 0;
+            gbc.gridwidth = 4;
+            gbc.gridheight = 1;
+            add(friend_name,gbc);
 
-            add(friend_name);
+            gbc.fill = GridBagConstraints.BOTH;
+            gbc.gridx = 4;
+            gbc.gridy = 0;
+            gbc.gridwidth = 1;
+            gbc.gridheight = 1;
             add(invite_friend);
+
+            gbc.fill = GridBagConstraints.BOTH;
+            gbc.gridx = 5;
+            gbc.gridy = 0;
+            gbc.gridwidth = 1;
+            gbc.gridheight = 1;
             add(remove_friend);
 
             setVisible(true);
@@ -177,7 +195,7 @@ public class invite extends JFrame{
                     }
                     if(same == 0){
                         List.add(friend_id);
-                        searchTextField.setText(searchTextField.getText() + friend_id + " , ");
+                        friend.setText(friend.getText() + friend_id + " , ");
                     }
                 }
             });
@@ -188,7 +206,7 @@ public class invite extends JFrame{
                     for(int i =0;i<List.size();i++){
                         if(List.get(i) == friend_id){
                             List.remove(i);
-                            searchTextField.setText(searchTextField.getText().replace(friend_id + " , ",""));
+                            friend.setText(friend.getText().replace(friend_id + " , ",""));
                         }
                     }
                 }
