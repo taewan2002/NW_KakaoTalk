@@ -9,6 +9,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class invite extends JFrame{
@@ -17,6 +21,7 @@ public class invite extends JFrame{
     private JButton search;
     private JScrollPane invitePanel;
     private JPanel invite;
+    private JButton addFriend;
     private String user_id;
     private chatting_client client;
     private ListeningThread t1;
@@ -35,6 +40,11 @@ public class invite extends JFrame{
         data.start();
         friend_list = data.getAllUserList();
         invitePanel.getVerticalScrollBar().setUnitIncrement(15);
+
+        // 친구추가 버튼
+        addFriend.setIcon(new ImgSetSize("src/IMG/invite_friend.png", 50, 50).getImg());
+
+        search.setIcon(new ImgSetSize("src/IMG/search.png", 50, 50).getImg());
 
         GridBagLayout Gbag = new GridBagLayout();
         invite.setLayout(Gbag);
@@ -64,6 +74,61 @@ public class invite extends JFrame{
         setLocation((windowSize.width - frameSize.width) / 2,
                 (windowSize.height - frameSize.height) / 2);
 
+        search.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String email = searchTextField.getText();
+                invite.removeAll();
+                for(int i = 0;i< friend_list.size();i++){
+                    if(friend_list.get(i).contains(email)){
+                        friend pane = new friend(friend_list.get(i));
+                        gbc.fill = GridBagConstraints.BOTH;
+                        gbc.ipadx = 850;
+                        gbc.ipady = 100;
+                        gbc.gridx = 0;
+                        gbc.gridy = i;
+                        Gbag.setConstraints(pane,gbc);
+                        invite.add(pane);
+                        invite.updateUI();
+                    }
+                }
+                invitePanel.setViewportView(invite);
+                invitePanel.setVisible(true);
+                invite.setVisible(true);
+            }
+        });
+        addFriend.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // 친구 추가 만들기
+
+
+                // 이건 아님
+//                for(int i = 0;i< List.size();i++){
+//                    System.out.println(List.get(i));
+//                }
+//                //chatting_client에 List 전달
+//                client.make_room(1,user_id,List);
+//                get_data getData = new get_data();
+//                getData.setType11(11, user_id);
+//                getData.start();
+//                ArrayList<String> b = getData.getMy_room_list();
+//                System.out.println("chatting_data/" + b.get(b.size()-1) + ".txt");
+//                File file = new File("chatting_data/" + b.get(b.size()-1) + ".txt");
+//                try{
+//                    FileWriter fw =new FileWriter(file,true);
+//                    BufferedWriter bw= new BufferedWriter(fw);
+//                    bw.close();
+//                }
+//                catch(IOException e2){
+//                    e2.printStackTrace();
+//                }
+//
+//                chattingRoom a = new chattingRoom(user_id,client,t1);
+//                a.setVisible(true);
+//                dispose();
+            }
+        });
     }
     public class friend extends JPanel{
 
@@ -73,28 +138,33 @@ public class invite extends JFrame{
         private String friend_id;
 
         public friend(String friend_id){
+            // 행 스크롤 고정
+            invitePanel.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
             this.friend_id = friend_id;
 
             setLayout(new FlowLayout(FlowLayout.LEFT));
 
-            setSize(850,100);
-             invite_friend = new JButton();
+            invite_friend = new JButton();
             ImgSetSize invite = new ImgSetSize("src/IMG/invite.png", 50, 50);
             invite_friend.setIcon(invite.getImg());
             invite_friend.setBackground(new Color(255,255,255));
 
-             remove_friend = new JButton();
-            ImgSetSize remove = new ImgSetSize("src/IMG/exit.png", 50, 50);
+            remove_friend = new JButton();
+            ImgSetSize remove = new ImgSetSize("src/IMG/revert.png", 50, 50);
             remove_friend.setIcon(remove.getImg());
             remove_friend.setBackground(new Color(255,255,255));
 
             friend_name = new JLabel();
-            friend_name.setText(String.valueOf(friend_id));
-            //friend_name.setSize(100,50);
+            String text = friend_id;
+            friend_name.setText(text);
+            friend_name.setPreferredSize(new Dimension(330,50));
+            friend_name.setHorizontalAlignment(JLabel.CENTER);
 
+
+            add(friend_name);
             add(invite_friend);
             add(remove_friend);
-            add(friend_name);
+
             setVisible(true);
             invite_friend.addActionListener(new ActionListener() {
                 @Override
@@ -107,7 +177,7 @@ public class invite extends JFrame{
                     }
                     if(same == 0){
                         List.add(friend_id);
-                        // invite_list.setText(invite_list.getText() + friend_id + " , ");
+                        searchTextField.setText(searchTextField.getText() + friend_id + " , ");
                     }
                 }
             });
@@ -118,7 +188,7 @@ public class invite extends JFrame{
                     for(int i =0;i<List.size();i++){
                         if(List.get(i) == friend_id){
                             List.remove(i);
-                            // invite_list.setText(invite_list.getText().replace(friend_id + " , ",""));
+                            searchTextField.setText(searchTextField.getText().replace(friend_id + " , ",""));
                         }
                     }
                 }

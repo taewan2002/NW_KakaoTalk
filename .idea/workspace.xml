@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="친구 추가 리스트 만듬 모든 친구 목록 불러옴">
-      <change afterPath="$PROJECT_DIR$/src/IMG/exit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/IMG/invite.png" afterDir="false" />
+    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="사진 수정 및 invite.png, exit.png 설정">
+      <change afterPath="$PROJECT_DIR$/src/IMG/makeRoom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IMG/revert.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/invite.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/invite.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/invite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/invite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IMG/invite_friend.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IMG/kakaoIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMG/kakaoIcon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IMG/invite.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMG/invite.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,6 +179,7 @@
       <workItem from="1670725433516" duration="409000" />
       <workItem from="1670746283535" duration="3786000" />
       <workItem from="1670770269623" duration="884000" />
+      <workItem from="1670830832864" duration="2873000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1670570617039</created>
@@ -243,7 +244,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670830055376</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="사진 수정 및 invite.png, exit.png 설정">
+      <created>1670830887189</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1670830887189</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,7 +278,8 @@
     <MESSAGE value="모든 클래스에 user_id, client, t1 매개변수 추가" />
     <MESSAGE value="회원가입 기능 추가" />
     <MESSAGE value="친구 추가 리스트 만듬 모든 친구 목록 불러옴" />
-    <option name="LAST_COMMIT_MESSAGE" value="친구 추가 리스트 만듬 모든 친구 목록 불러옴" />
+    <MESSAGE value="사진 수정 및 invite.png, exit.png 설정" />
+    <option name="LAST_COMMIT_MESSAGE" value="사진 수정 및 invite.png, exit.png 설정" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main Coverage Results" MODIFIED="1670747029056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
