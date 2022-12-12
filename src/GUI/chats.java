@@ -1,5 +1,7 @@
 package GUI;
 
+import chatting_function.ListeningThread;
+import chatting_function.chatting_client;
 import function.ImgSetSize;
 import public_data.setCoinData;
 
@@ -19,8 +21,14 @@ public class chats extends JFrame{
     private JButton searchButton;
     private JButton createRoom;
     private JButton more;
+    private String user_id;
+    private chatting_client client;
+    private ListeningThread t1;
 
-    public chats(){
+    public chats(String user_id, chatting_client client, ListeningThread t1){
+        this.user_id = user_id;
+        this.client = client;
+        this.t1 = t1;
         setContentPane(main);
         setSize(480,650);
         setVisible(true);
@@ -45,7 +53,7 @@ public class chats extends JFrame{
         friendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new friends();
+                new friends(user_id, client, t1);
                 setVisible(false);
             }
         });
@@ -58,21 +66,21 @@ public class chats extends JFrame{
         createRoom.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new chattingRoom();
+                new chattingRoom(user_id, client, t1);
                 setVisible(false);
             }
         });
         publicDataButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new setCoinData();
+                new setCoinData(user_id, client, t1);
                 setVisible(false);
             }
         });
         more.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new more();
+                new more(user_id, client, t1);
                 setVisible(false);
             }
         });

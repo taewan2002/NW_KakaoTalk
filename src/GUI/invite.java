@@ -1,5 +1,8 @@
 package GUI;
 
+import chatting_function.ListeningThread;
+import chatting_function.chatting_client;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,8 +12,15 @@ public class invite extends JFrame{
     private JButton search;
     private JScrollPane invitePanel;
     private JPanel invite;
+    private String user_id;
+    private chatting_client client;
+    private ListeningThread t1;
 
-    public invite(){
+    public invite(String user_id, chatting_client client, ListeningThread t1){
+        this.user_id = user_id;
+        this.client = client;
+        this.t1 = t1;
+
         setContentPane(main);
         setSize(480,650);
         setVisible(true);

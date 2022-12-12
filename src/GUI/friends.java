@@ -1,5 +1,7 @@
 package GUI;
 
+import chatting_function.ListeningThread;
+import chatting_function.chatting_client;
 import function.ImgSetSize;
 import public_data.setCoinData;
 
@@ -9,7 +11,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class friends extends JFrame{
-
     private JPanel main;
     private JScrollPane friendPanel;
     private JPanel friend;
@@ -20,8 +21,15 @@ public class friends extends JFrame{
     private JButton searchButton;
     private JButton inviteFriend;
     private JButton more;
+    private String user_id;
+    private chatting_client client;
+    private ListeningThread t1;
 
-    public friends(){
+    public friends(String user_id, chatting_client client, ListeningThread t1){
+        this.user_id = user_id;
+        this.client = client;
+        this.t1 = t1;
+
 
         ImgSetSize friendIcon = new ImgSetSize("src/IMG/friendButtonIconActive.png", 35,35);
         friendButton.setIcon(friendIcon.getImg());
@@ -55,28 +63,28 @@ public class friends extends JFrame{
         roomButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new chats();
+                new chats(user_id, client, t1);
                 setVisible(false);
             }
         });
         publicDataButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new setCoinData();
+                new setCoinData(user_id, client, t1);
                 setVisible(false);
             }
         });
         more.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new more();
+                new more(user_id, client, t1);
                 setVisible(false);
             }
         });
         inviteFriend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new invite();
+                new invite(user_id, client, t1);
                 setVisible(false);
             }
         });

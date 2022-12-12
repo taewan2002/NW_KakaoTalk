@@ -1,6 +1,9 @@
 package GUI;
 
 import javax.swing.*;
+
+import chatting_function.ListeningThread;
+import chatting_function.chatting_client;
 import function.*;
 
 import java.awt.*;
@@ -132,26 +135,26 @@ public class login extends JFrame{
         login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                로그인 기능 구현
-//                String getId = id.getText();
-//                char[] temp = password.getPassword();
-//                String getPw = new String(temp);
-//                System.out.println("ID: " + getId + "\tPWD: " + getPw + "\n");
-//                loginregister manager = new loginregister();
-//                int session_id = manager.login(getId,getPw);
-//                if(session_id!=-1){
-//                    chatting_client client = new chatting_client(getId);
-//                    client.run();
-//                    ListeningThread t1 = client.get_listening();
-//                    friends a = new friends(session_id,getId,client,t1);
-//                    setVisible(false);
-//                    a.setVisible(true);
-//                }
-//                else{
-//                    System.out.println("x");
-//                }
-                new friends();
-                setVisible(false);
+                // 로그인 기능 구현
+                String getId = id.getText();
+                char[] temp = password.getPassword();
+                String getPw = new String(temp);
+                System.out.println("ID: " + getId + "\tPWD: " + getPw + "\n");
+                loginregister manager = new loginregister();
+                int session_id = manager.login(getId,getPw);
+                if(session_id!=-1){
+                    chatting_client client = new chatting_client(getId);
+                    client.run();
+                    ListeningThread t1 = client.get_listening();
+                    friends a = new friends(getId,client,t1);
+                    setVisible(false);
+                    a.setVisible(true);
+                }
+                else{
+                    System.out.println("x");
+                }
+//                new friends();
+//                setVisible(false);
             }
         });
 

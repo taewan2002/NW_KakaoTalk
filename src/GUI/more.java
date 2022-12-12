@@ -1,10 +1,20 @@
 package GUI;
 
+import chatting_function.ListeningThread;
+import chatting_function.chatting_client;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class more extends JFrame {
-    public more(){
+    private String user_id;
+    private chatting_client client;
+    private ListeningThread t1;
+    public more(String user_id, chatting_client client, ListeningThread t1){
+        this.user_id = user_id;
+        this.client = client;
+        this.t1 = t1;
+
         setSize(480,650);
         setVisible(true);
         Dimension frameSize = getSize();

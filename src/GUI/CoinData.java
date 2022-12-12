@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import chatting_function.ListeningThread;
+import chatting_function.chatting_client;
 import function.ImgSetSize;
 import public_data.*;
 
@@ -19,8 +21,14 @@ public class CoinData extends JFrame {
     private JTextField timeNow;
     private JButton more;
     private ArrayList<String> market = new ArrayList<>();
+    private String user_id;
+    private chatting_client client;
+    private ListeningThread t1;
 
-    public CoinData() {
+    public CoinData(String user_id, chatting_client client, ListeningThread t1) {
+        this.user_id = user_id;
+        this.client = client;
+        this.t1 = t1;
 
         String time = new getCoinData("BTC").getTime();
         timeNow.setText(time);
@@ -82,28 +90,28 @@ public class CoinData extends JFrame {
         friendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new friends();
+                new friends(user_id, client, t1);
                 setVisible(false);
             }
         });
         roomButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new chats();
+                new chats(user_id, client, t1);
                 setVisible(false);
             }
         });
         more.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new more();
+                new more(user_id, client, t1);
                 setVisible(false);
             }
         });
         refresh.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new setCoinData();
+                new setCoinData(user_id, client, t1);
                 setVisible(false);
             }
         });
