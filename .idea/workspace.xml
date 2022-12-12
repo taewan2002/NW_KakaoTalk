@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="chatting 폰트 수정">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatting_data/6c3884003ef0740937a777d76f61333c.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/6c3884003ef0740937a777d76f61333c.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatting_data/7e664055fc0e1e2e132e46425efdb540.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/7e664055fc0e1e2e132e46425efdb540.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatting_data/bf670592566ade9323bdae1a256ccaa7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/bf670592566ade9323bdae1a256ccaa7.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/CoinData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/CoinData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/chats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/chattingRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chattingRoom.java" afterDir="false" />
-    </list>
+    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="chatting 폰트 수정" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,7 +75,7 @@
       <recent name="$PROJECT_DIR$/openAPI" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="애플리케이션.Main">
     <configuration name="ApiTestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="public_data.ApiTestApplication" />
       <module name="KakaoTalk" />
@@ -152,11 +144,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="Application.test" />
-        <item itemvalue="Application.stockData" />
-        <item itemvalue="Application.getData2" />
-        <item itemvalue="Application.ApiTestApplication" />
+        <item itemvalue="애플리케이션.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -176,6 +164,7 @@
       <workItem from="1670725433516" duration="409000" />
       <workItem from="1670746283535" duration="3786000" />
       <workItem from="1670770269623" duration="884000" />
+      <workItem from="1670855180833" duration="75000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1670570617039</created>

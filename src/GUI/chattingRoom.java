@@ -83,7 +83,7 @@ public class chattingRoom extends JFrame {
                             i = 0;
                             if (t == true){
                                 try {
-                                    Thread.sleep(50);
+                                    Thread.sleep(150);
                                     chatPanel_thread.getVerticalScrollBar().setValue(chatPanel_thread.getVerticalScrollBar().getMaximum());
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
