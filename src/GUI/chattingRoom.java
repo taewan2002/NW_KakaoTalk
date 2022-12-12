@@ -247,7 +247,7 @@ public class chattingRoom extends JFrame {
                 gbc.weightx = 0.75;
                 gbc.weighty = 0.5;
 
-                text.setEnabled(false);
+
                 if(file_bool.equals("true")){
                     file_down = new JButton("file_down");
                     file_down.addActionListener(new ActionListener() {
@@ -262,6 +262,10 @@ public class chattingRoom extends JFrame {
                     bullon.add(file_down,gbc);
                 }
                 else{
+                    text.setDisabledTextColor(new Color(0,0,0));
+                    text.setLineWrap(true);
+                    text.setWrapStyleWord(true);
+                    text.setEditable(false);
                     bullon.add(text,gbc);
                 }
 
@@ -295,7 +299,6 @@ public class chattingRoom extends JFrame {
                 gbc.weightx = 0.75;
                 gbc.weighty = 0.5;
 
-                text.setEnabled(false);
                 if(file_bool.equals("true")){
                     file_down = new JButton("file_down");
                     file_down.addActionListener(new ActionListener() {
@@ -310,6 +313,10 @@ public class chattingRoom extends JFrame {
                     bullon.add(file_down,gbc);
                 }
                 else{
+                    text.setDisabledTextColor(new Color(0,0,0));
+                    text.setLineWrap(true);
+                    text.setWrapStyleWord(true);
+                    text.setEditable(false);
                     bullon.add(text,gbc);
                 }
 
