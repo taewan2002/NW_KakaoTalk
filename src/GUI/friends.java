@@ -59,7 +59,11 @@ public class friends extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String email = search_friend.getText();
-
+                for(int i = 0;i< friend_list.size();i++) {
+                    if (friend_list.get(i).contains(email)) {
+                        // 친구 검색
+                    }
+                }
             }
         });
         roomButton.addActionListener(new ActionListener() {
