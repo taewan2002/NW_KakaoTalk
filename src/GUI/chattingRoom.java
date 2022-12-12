@@ -226,7 +226,6 @@ public class chattingRoom extends JFrame {
 
             if(user_id.equals(send_user_id)){
                 setLayout(new FlowLayout(FlowLayout.RIGHT));
-                text.setForeground(new Color(0,0,0));
                 text.setBackground(new Color(255,230,0));
 
                 user.setText("나");
@@ -247,7 +246,6 @@ public class chattingRoom extends JFrame {
                 gbc.weightx = 0.75;
                 gbc.weighty = 0.5;
 
-                text.setEnabled(false);
                 if(file_bool.equals("true")){
                     file_down = new JButton("file_down");
                     file_down.addActionListener(new ActionListener() {
@@ -262,7 +260,10 @@ public class chattingRoom extends JFrame {
                     bullon.add(file_down,gbc);
                 }
                 else{
+                    text.setForeground(new Color(0,0,0));
                     bullon.add(text,gbc);
+
+                    text.setEnabled(false);
                 }
 
                 gbc.gridx = 0;
@@ -275,7 +276,6 @@ public class chattingRoom extends JFrame {
             }
             else{
                 setLayout(new FlowLayout(FlowLayout.LEFT));
-                text.setForeground(new Color(0,0,0));
                 text.setBackground(new Color(255, 255, 255));
 
                 user.setText(send_user_id);
@@ -295,7 +295,6 @@ public class chattingRoom extends JFrame {
                 gbc.weightx = 0.75;
                 gbc.weighty = 0.5;
 
-                text.setEnabled(false);
                 if(file_bool.equals("true")){
                     file_down = new JButton("file_down");
                     file_down.addActionListener(new ActionListener() {
@@ -310,7 +309,10 @@ public class chattingRoom extends JFrame {
                     bullon.add(file_down,gbc);
                 }
                 else{
+                    text.setForeground(new Color(0,0,0));
                     bullon.add(text,gbc);
+
+                    text.setEnabled(false);
                 }
 
                 gbc.gridx = 3;

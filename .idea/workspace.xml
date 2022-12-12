@@ -4,20 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="아따 막막하노">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatting_data/007012afaef713fb2ee21b465bd99ebc.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/007012afaef713fb2ee21b465bd99ebc.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatting_data/07e02a7874d1cb4f8d85ed18b5dfc01c.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/07e02a7874d1cb4f8d85ed18b5dfc01c.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatting_data/621ccbebce2c5de724cc3811f4304cdf.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/621ccbebce2c5de724cc3811f4304cdf.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatting_data/6fcbf5c8717e55c731c6a63f9c84fc6c.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/6fcbf5c8717e55c731c6a63f9c84fc6c.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatting_data/bf670592566ade9323bdae1a256ccaa7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/bf670592566ade9323bdae1a256ccaa7.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatting_data/cd35e23b7dfd88827aa26123b6cfa3b7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/cd35e23b7dfd88827aa26123b6cfa3b7.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/chats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chats.java" afterDir="false" />
+    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="채팅 완성">
       <change beforePath="$PROJECT_DIR$/src/GUI/chattingRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chattingRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chatting/protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting/protocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chatting_function/chatting_client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting_function/chatting_client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chatting_function/file_client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting_function/file_client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/chatting_function/file_server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting_function/file_server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +165,7 @@
       <workItem from="1670725433516" duration="409000" />
       <workItem from="1670746283535" duration="3786000" />
       <workItem from="1670770269623" duration="884000" />
-      <workItem from="1670844633834" duration="3438000" />
+      <workItem from="1670844633834" duration="3904000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1670570617039</created>
@@ -242,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670839266554</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="채팅 완성">
+      <created>1670848231959</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1670848231959</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +262,8 @@
     <MESSAGE value="코인 이미지 오류 수정" />
     <MESSAGE value="코인데이터 화면 form수정" />
     <MESSAGE value="아따 막막하노" />
-    <option name="LAST_COMMIT_MESSAGE" value="아따 막막하노" />
+    <MESSAGE value="채팅 완성" />
+    <option name="LAST_COMMIT_MESSAGE" value="채팅 완성" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main 커버리지 결과" MODIFIED="1670746914059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
