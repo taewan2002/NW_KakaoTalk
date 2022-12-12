@@ -1,5 +1,6 @@
 package function;
 
+import chatting.protocol;
 import chatting_function.chatting_client;
 
 import java.io.*;

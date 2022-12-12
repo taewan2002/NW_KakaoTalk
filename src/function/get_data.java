@@ -1,5 +1,7 @@
 package function;
 
+import chatting.protocol;
+
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -11,7 +13,7 @@ public class get_data{
             readTxt read = new readTxt();
             host = read.getHost();
             ArrayList<String> temp = read.getPort();
-            port = Integer.parseInt(temp.get(1));
+            port = Integer.parseInt(temp.get(3));
         }catch (Exception e){
             e.getStackTrace();
         }

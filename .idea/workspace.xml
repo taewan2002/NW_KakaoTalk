@@ -5,13 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="코인데이터 화면 form수정">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-11__10_06_________Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-11__10_06_________Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_09_________Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_09_________Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_15_________Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_15_________Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-12__2_29_________Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-12__2_29_________Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-12__2_30_________Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-12__2_30_________Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-12__2_30_________Changes_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-12__2_30_________Changes_2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IMG/chattingButtonIconActive.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMG/chattingButtonIconActive.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IMG/chattingButtonIconNoActive.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMG/chattingButtonIconNoActive.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IMG/friendButtonIconActive.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMG/friendButtonIconActive.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IMG/friendButtonIconNoActive.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMG/friendButtonIconNoActive.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public_data/getCoinData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/public_data/getCoinData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public_data/setCoinData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/public_data/setCoinData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/chats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/chattingRoom.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chattingRoom.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/chattingRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chattingRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chatting_function/ListeningThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting_function/ListeningThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chatting_function/chatting_client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting_function/chatting_client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chatting_function/file_client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting_function/file_client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/function/cache_download.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/function/cache_download.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/function/get_data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/function/get_data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/function/protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting/protocol.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,27 +55,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/taewan/IdeaProjects/KakaoTalk&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/white/IdeaProjects/KakaoTalk",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="public_data" />
@@ -82,7 +91,7 @@
       <recent name="$PROJECT_DIR$/openAPI" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="애플리케이션.Main">
     <configuration name="ApiTestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="public_data.ApiTestApplication" />
       <module name="KakaoTalk" />
@@ -151,7 +160,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="애플리케이션.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -207,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670751669485</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="코인데이터 화면 form수정">
+      <created>1670823504458</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670823504458</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,9 +246,10 @@
     <MESSAGE value="코인 정보 불러오기 upbit api, getCoinData" />
     <MESSAGE value="코인 변동률 0.0일때 발생하는 오류 해결" />
     <MESSAGE value="코인 이미지 오류 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="코인 이미지 오류 수정" />
+    <MESSAGE value="코인데이터 화면 form수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="코인데이터 화면 form수정" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main Coverage Results" MODIFIED="1670747029056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main 커버리지 결과" MODIFIED="1670746914059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
