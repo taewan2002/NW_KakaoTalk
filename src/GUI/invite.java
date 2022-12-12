@@ -43,7 +43,6 @@ public class invite extends JFrame{
         gbc.weighty = 1.0;
         for(int i = 0;i<friend_list.size();i++){
             friend pane = new friend(friend_list.get(i));
-            System.out.println(friend_list.get(i));
             gbc.fill = GridBagConstraints.BOTH;
             gbc.ipadx = 850;
             gbc.ipady = 100;
@@ -79,14 +78,14 @@ public class invite extends JFrame{
             setLayout(new FlowLayout(FlowLayout.LEFT));
 
             setSize(850,100);
-            invite_friend = new JButton("invite");
-//            ImgSetSize invite = new ImgSetSize("src/IMG/invite_invite.png", 50, 50);
-//            invite_friend.setIcon(invite.getImg());
+             invite_friend = new JButton();
+            ImgSetSize invite = new ImgSetSize("src/IMG/invite.png", 50, 50);
+            invite_friend.setIcon(invite.getImg());
             invite_friend.setBackground(new Color(255,255,255));
 
-            remove_friend = new JButton("remove");
-//            ImgSetSize remove = new ImgSetSize("src/IMG/invite_exit.png", 50, 50);
-//            remove_friend.setIcon(remove.getImg());
+             remove_friend = new JButton();
+            ImgSetSize remove = new ImgSetSize("src/IMG/exit.png", 50, 50);
+            remove_friend.setIcon(remove.getImg());
             remove_friend.setBackground(new Color(255,255,255));
 
             friend_name = new JLabel();

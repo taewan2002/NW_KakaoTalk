@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="모든 클래스에 user_id, client, t1 매개변수 추가">
+    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="친구 추가 리스트 만듬 모든 친구 목록 불러옴">
+      <change afterPath="$PROJECT_DIR$/src/IMG/exit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/IMG/invite.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/invite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/invite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IMG/invite_friend.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IMG/kakaoIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMG/kakaoIcon.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,8 +80,8 @@
       <recent name="$PROJECT_DIR$/src/function" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\IdeaProjects\KakaoTalk\src\IMG" />
       <recent name="$PROJECT_DIR$/src/IMG" />
+      <recent name="C:\Users\Administrator\IdeaProjects\KakaoTalk\src\IMG" />
       <recent name="$PROJECT_DIR$/src/public_data" />
       <recent name="$PROJECT_DIR$/openAPI" />
     </key>
@@ -232,7 +236,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670825201291</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="친구 추가 리스트 만듬 모든 친구 목록 불러옴">
+      <created>1670830055376</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670830055376</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,7 +269,8 @@
     <MESSAGE value="이미지파일 수정" />
     <MESSAGE value="모든 클래스에 user_id, client, t1 매개변수 추가" />
     <MESSAGE value="회원가입 기능 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="회원가입 기능 추가" />
+    <MESSAGE value="친구 추가 리스트 만듬 모든 친구 목록 불러옴" />
+    <option name="LAST_COMMIT_MESSAGE" value="친구 추가 리스트 만듬 모든 친구 목록 불러옴" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main Coverage Results" MODIFIED="1670747029056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
