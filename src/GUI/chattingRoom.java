@@ -167,6 +167,7 @@ public class chattingRoom extends JFrame {
                 protocol time = new protocol();
                 //client에 message와 room_id보내기
                 client.send_messege(4,room_id, user_id, messageSend,false,null);
+                message.setText("");
             }
         });
     }
