@@ -180,6 +180,7 @@ public class chats extends JFrame{
                     }
 
                     chats a = new chats(user_id,client,t1);
+                    setVisible(false);
                     a.setVisible(true);
                     dispose();
                 }
