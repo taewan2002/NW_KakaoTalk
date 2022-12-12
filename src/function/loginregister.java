@@ -12,6 +12,8 @@ public class loginregister {
             readTxt read = new readTxt();
             host = read.getHost();
             port = Integer.parseInt(read.getPort().get(0));
+            System.out.println("host : " + host);
+            System.out.println("port : " + port);
             Socket socket = new Socket(host,port);
 
             OutputStream os = socket.getOutputStream();
@@ -50,6 +52,11 @@ public class loginregister {
     }
     public int login(String id,String password){
         try{
+            readTxt read = new readTxt();
+            host = read.getHost();
+            port = Integer.parseInt(read.getPort().get(0));
+            System.out.println("host : " + host);
+            System.out.println("port : " + port);
             int id_len =id.getBytes().length;
             int pwd_len=password.getBytes().length;
             Socket socket= new Socket(host,port);

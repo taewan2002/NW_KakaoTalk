@@ -15,13 +15,10 @@ public class readTxt {
     // port(4) = 9797, imgdownload 포트
 
     public readTxt() {
-
-    }
-    public void setData(){
         try{
             // host.txt, port.txt 파일에서 정보 불러와서 저장하기
-            File hostfile = new File("host.txt");
-            File portfile = new File("port.txt");
+            File hostfile = new File("connectionInfo/host.txt");
+            File portfile = new File("connectionInfo/port.txt");
             if(hostfile.exists() && portfile.exists()){
                 FileReader hostfr = new FileReader(hostfile);
                 FileReader portfr = new FileReader(portfile);
@@ -42,6 +39,8 @@ public class readTxt {
         }catch(Exception e) {
             e.getStackTrace();
         }
+        System.out.println("host : " + host);
+        System.out.println("port : " + port);
     }
     public String getHost(){
         return host;
