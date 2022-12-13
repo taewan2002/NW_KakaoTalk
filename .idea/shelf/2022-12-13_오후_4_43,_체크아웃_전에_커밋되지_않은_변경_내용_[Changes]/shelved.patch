@@ -1,0 +1,268 @@
+Index: src/chatting/protocol.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package chatting;\r\n\r\nimport java.io.Serializable;\r\nimport java.time.LocalDateTime;\r\nimport java.time.ZoneId;\r\nimport java.time.format.DateTimeFormatter;\r\nimport java.util.ArrayList;\r\n\r\npublic class protocol implements Serializable {\r\n    private int typeofrequest;\r\n    private ArrayList<String> list;\r\n    private String sender;\r\n    private String roomnumber;\r\n    private String messege;\r\n    private String time;\r\n    private int num;\r\n    private boolean file_exist;\r\n    private String file_name;\r\n    private String id;\r\n    private String password;\r\n    private String email;\r\n    private String phone;\r\n    private String name;\r\n    private boolean tf;\r\n    public protocol(){}\r\n\r\n    // 요청 프로토콜\r\n    // 방 생성 type = 1\r\n    // 방 초대 type = 2\r\n    // 방에서 나가기 type = 3\r\n    // 메시지 보내기 type = 4\r\n    // 로그아웃인 경우 type = 5\r\n    // 방 목록 요청 type = 6\r\n    // 방 참여자 목록 요청 type = 7\r\n    // 아이디찾기 type = 8\r\n    // 비밀번호 변경하기 위한 확인 type = 9 -> 여긴 똑같아\r\n    // 비밀번호 변경 type = 10 -> 여긴 똑같아\r\n    // 로그인 여부 확인 type = 50\r\n    // 내정보 요청 type = 51\r\n    // 친구 추가 type = 52\r\n    // 친구 삭제 type = 53\r\n    // 친구 목록 요청 type = 54\r\n    // 탈퇴하기 type = 55\r\n\r\n\r\n    // 방 생성 1, 로그인 여부 확인 50\r\n    public protocol(int typeofrequest, String sender, ArrayList<String> list){\r\n        this.sender = sender;\r\n        this.typeofrequest = typeofrequest;\r\n        this.list = list;\r\n    }\r\n\r\n    // 방 초대 2\r\n    public protocol(int typeofrequest, String sender, String roomnumber, ArrayList<String>list){\r\n        this.typeofrequest = typeofrequest;\r\n        this.sender = sender;\r\n        this.roomnumber = roomnumber;\r\n        this.list = list;\r\n    }\r\n\r\n    // 방에서 나가기 3, 방 참여자 목록 불러오기 7, 아이디 찾기 8\r\n    public protocol(int a, String b, String c){\r\n        this.typeofrequest = a;\r\n        this.sender = b;\r\n        this.roomnumber = c;\r\n        this.phone = c;\r\n        this.name = b;\r\n        this.email = c;\r\n    }\r\n\r\n    // 체팅 보내기 4\r\n    public protocol(int typeofrequest, String roomnumber, String sender, String messege, boolean file_exist, String file_name){\r\n        this.typeofrequest = typeofrequest;\r\n        this.roomnumber = roomnumber;\r\n        this.sender = sender;\r\n        this.messege = messege;\r\n        setTime();\r\n        this.file_exist = file_exist;\r\n        this.file_name = file_name;\r\n    }\r\n\r\n    // 로그아웃 5, 자신이 속한 방 목록 불러오기 6, 비밀번호 변경 10, 내정보 요청 51, 탈퇴하기 55\r\n    public protocol(int typeofrequest, String tmp) {\r\n        this.typeofrequest = typeofrequest;\r\n        this.sender = tmp;\r\n        this.password = tmp;\r\n    }\r\n\r\n    // 비밀번호 변경하기 위한 확인 9\r\n    public protocol(int typeofrequest, String email, String name, String phone) {\r\n        this.typeofrequest = typeofrequest;\r\n        this.email = email;\r\n        this.name = name;\r\n        this.phone = phone;\r\n    }\r\n    public protocol(int typeofrequest, boolean tf){\r\n        this.typeofrequest = typeofrequest;\r\n        this.tf = tf;\r\n    }\r\n\r\n    //make getter function\r\n    public int getTypeofrequest() {\r\n        return typeofrequest;\r\n    }\r\n    public ArrayList<String> getList() {\r\n        return list;\r\n    }\r\n    public String getSender() {\r\n        return sender;\r\n    }\r\n    public String getRoomnumber() {\r\n        return roomnumber;\r\n    }\r\n    public String getMessege() {\r\n        return messege;\r\n    }\r\n    public String getTime() {\r\n        return time;\r\n    }\r\n    public boolean isFile_exist() {\r\n        return file_exist;\r\n    }\r\n    public String getFile_name() {\r\n        return file_name;\r\n    }\r\n    public String getEmail() {\r\n        return email;\r\n    }\r\n    public String getPhoneNum() {\r\n        return phone;\r\n    }\r\n    public String getName(){\r\n        return name;\r\n    }\r\n    public String getId() {\r\n        return id;\r\n    }\r\n    public String getPassword() {\r\n        return password;\r\n    }\r\n    public boolean getTf(){return tf;}\r\n\r\n    //make setter function\r\n    public void setTime() {\r\n        LocalDateTime now = LocalDateTime.now(ZoneId.of(\"Asia/Seoul\"));\r\n        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(\"yyyyMMddHHmmss\");\r\n        this.time = now.format(formatter);\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/chatting/protocol.java b/src/chatting/protocol.java
+--- a/src/chatting/protocol.java	(revision f17a31585c393f73aa983a9a905c019e1db785b8)
++++ b/src/chatting/protocol.java	(date 1670913142204)
+@@ -43,7 +43,7 @@
+     // 탈퇴하기 type = 55
+ 
+ 
+-    // 방 생성 1, 로그인 여부 확인 50
++    // 방 생성 1, 로그인 여부 확인 50, 친구추가 16
+     public protocol(int typeofrequest, String sender, ArrayList<String> list){
+         this.sender = sender;
+         this.typeofrequest = typeofrequest;
+@@ -58,7 +58,7 @@
+         this.list = list;
+     }
+ 
+-    // 방에서 나가기 3, 방 참여자 목록 불러오기 7, 아이디 찾기 8
++    // 방에서 나가기 3, 방 참여자 목록 불러오기 7, 아이디 찾기 8, 비밀번호 변경
+     public protocol(int a, String b, String c){
+         this.typeofrequest = a;
+         this.sender = b;
+@@ -66,6 +66,7 @@
+         this.phone = c;
+         this.name = b;
+         this.email = c;
++        this.password = c;
+     }
+ 
+     // 체팅 보내기 4
+@@ -79,11 +80,10 @@
+         this.file_name = file_name;
+     }
+ 
+-    // 로그아웃 5, 자신이 속한 방 목록 불러오기 6, 비밀번호 변경 10, 내정보 요청 51, 탈퇴하기 55
++    // 로그아웃 5, 자신이 속한 방 목록 불러오기 6, 내정보 요청 51, 탈퇴하기 55, 친구 목록 불러오기 54
+     public protocol(int typeofrequest, String tmp) {
+         this.typeofrequest = typeofrequest;
+         this.sender = tmp;
+-        this.password = tmp;
+     }
+ 
+     // 비밀번호 변경하기 위한 확인 9
+Index: src/GUI/chattingRoom.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package GUI;\r\n\r\nimport chatting.protocol;\r\nimport chatting_function.ListeningThread;\r\nimport chatting_function.chatting_client;\r\nimport chatting_function.file_client;\r\nimport chatting_function.imgchoose;\r\nimport function.ImgSetSize;\r\nimport function.cache_download;\r\nimport public_data.getCoinData;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport java.awt.event.KeyEvent;\r\nimport java.awt.event.KeyListener;\r\nimport java.io.BufferedInputStream;\r\nimport java.io.FileInputStream;\r\nimport java.io.IOException;\r\nimport java.nio.charset.StandardCharsets;\r\nimport concave.*;\r\n\r\npublic class chattingRoom extends JFrame {\r\n    private String user_id;\r\n    private chatting_client client;\r\n    private ListeningThread t1;\r\n    private JTextField message;\r\n    private JButton send;\r\n    private JButton fileOption;\r\n    private JScrollPane chatPanel;\r\n    private JPanel chat;\r\n    private JPanel main;\r\n    private String room_id;\r\n\r\n    boolean running = true;\r\n    BufferedInputStream reader = null;\r\n\r\n    private class read extends Thread{\r\n        private GridBagConstraints gbc;\r\n        private JScrollPane chatPanel_thread;\r\n\r\n        public read(GridBagConstraints gbc, JScrollPane chatPanel){\r\n            this.gbc = gbc;\r\n            this.chatPanel_thread = chatPanel;\r\n        }\r\n        public void run() {\r\n            int i=0;\r\n            int k=0;\r\n            boolean t = false;\r\n            byte[] b = new byte[100000];\r\n            while (running) {\r\n                try {\r\n                    if (reader.available() > 0) {\r\n                        byte tmp = (byte)reader.read();\r\n                        if(tmp==13 || tmp==10){\r\n                            String s = new String(b, StandardCharsets.UTF_8);\r\n                            s=s.substring(0,i);\r\n                            System.out.println(s);\r\n                            String w[] = s.split(\":\");\r\n\r\n                            //w[0] (8,10): hours\r\n                            //w[0] (10,12): minutes\r\n                            //w[1]: user\r\n                            //w[2]: message\r\n                            //w[3]: file boolean\r\n                            //w[4]: file name\r\n                            // System.out.println(k);\r\n                            chatSchema pane = new chatSchema(w[0].substring(8,10),w[0].substring(10,12),w[1],w[2],w[3],w[4]);\r\n                            gbc.fill = GridBagConstraints.BOTH;\r\n                            gbc.gridx = 0;\r\n                            gbc.gridy = k;\r\n                            gbc.gridwidth = 1;\r\n                            gbc.gridheight = 1;\r\n\r\n                            chat.add(pane, gbc);\r\n                            chat.updateUI();\r\n                            chat.setVisible(true);\r\n                            k++;\r\n\r\n\r\n                            b = new byte[100000];\r\n                            i = 0;\r\n                            if (t == true){\r\n                                try {\r\n                                    Thread.sleep(150);\r\n                                    chatPanel_thread.getVerticalScrollBar().setValue(chatPanel_thread.getVerticalScrollBar().getMaximum());\r\n                                } catch (InterruptedException e) {\r\n                                    e.printStackTrace();\r\n                                }\r\n                            }\r\n                            chatPanel_thread.getVerticalScrollBar().setValue(chatPanel_thread.getVerticalScrollBar().getMaximum());\r\n                        }else{\r\n                            b[i] = tmp;\r\n                            i++;\r\n                        }\r\n                    } else {\r\n                        try {\r\n                            if (t == false) {\r\n                                t = true;\r\n                                Thread.sleep(50);\r\n                                chatPanel_thread.getVerticalScrollBar().setValue(chatPanel_thread.getVerticalScrollBar().getMaximum());\r\n                            }\r\n                            sleep(100);\r\n                        } catch (InterruptedException ex) {\r\n                            running = false;\r\n                        }\r\n                    }\r\n                } catch (IOException e) {\r\n                    e.printStackTrace();\r\n                }\r\n            }\r\n        }\r\n    }\r\n    public chattingRoom(String user_id, chatting_client client, ListeningThread t1, String room_id){\r\n        new cache_download(null,room_id,room_id,\"1\",2,client);\r\n        // 스크롤 패널 행스크롤 금지\r\n        chatPanel.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);\r\n        // 스크롤 속도 조절\r\n        chatPanel.getVerticalScrollBar().setUnitIncrement(16);\r\n\r\n        this.user_id = user_id;\r\n        this.client = client;\r\n        this.t1 = t1;\r\n        this.room_id = room_id;\r\n\r\n        setContentPane(main);\r\n        chat.setBackground(new Color(186,206,224));\r\n        setSize(480,650);\r\n        setVisible(true);\r\n        Dimension frameSize = getSize();\r\n        Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();\r\n        setLocation((windowSize.width - frameSize.width) / 2,\r\n                (windowSize.height - frameSize.height) / 2);\r\n\r\n        try {\r\n            reader = new BufferedInputStream(new FileInputStream(\"chatting_data/\"+room_id+\".txt\"));\r\n        }catch (Exception e){\r\n            try {\r\n                reader = new BufferedInputStream(new FileInputStream(\"chatting_data/\" + room_id + \".txt\"));\r\n            }catch (Exception e1){\r\n                e1.printStackTrace();\r\n            }\r\n        }\r\n\r\n        GridBagLayout Gbag = new GridBagLayout();\r\n        chat.setLayout(Gbag);\r\n        GridBagConstraints gbc = new GridBagConstraints();\r\n        gbc.weightx = 1.0;\r\n        gbc.weighty = 1.0;\r\n\r\n        new read(gbc, chatPanel).start();\r\n\r\n        message.addKeyListener(new KeyListener() {\r\n            @Override\r\n            public void keyTyped(KeyEvent e) {}\r\n\r\n            @Override\r\n            public void keyPressed(KeyEvent e) {\r\n                if(e.getKeyCode() == KeyEvent.VK_ENTER){\r\n                    send.doClick();\r\n                }\r\n            }\r\n            @Override\r\n            public void keyReleased(KeyEvent e) {}\r\n        });\r\n        send.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n\r\n                String messageSend = message.getText();\r\n\r\n                protocol time = new protocol();\r\n                //client에 message와 room_id보내기\r\n                client.send_messege(4,room_id, user_id, messageSend,false,null);\r\n                message.setText(\"\");\r\n            }\r\n        });\r\n        fileOption.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                new file_client(null,user_id,null,room_id,null,1,client);\r\n            }\r\n        });\r\n    }\r\n\r\n    public class chatSchema extends JPanel{\r\n\r\n        private String hours;\r\n        private String minutes;\r\n        private String send_user_id;\r\n        private String message;\r\n        private String file_bool;\r\n        private String file_name;\r\n\r\n        private JLabel user;\r\n        private JTextArea text;\r\n        private JLabel time;\r\n\r\n        private JButton file_down;\r\n\r\n        private JButton concave;\r\n        public chatSchema(String hours, String minutes, String send_user_id ,String message, String file_bool, String file_name){\r\n            this.hours = hours;\r\n            this.minutes = minutes;\r\n            this.send_user_id = send_user_id;\r\n            this.message = message;\r\n            this.file_bool = file_bool;\r\n            this.file_name = file_name;\r\n\r\n            setSize(480,50);\r\n            setVisible(true);\r\n\r\n            text = new JTextArea();\r\n\r\n            text.append(message);\r\n            user = new JLabel();\r\n            time = new JLabel();\r\n            String time_message = hours + \":\" + minutes;\r\n            time.setText(time_message);\r\n            setBackground(new Color(186,206,224));\r\n\r\n            JPanel bullon = new JPanel();\r\n            GridBagLayout Gbag = new GridBagLayout();\r\n            bullon.setLayout(Gbag);\r\n            GridBagConstraints gbc = new GridBagConstraints();\r\n            gbc.weightx = 1.0;\r\n            gbc.weighty = 1.0;\r\n            gbc.fill = GridBagConstraints.BOTH;\r\n\r\n            if(user_id.equals(send_user_id)){\r\n                setLayout(new FlowLayout(FlowLayout.RIGHT));\r\n                text.setForeground(new Color(0,0,0));\r\n                text.setBackground(new Color(255,230,0));\r\n\r\n                user.setText(\"나\");\r\n                user.setHorizontalTextPosition(SwingConstants.RIGHT);\r\n\r\n                gbc.gridx = 3;\r\n                gbc.gridy = 0;\r\n                gbc.gridwidth = 1;\r\n                gbc.gridheight = 1;\r\n                gbc.weightx = 0.25;\r\n                gbc.weighty = 0.5;\r\n                bullon.add(user,gbc);\r\n\r\n                gbc.gridx = 1;\r\n                gbc.gridy = 1;\r\n                gbc.gridwidth = 3;\r\n                gbc.gridheight = 1;\r\n                gbc.weightx = 0.75;\r\n                gbc.weighty = 0.5;\r\n\r\n\r\n                if(file_bool.equals(\"true\")){\r\n                    file_down = new JButton(\"file_down\");\r\n                    file_down.addActionListener(new ActionListener() {\r\n                        @Override\r\n                        public void actionPerformed(ActionEvent e) {\r\n                            String a = file_name;\r\n                            a.trim();\r\n                            new file_client(null,send_user_id ,a ,room_id,null,2, client);\r\n                        }\r\n                    });\r\n\r\n                    bullon.add(file_down,gbc);\r\n                }\r\n                else if(message.equals(\"/오목\")){\r\n                    concave = new JButton(\"들어오던가\");\r\n\r\n                    concave.addActionListener(new ActionListener() {\r\n                        @Override\r\n                        public void actionPerformed(ActionEvent e) {\r\n                            GameMain gameMain = new GameMain();\r\n                        }\r\n                    });\r\n\r\n                    bullon.add(concave,gbc);\r\n                }\r\n                else{\r\n                    text.setDisabledTextColor(new Color(0,0,0));\r\n                    text.setLineWrap(true);\r\n                    text.setWrapStyleWord(true);\r\n                    text.setEditable(false);\r\n                    bullon.add(text,gbc);\r\n                }\r\n\r\n                gbc.gridx = 0;\r\n                gbc.gridy = 1;\r\n                gbc.gridwidth = 1;\r\n                gbc.gridheight = 1;\r\n                gbc.weightx = 0.25;\r\n                gbc.weighty = 0.5;\r\n                bullon.add(time,gbc);\r\n            }\r\n            else{\r\n                setLayout(new FlowLayout(FlowLayout.LEFT));\r\n                text.setForeground(new Color(0,0,0));\r\n                text.setBackground(new Color(255, 255, 255));\r\n\r\n                user.setText(send_user_id);\r\n\r\n                gbc.gridx = 0;\r\n                gbc.gridy = 0;\r\n                gbc.gridwidth = 1;\r\n                gbc.gridheight = 1;\r\n                gbc.weightx = 0.25;\r\n                gbc.weighty = 0.5;\r\n                bullon.add(user,gbc);\r\n\r\n                gbc.gridx = 0;\r\n                gbc.gridy = 1;\r\n                gbc.gridwidth = 3;\r\n                gbc.gridheight = 1;\r\n                gbc.weightx = 0.75;\r\n                gbc.weighty = 0.5;\r\n\r\n                if(file_bool.equals(\"true\")){\r\n                    file_down = new JButton(\"file_down\");\r\n                    file_down.addActionListener(new ActionListener() {\r\n                        @Override\r\n                        public void actionPerformed(ActionEvent e) {\r\n                            String a = file_name;\r\n                            a.trim();\r\n                            new file_client(null,send_user_id ,a ,room_id,null,2, client);\r\n                        }\r\n                    });\r\n\r\n                    bullon.add(file_down,gbc);\r\n                }\r\n                else{\r\n                    text.setDisabledTextColor(new Color(0,0,0));\r\n                    text.setLineWrap(true);\r\n                    text.setWrapStyleWord(true);\r\n                    text.setEditable(false);\r\n                    bullon.add(text,gbc);\r\n                }\r\n\r\n                gbc.gridx = 3;\r\n                gbc.gridy = 1;\r\n                gbc.gridwidth = 1;\r\n                gbc.gridheight = 1;\r\n                gbc.weightx = 0.25;\r\n                gbc.weighty = 0.5;\r\n                bullon.add(time,gbc);\r\n            }\r\n\r\n            add(bullon);\r\n\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GUI/chattingRoom.java b/src/GUI/chattingRoom.java
+--- a/src/GUI/chattingRoom.java	(revision f17a31585c393f73aa983a9a905c019e1db785b8)
++++ b/src/GUI/chattingRoom.java	(date 1670917232828)
+@@ -199,7 +199,7 @@
+ 
+         private JButton file_down;
+ 
+-        private JButton concave;
++        private JButton concave1;
+         public chatSchema(String hours, String minutes, String send_user_id ,String message, String file_bool, String file_name){
+             this.hours = hours;
+             this.minutes = minutes;
+@@ -266,16 +266,17 @@
+                     bullon.add(file_down,gbc);
+                 }
+                 else if(message.equals("/오목")){
+-                    concave = new JButton("들어오던가");
++                    concave1 = new JButton("들어오던가");
+ 
+-                    concave.addActionListener(new ActionListener() {
++                    concave1.addActionListener(new ActionListener() {
+                         @Override
+                         public void actionPerformed(ActionEvent e) {
+-                            GameMain gameMain = new GameMain();
++                            Main a = new Main();
++                            a.start();
+                         }
+                     });
+ 
+-                    bullon.add(concave,gbc);
++                    bullon.add(concave1,gbc);
+                 }
+                 else{
+                     text.setDisabledTextColor(new Color(0,0,0));
+@@ -328,6 +329,19 @@
+ 
+                     bullon.add(file_down,gbc);
+                 }
++                else if(message.equals("/오목")){
++                    concave1 = new JButton("들어오던가");
++
++                    concave1.addActionListener(new ActionListener() {
++                        @Override
++                        public void actionPerformed(ActionEvent e) {
++                            Main a = new Main();
++                            a.start();
++                        }
++                    });
++
++                    bullon.add(concave1,gbc);
++                }
+                 else{
+                     text.setDisabledTextColor(new Color(0,0,0));
+                     text.setLineWrap(true);
+Index: src/concave/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package concave;\r\n\r\npublic class Main {\r\n\r\n    public static void main(String args[]) {\r\n\r\n        GameMain gameMain = new GameMain();\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/concave/Main.java b/src/concave/Main.java
+--- a/src/concave/Main.java	(revision f17a31585c393f73aa983a9a905c019e1db785b8)
++++ b/src/concave/Main.java	(date 1670917176336)
+@@ -1,11 +1,11 @@
+ package concave;
+ 
+-public class Main {
++public class Main extends Thread{
+ 
+-    public static void main(String args[]) {
++    public Main() {}
+ 
+-        GameMain gameMain = new GameMain();
+-
++    public void run(){
++        new GameMain();
+     }
+ 
+ }
+Index: chatting_data/5f9e2cccb733268500bed70b93889038.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/chatting_data/5f9e2cccb733268500bed70b93889038.txt b/chatting_data/5f9e2cccb733268500bed70b93889038.txt
+--- a/chatting_data/5f9e2cccb733268500bed70b93889038.txt	(revision f17a31585c393f73aa983a9a905c019e1db785b8)
++++ b/chatting_data/5f9e2cccb733268500bed70b93889038.txt	(date 1670917348593)
+@@ -1,0 +1,20 @@
++20221213164053:1:/오목:false:null:
++20221213164205:1:ㅋㅋ:false:null:
++20221213164213:1:이 공백 뭐야:false:null:
++20221213164215:1:뭐야:false:null:
++20221213164218:1:진짜 뭐임?:false:null:
++20221213164221:1:ㅋㅋ:false:null:
++20221213164222:1:ㅋㅋ:false:null:
++20221213164223:1:ㅋ:false:null:
++20221213164223:1:ㅋ:false:null:
++20221213164224:1:ㅋ:false:null:
++20221213164224:1:ㅋ:false:null:
++20221213164224:1:ㅋ:false:null:
++20221213164225:1:ㅋ:false:null:
++20221213164225:1:ㅋ:false:null:
++20221213164225:1:ㅋ:false:null:
++20221213164225:1:ㅋ:false:null:
++20221213164225:1:ㅋ:false:null:
++20221213164226:1:ㅋ:false:null:
++20221213164226:1:ㅋ:false:null:
++20221213164228:1:ㅋㅋㅋㅋㅋㅋㅋ:false:null:
+Index: chatting_data/db8c97f97410e31b0c12015e898b04e1.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/chatting_data/db8c97f97410e31b0c12015e898b04e1.txt b/chatting_data/db8c97f97410e31b0c12015e898b04e1.txt
+--- a/chatting_data/db8c97f97410e31b0c12015e898b04e1.txt	(revision f17a31585c393f73aa983a9a905c019e1db785b8)
++++ b/chatting_data/db8c97f97410e31b0c12015e898b04e1.txt	(date 1670917394450)
+@@ -1,0 +1,19 @@
++20221213164303:1:da:false:null:
++20221213164304:1:ㅇㅁ:false:null:
++20221213164306:1:ㅇㅁㅇ:false:null:
++20221213164307:1:ㅇㅁ:false:null:
++20221213164307:1:ㅇㅁ:false:null:
++20221213164308:1:ㅇㅁ:false:null:
++20221213164309:1:ㅇㅁ:false:null:
++20221213164309:1:ㅇㅁ:false:null:
++20221213164310:1:ㅇㅁ:false:null:
++20221213164310:1:ㅇㅁ:false:null:
++20221213164311:1:ㅇㅁ:false:null:
++20221213164311:1:ㅇㅁ:false:null:
++20221213164312:1:ㅇㅁ:false:null:
++20221213164312:1:ㅇㅁ:false:null:
++20221213164312:1:ㅇㅁ:false:null:
++20221213164313:1:ㅇㅁ:false:null:
++20221213164313:1:ㅇㅁ:false:null:
++20221213164313:1:ㅇㅁ:false:null:
++20221213164314:1:ㅇㅁ:false:null:
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"1c437c3d-3b45-414f-929f-611a89f11dfc\" name=\"Changes\" comment=\"코인데이터 화면 form수정\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/2022-12-12__12_09_________Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/2022-12-12__12_09_________Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/2022-12-12__12_15_________Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/2022-12-12__12_15_________Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_12_11_7_36_PM__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_12_11_7_36_PM__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_12_11_7_18_PM__Changes_.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_12_11_7_18_PM__Changes_.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"package.json\" />\r\n        <option value=\"JavaScript File\" />\r\n        <option value=\"TypeScript File\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2IfO58fuPxWEStm5oHW96ICiDx1\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Downloaded.Files.Path.Enabled\": \"false\",\r\n    \"Repository.Attach.Annotations\": \"false\",\r\n    \"Repository.Attach.JavaDocs\": \"false\",\r\n    \"Repository.Attach.Sources\": \"false\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"last_opened_file_path\": \"C:/Users/hyeonwoo/IdeaProjects/KakaoTalk/src/concave\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"project.structure.last.edited\": \"Libraries\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.2\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateClassDialog.RecentsKey\">\r\n      <recent name=\"public_data\" />\r\n    </key>\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\hyeonwoo\\IdeaProjects\\KakaoTalk\\src\\concave\" />\r\n      <recent name=\"$PROJECT_DIR$\" />\r\n      <recent name=\"$PROJECT_DIR$/src/function\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\hyeonwoo\\IdeaProjects\\KakaoTalk\\src\\concave\" />\r\n      <recent name=\"C:\\Users\\Administrator\\IdeaProjects\\KakaoTalk\\src\\IMG\" />\r\n      <recent name=\"$PROJECT_DIR$/src/IMG\" />\r\n      <recent name=\"$PROJECT_DIR$/src/public_data\" />\r\n      <recent name=\"$PROJECT_DIR$/openAPI\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.concave.Main\">\r\n    <configuration name=\"GameMain\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"concave.GameMain\" />\r\n      <module name=\"KakaoTalk\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"concave.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"KakaoTalk\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"concave.Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"concave.Main\" />\r\n      <module name=\"KakaoTalk\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"concave.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"stockData\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"GUI.stockData\" />\r\n      <module name=\"KakaoTalk\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"GUI.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"test\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"public_data.test\" />\r\n      <module name=\"KakaoTalk\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"public_data.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"test1\" type=\"Application\" factoryName=\"Application\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"public_data.test1\" />\r\n      <module name=\"KakaoTalk\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"public_data.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.concave.Main\" />\r\n        <item itemvalue=\"Application.GameMain\" />\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"1c437c3d-3b45-414f-929f-611a89f11dfc\" name=\"Changes\" comment=\"\" />\r\n      <created>1670568984234</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1670568984234</updated>\r\n      <workItem from=\"1670568985270\" duration=\"3887000\" />\r\n      <workItem from=\"1670573800337\" duration=\"2100000\" />\r\n      <workItem from=\"1670576190090\" duration=\"16798000\" />\r\n      <workItem from=\"1670595604778\" duration=\"3974000\" />\r\n      <workItem from=\"1670725355073\" duration=\"76000\" />\r\n      <workItem from=\"1670725433516\" duration=\"409000\" />\r\n      <workItem from=\"1670746283535\" duration=\"3786000\" />\r\n      <workItem from=\"1670770269623\" duration=\"884000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"test1\">\r\n      <created>1670570617039</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670570617039</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"코인 정보 불러오기 upbit api\">\r\n      <created>1670586737097</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670586737097</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"코인 정보 불러오기 upbit api, getCoinData\">\r\n      <created>1670588549263</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670588549263</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"코인 변동률 0.0일때 발생하는 오류 해결\">\r\n      <created>1670747239162</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670747239162</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"코인 이미지 오류 수정\">\r\n      <created>1670751669485</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670751669485</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"6\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"test1\" />\r\n    <MESSAGE value=\"코인 정보 불러오기 upbit api\" />\r\n    <MESSAGE value=\"코인 정보 불러오기 upbit api, getCoinData\" />\r\n    <MESSAGE value=\"코인 변동률 0.0일때 발생하는 오류 해결\" />\r\n    <MESSAGE value=\"코인 이미지 오류 수정\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"코인 이미지 오류 수정\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/KakaoTalk$Main.ic\" NAME=\"Main Coverage Results\" MODIFIED=\"1670747029056\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision f17a31585c393f73aa983a9a905c019e1db785b8)
++++ b/.idea/workspace.xml	(date 1670917176389)
+@@ -4,12 +4,12 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="코인데이터 화면 form수정">
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_09_________Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_09_________Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_15_________Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_15_________Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_12_11_7_36_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_12_11_7_36_PM__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_12_11_7_18_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_12_11_7_18_PM__Changes_.xml" afterDir="false" />
++    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="채팅 완성">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/chatting_data/07e02a7874d1cb4f8d85ed18b5dfc01c.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/07e02a7874d1cb4f8d85ed18b5dfc01c.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/GUI/chattingRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chattingRoom.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/chatting/protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting/protocol.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/concave/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/concave/Main.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -54,7 +54,7 @@
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+     "WebServerToolWindowFactoryState": "false",
+-    "last_opened_file_path": "C:/Users/hyeonwoo/IdeaProjects/KakaoTalk/src/concave",
++    "last_opened_file_path": "C:/Users/white/IdeaProjects/KakaoTalk",
+     "node.js.detected.package.eslint": "true",
+     "node.js.detected.package.tslint": "true",
+     "node.js.selected.package.eslint": "(autodetect)",
+@@ -82,7 +82,7 @@
+       <recent name="$PROJECT_DIR$/openAPI" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Application.concave.Main">
++  <component name="RunManager" selected="애플리케이션.Main">
+     <configuration name="GameMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="concave.GameMain" />
+       <module name="KakaoTalk" />
+@@ -157,9 +157,8 @@
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="Application.concave.Main" />
+-        <item itemvalue="Application.GameMain" />
+-        <item itemvalue="Application.Main" />
++        <item itemvalue="애플리케이션.Main" />
++        <item itemvalue="애플리케이션.concave.Main" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -179,6 +178,7 @@
+       <workItem from="1670725433516" duration="409000" />
+       <workItem from="1670746283535" duration="3786000" />
+       <workItem from="1670770269623" duration="884000" />
++      <workItem from="1670911933373" duration="2022000" />
+     </task>
+     <task id="LOCAL-00001" summary="test1">
+       <created>1670570617039</created>
+@@ -241,6 +241,6 @@
+     <option name="LAST_COMMIT_MESSAGE" value="코인 이미지 오류 수정" />
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+-    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main Coverage Results" MODIFIED="1670747029056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
++    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main 커버리지 결과" MODIFIED="1670746914059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+   </component>
+ </project>
+\ No newline at end of file
