@@ -43,11 +43,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> origin/uijin
 =======
 >>>>>>> origin/uijin
+=======
+>>>>>>> 759f5248608998697c89508edfa3ebf4ef49bf81
 20221212214658:whitekuj02:g:false:null:
 20221212214658:taewan2002:sex:false:null:
 20221212214659:taewan2002:sex:false:null:
@@ -126,8 +129,11 @@
 20221212215725:whitekuj02:안녕:false:null:
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> origin/uijin
 =======
 >>>>>>> origin/uijin
 =======
 >>>>>>> origin/uijin
+=======
+>>>>>>> 759f5248608998697c89508edfa3ebf4ef49bf81

@@ -251,6 +251,7 @@ public class chattingRoom extends JFrame {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> origin/uijin
@@ -260,6 +261,9 @@ public class chattingRoom extends JFrame {
 =======
 
 >>>>>>> origin/uijin
+=======
+
+>>>>>>> 759f5248608998697c89508edfa3ebf4ef49bf81
                 if(file_bool.equals("true")){
                     file_down = new JButton("file_down");
                     file_down.addActionListener(new ActionListener() {
@@ -277,23 +281,29 @@ public class chattingRoom extends JFrame {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     text.setForeground(new Color(0,0,0));
 =======
 =======
 >>>>>>> origin/uijin
 =======
 >>>>>>> origin/uijin
+=======
+>>>>>>> 759f5248608998697c89508edfa3ebf4ef49bf81
                     text.setDisabledTextColor(new Color(0,0,0));
                     text.setLineWrap(true);
                     text.setWrapStyleWord(true);
                     text.setEditable(false);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> origin/uijin
 =======
 >>>>>>> origin/uijin
 =======
 >>>>>>> origin/uijin
+=======
+>>>>>>> 759f5248608998697c89508edfa3ebf4ef49bf81
                     bullon.add(text,gbc);
 
                     text.setEnabled(false);
@@ -345,23 +355,29 @@ public class chattingRoom extends JFrame {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     text.setForeground(new Color(0,0,0));
 =======
 =======
 >>>>>>> origin/uijin
 =======
 >>>>>>> origin/uijin
+=======
+>>>>>>> 759f5248608998697c89508edfa3ebf4ef49bf81
                     text.setDisabledTextColor(new Color(0,0,0));
                     text.setLineWrap(true);
                     text.setWrapStyleWord(true);
                     text.setEditable(false);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> origin/uijin
 =======
 >>>>>>> origin/uijin
 =======
 >>>>>>> origin/uijin
+=======
+>>>>>>> 759f5248608998697c89508edfa3ebf4ef49bf81
                     bullon.add(text,gbc);
 
                     text.setEnabled(false);
