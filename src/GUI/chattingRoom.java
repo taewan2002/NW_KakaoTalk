@@ -250,6 +250,10 @@ public class chattingRoom extends JFrame {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/uijin
 =======
 
 >>>>>>> origin/uijin
@@ -272,8 +276,11 @@ public class chattingRoom extends JFrame {
                 else{
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     text.setForeground(new Color(0,0,0));
 =======
+=======
+>>>>>>> origin/uijin
 =======
 >>>>>>> origin/uijin
                     text.setDisabledTextColor(new Color(0,0,0));
@@ -281,6 +288,9 @@ public class chattingRoom extends JFrame {
                     text.setWrapStyleWord(true);
                     text.setEditable(false);
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> origin/uijin
+=======
 >>>>>>> origin/uijin
 =======
 >>>>>>> origin/uijin
@@ -334,8 +344,11 @@ public class chattingRoom extends JFrame {
                 else{
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     text.setForeground(new Color(0,0,0));
 =======
+=======
+>>>>>>> origin/uijin
 =======
 >>>>>>> origin/uijin
                     text.setDisabledTextColor(new Color(0,0,0));
@@ -343,6 +356,9 @@ public class chattingRoom extends JFrame {
                     text.setWrapStyleWord(true);
                     text.setEditable(false);
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> origin/uijin
+=======
 >>>>>>> origin/uijin
 =======
 >>>>>>> origin/uijin

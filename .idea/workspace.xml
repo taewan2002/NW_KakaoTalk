@@ -6,10 +6,13 @@
   <component name="ChangeListManager">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="채팅 완성">
       <change beforePath="$PROJECT_DIR$/src/GUI/chats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chats.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/more.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/more.form" afterDir="false" />
 =======
+=======
+>>>>>>> origin/uijin
 =======
 >>>>>>> origin/uijin
     <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="chatting 폰트 수정">
@@ -22,6 +25,9 @@
       <change beforePath="$PROJECT_DIR$/src/GUI/invite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/invite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/login.java" afterDir="false" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> origin/uijin
+=======
 >>>>>>> origin/uijin
 =======
 >>>>>>> origin/uijin
@@ -47,7 +53,11 @@
       <map>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <entry key="$PROJECT_DIR$" value="hw" />
+=======
+        <entry key="$PROJECT_DIR$" value="uijin" />
+>>>>>>> origin/uijin
 =======
         <entry key="$PROJECT_DIR$" value="uijin" />
 >>>>>>> origin/uijin
@@ -67,6 +77,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   <component name="PropertiesComponent">{
@@ -91,6 +102,8 @@
 =======
 =======
 >>>>>>> origin/uijin
+=======
+>>>>>>> origin/uijin
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Downloaded.Files.Path.Enabled": "false",
@@ -113,6 +126,9 @@
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> origin/uijin
+=======
 >>>>>>> origin/uijin
 =======
 >>>>>>> origin/uijin
@@ -224,6 +240,10 @@
       <workItem from="1670770269623" duration="884000" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+      <workItem from="1670855180833" duration="75000" />
+>>>>>>> origin/uijin
 =======
       <workItem from="1670855180833" duration="75000" />
 >>>>>>> origin/uijin
@@ -329,6 +349,9 @@
     <MESSAGE value="chatting 폰트 수정" />
     <option name="LAST_COMMIT_MESSAGE" value="chatting 폰트 수정" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> origin/uijin
+=======
 >>>>>>> origin/uijin
 =======
 >>>>>>> origin/uijin
