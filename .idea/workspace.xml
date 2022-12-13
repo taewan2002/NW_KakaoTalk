@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="채팅 완성">
-      <change beforePath="$PROJECT_DIR$/src/GUI/chattingRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chattingRoom.java" afterDir="false" />
+    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="코인데이터 화면 form수정">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IMG/chattingButtonIconActive.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMG/chattingButtonIconActive.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IMG/chattingButtonIconNoActive.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMG/chattingButtonIconNoActive.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IMG/friendButtonIconActive.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMG/friendButtonIconActive.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/IMG/friendButtonIconNoActive.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMG/friendButtonIconNoActive.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public_data/getCoinData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/public_data/getCoinData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public_data/setCoinData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/public_data/setCoinData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +56,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/white/IdeaProjects/KakaoTalk&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/taewan/IdeaProjects/KakaoTalk&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -76,7 +82,7 @@
       <recent name="$PROJECT_DIR$/openAPI" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.Main">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="ApiTestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="public_data.ApiTestApplication" />
       <module name="KakaoTalk" />
@@ -145,7 +151,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="애플리케이션.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -165,7 +171,6 @@
       <workItem from="1670725433516" duration="409000" />
       <workItem from="1670746283535" duration="3786000" />
       <workItem from="1670770269623" duration="884000" />
-      <workItem from="1670844633834" duration="3904000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1670570617039</created>
@@ -202,42 +207,7 @@
       <option name="project" value="LOCAL" />
       <updated>1670751669485</updated>
     </task>
-    <task id="LOCAL-00006" summary="코인데이터 화면 form수정">
-      <created>1670823504458</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1670823504458</updated>
-    </task>
-    <task id="LOCAL-00007" summary="코인데이터 화면 form수정">
-      <created>1670827331022</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1670827331022</updated>
-    </task>
-    <task id="LOCAL-00008" summary="아따 막막하노">
-      <created>1670839199597</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1670839199597</updated>
-    </task>
-    <task id="LOCAL-00009" summary="아따 막막하노">
-      <created>1670839266554</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1670839266554</updated>
-    </task>
-    <task id="LOCAL-00010" summary="채팅 완성">
-      <created>1670848231959</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1670848231959</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,12 +230,9 @@
     <MESSAGE value="코인 정보 불러오기 upbit api, getCoinData" />
     <MESSAGE value="코인 변동률 0.0일때 발생하는 오류 해결" />
     <MESSAGE value="코인 이미지 오류 수정" />
-    <MESSAGE value="코인데이터 화면 form수정" />
-    <MESSAGE value="아따 막막하노" />
-    <MESSAGE value="채팅 완성" />
-    <option name="LAST_COMMIT_MESSAGE" value="채팅 완성" />
+    <option name="LAST_COMMIT_MESSAGE" value="코인 이미지 오류 수정" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main 커버리지 결과" MODIFIED="1670746914059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main Coverage Results" MODIFIED="1670747029056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
