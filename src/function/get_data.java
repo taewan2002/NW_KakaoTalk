@@ -362,7 +362,7 @@ public class get_data{
                 }
             }
             else if (typeofrequest == 55) {
-                // 비밀번호 변경을 위한 확인
+                // 탈퇴하기
                 protocol p = new protocol(typeofrequest, user_id);
                 request(p);
                 this.ois = new ObjectInputStream(is);

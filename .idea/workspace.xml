@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="친구 목록 불러오기 성공!!">
-      <change afterPath="$PROJECT_DIR$/src/GUI/inviteRoom.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GUI/inviteRoom.java" afterDir="false" />
+    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="초대하기 기능 추가 폼 제작 아직 못함 의진아 도와줘 ㅎㅎ">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatting_data/07e02a7874d1cb4f8d85ed18b5dfc01c.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/07e02a7874d1cb4f8d85ed18b5dfc01c.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatting_data/0bdaea1839c50afcf54e789683de7ac8.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/0bdaea1839c50afcf54e789683de7ac8.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatting_data/6c3884003ef0740937a777d76f61333c.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/6c3884003ef0740937a777d76f61333c.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatting_data/7e664055fc0e1e2e132e46425efdb540.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/7e664055fc0e1e2e132e46425efdb540.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatting_data/bf670592566ade9323bdae1a256ccaa7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/bf670592566ade9323bdae1a256ccaa7.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/chats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/more.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/more.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/function/get_data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/function/get_data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public_data/setCoinData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/public_data/setCoinData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +31,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -62,6 +52,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "24",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "223",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "/Users/taewan/IdeaProjects/KakaoTalk/src/GUI",
     "node.js.detected.package.eslint": "true",
@@ -182,7 +173,7 @@
       <workItem from="1670746283535" duration="3786000" />
       <workItem from="1670770269623" duration="884000" />
       <workItem from="1670855180833" duration="75000" />
-      <workItem from="1670935614248" duration="3584000" />
+      <workItem from="1670935614248" duration="4101000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1670570617039</created>
@@ -275,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670915319829</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="초대하기 기능 추가 폼 제작 아직 못함 의진아 도와줘 ㅎㅎ">
+      <created>1670939837877</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1670939837877</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,7 +302,8 @@
     <MESSAGE value="비밀번호 변경, 아이디 찾기 프로토콜 제작 및 구현" />
     <MESSAGE value="친구 추가 함수 추가" />
     <MESSAGE value="친구 목록 불러오기 성공!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="친구 목록 불러오기 성공!!" />
+    <MESSAGE value="초대하기 기능 추가 폼 제작 아직 못함 의진아 도와줘 ㅎㅎ" />
+    <option name="LAST_COMMIT_MESSAGE" value="초대하기 기능 추가 폼 제작 아직 못함 의진아 도와줘 ㅎㅎ" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main Coverage Results" MODIFIED="1670747029056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
