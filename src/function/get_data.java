@@ -50,37 +50,38 @@ public class get_data{
     private String name;
     private String phoneNum;
     private String email;
+    private boolean tf;
+    private String password;
 
-
+    public void setType7(String user_id, String roomnumber){
+        // 방 참여자 목록 불러오기
+        this.user_id = user_id;
+        this.roomnumber = roomnumber;
+        this.typeofrequest = 7;
+    }
     public void setType8(String name, String phoneNum){
+        // 아이디 찾기
         this.typeofrequest = 8;
         this.name = name;
         this.phoneNum = phoneNum;
     }
-    public void setType49(int typeofrequest, String user_id, String feed_id){
-        this.typeofrequest = typeofrequest;
-        this.user_id = user_id;
-        this.feed_id = feed_id;
+    public void setType9(String email, String name, String phone){
+        this.typeofrequest = 9;
+        this.email = email;
+        this.name = name;
+        this.phoneNum = phone;
     }
-    public void setType50(int typeofrequest, String user_id, String feed_id){
-        this.typeofrequest = typeofrequest;
+    public void setType10(String user_id, String password){
+        this.typeofrequest = 10;
         this.user_id = user_id;
-        this.feed_id = feed_id;
-    }
-    public void setType9(int typeofrequset, String user_id, String id){
-        this.typeofrequest = typeofrequset;
-        this.user_id = user_id;
-        this.id = id;
-    }
-    public void setType10(int typeofrequest, String user_id){
-        this.typeofrequest = typeofrequest;
-        this.user_id = user_id;
+        this.password = new md5().encMD5(password);
     }
     public void setType11(int typeofrequest, String user_id){
         this.typeofrequest = typeofrequest;
         this.user_id = user_id;
     }
     public void setType12(int typeofrequest, String user_id, String roomnumber){
+
         this.typeofrequest = typeofrequest;
         this.user_id = user_id;
         this.roomnumber = roomnumber;
@@ -97,25 +98,23 @@ public class get_data{
         this.typeofrequest = typeofrequest;
         this.user_id = user_id;
     }
-    public void setType18(int typeofrequest, String feed_id) {
-        this.typeofrequest = typeofrequest;
-        this.feed_id = feed_id;
-    }
     public void setType16(int typeofrequest, String user_id) {
         this.typeofrequest = typeofrequest;
         this.user_id = user_id;
-    }
-    public void setType21(int typeofrequest, String post_id) {
-        this.typeofrequest = typeofrequest;
-        this.post_id = post_id;
     }
     public void setType22(int typeofrequest, String user_id) {
         this.typeofrequest = typeofrequest;
         this.user_id = user_id;
     }
-    public void setType23(int typeofrequest, String feed_id) {
-        this.typeofrequest = typeofrequest;
-        this.feed_id = feed_id;
+    public void setType50(String user_id){
+        // 온라인 유저 목록 불러오기
+        this.typeofrequest = 50;
+        this.user_id = user_id;
+    }
+    public void setType51(String user_id){
+        // 내 정보 불러오기
+        this.typeofrequest = 51;
+        this.user_id = user_id;
     }
     public void request(protocol content){
         try{
@@ -135,6 +134,12 @@ public class get_data{
     }
     public ArrayList<String> getAllUserList() {
         return allUserList;
+    }
+    public boolean getTf(){
+        return tf;
+    }
+    public String getPassword(){
+        return password;
     }
     public int getFollowNum() {
         System.out.println(" followNum : " + followNum);
@@ -162,7 +167,7 @@ public class get_data{
     public ArrayList<String> getTag_list(){
         return Tag_list;
     }
-    public ArrayList<String> getfeed_list(){
+    public ArrayList<String> getList(){
         return list;
     }
     public String getFeed_id(){return feed_id;}
@@ -175,7 +180,7 @@ public class get_data{
     public void start(){
         try{
             Socket socket = new Socket(host,port);
-            System.out.println("port : " + port + ", host : " + host + "로 데이터 요청 시도");
+            System.out.println("host : " + host + ", port : " + port + "로 데이터 요청 시도");
             System.out.println("서버 연결 성공");
             this.is = socket.getInputStream();
             this.os = socket.getOutputStream();
@@ -197,16 +202,52 @@ public class get_data{
                 protocol p = new protocol(typeofrequest, name, phoneNum);
                 request(p);
                 this.ois = new ObjectInputStream(is);
+                while (true) {
+                    try {
+                        protocol t = (protocol) ois.readObject();
+                        if (t.getTypeofrequest() == 8) {
+                            email = t.getEmail();
+                            break;
+                        }
+                    } catch (Exception e) {
+                        e.getStackTrace();
+                        break;
+                    }
+                }
+            } else if (typeofrequest == 9) {
+                // 비밀번호 변경을 위한 확인
+                protocol p = new protocol(typeofrequest, email, name, phoneNum);
+                request(p);
+                this.ois = new ObjectInputStream(is);
                 while(true){
                     try{
                         protocol t = (protocol) ois.readObject();
-                        if(t.getTypeofrequest() == 8){
-                            email = t.getEmail();
+                        if(t.getTypeofrequest() == 9){
+                            tf = t.getTf();
                             break;
                         }
                     }
                     catch(Exception e){
-                        System.out.println(e);
+                        e.getStackTrace();
+                        break;
+                    }
+                }
+            }else if (typeofrequest == 10) {
+                // 비밀번호 변경을 위한 확인
+                protocol p = new protocol(typeofrequest, user_id, password);
+                request(p);
+                this.ois = new ObjectInputStream(is);
+                while(true){
+                    try{
+                        protocol t = (protocol) ois.readObject();
+                        if(t.getTypeofrequest() == 10){
+                            tf = t.getTf();
+                            break;
+                        }
+                    }
+                    catch(Exception e){
+                        e.getStackTrace();
+                        break;
                     }
                 }
             } else if(typeofrequest == 49){
@@ -222,40 +263,48 @@ public class get_data{
                         }
                     }
                     catch(Exception e){
-                        System.out.println(e);
+                        e.getStackTrace();
+                        break;
                     }
                 }
             }
             else if(typeofrequest == 50){
-                protocol p = new protocol(typeofrequest, user_id, feed_id);
+                protocol p = new protocol(typeofrequest, user_id, list);
                 request(p);
                 this.ois = new ObjectInputStream(is);
                 while(true){
                     try{
+                        // 온라인 유저 목록 요청
                         protocol t = (protocol) ois.readObject();
                         if(t.getTypeofrequest() == 50){
+                            list = t.getList();
                             break;
                         }
                     }
                     catch(Exception e){
-                        System.out.println(e);
+                        e.getStackTrace();
+                        break;
                     }
                 }
             }
-            else if (typeofrequest == 9){
-                protocol p = new protocol(typeofrequest, user_id,id);
+            else if(typeofrequest == 51){
+                protocol p = new protocol(typeofrequest, user_id);
                 request(p);
                 this.ois = new ObjectInputStream(is);
                 while(true){
                     try{
+                        // 온라인 유저 목록 요청
                         protocol t = (protocol) ois.readObject();
-                        if(t.getTypeofrequest() == 9){
-                            // this.follow_yes_or_no = t.getFollow();
+                        if(t.getTypeofrequest() == 51){
+                            email = t.getEmail();
+                            name = t.getName();
+                            phoneNum = t.getPhoneNum();
                             break;
                         }
                     }
                     catch(Exception e){
-                        System.out.println(e);
+                        e.getStackTrace();
+                        break;
                     }
                 }
             }
@@ -272,7 +321,8 @@ public class get_data{
                         }
                     }
                     catch(Exception e){
-                        System.out.println(e);
+                        e.getStackTrace();
+                        break;
                     }
                 }
             }
@@ -289,7 +339,8 @@ public class get_data{
                             break;
                         }
                     } catch (Exception e) {
-                        System.out.println(e);
+                        e.getStackTrace();
+                        break;
                     }
                 }
             }
@@ -306,7 +357,8 @@ public class get_data{
                         }
                     }
                     catch(Exception e){
-                        System.out.println(e);
+                        e.getStackTrace();
+                        break;
                     }
                 }
             }
@@ -323,7 +375,8 @@ public class get_data{
                         }
                     }
                     catch(Exception e){
-                        System.out.println(e);
+                        e.getStackTrace();
+                        break;
                     }
                 }
             }
@@ -339,7 +392,8 @@ public class get_data{
                             break;
                         }
                     } catch (Exception e) {
-                        System.out.println(e);
+                        e.getStackTrace();
+                        break;
                     }
                 }
             }
@@ -364,7 +418,8 @@ public class get_data{
                         }
                     }
                     catch(Exception e){
-                        System.out.println(e);
+                        e.getStackTrace();
+                        break;
                     }
                 }
             }
@@ -381,7 +436,8 @@ public class get_data{
                         }
                     }
                     catch(Exception e){
-                        System.out.println(e);
+                        e.getStackTrace();
+                        break;
                     }
                 }
             }
@@ -398,7 +454,8 @@ public class get_data{
                         }
                     }
                     catch(Exception e){
-                        System.out.println(e);
+                        e.getStackTrace();
+                        break;
                     }
                 }
             }
@@ -416,7 +473,8 @@ public class get_data{
                         }
                     }
                     catch(Exception e){
-                        System.out.println(e);
+                        e.getStackTrace();
+                        break;
                     }
                 }
             }
@@ -433,7 +491,8 @@ public class get_data{
                         }
                     }
                     catch(Exception e){
-                        System.out.println(e);
+                        e.getStackTrace();
+                        break;
                     }
                 }
             }
@@ -450,10 +509,15 @@ public class get_data{
                         }
                     }
                     catch(Exception e){
-                        System.out.println(e);
+                        e.getStackTrace();
+                        break;
                     }
                 }
             }
+            else{
+                System.out.println("잘못된 요청입니다.");
+            }
+
 
             is.close();
             os.close();
@@ -469,6 +533,7 @@ public class get_data{
             System.out.println("서버 연결 종료");
         }catch (Exception e){
             e.printStackTrace();
+
         }
     }
 }

@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class more extends JFrame {
+    private JPanel main;
     private String user_id;
     private chatting_client client;
     private ListeningThread t1;

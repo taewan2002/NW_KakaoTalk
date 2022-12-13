@@ -21,6 +21,7 @@ public class protocol implements Serializable {
     private String email;
     private String phone;
     private String name;
+    private boolean tf;
     public protocol(){}
 
     // 요청 프로토콜
@@ -32,12 +33,17 @@ public class protocol implements Serializable {
     // 방 목록 요청 type = 6
     // 방 참여자 목록 요청 type = 7
     // 아이디찾기 type = 8
-    // 비밀번호 변경하기 위한 확인 type = 9
-    // 비밀번호 변경 type = 10
-    // 내정보 요청 type = 11
+    // 비밀번호 변경하기 위한 확인 type = 9 -> 여긴 똑같아
+    // 비밀번호 변경 type = 10 -> 여긴 똑같아
+    // 로그인 여부 확인 type = 50
+    // 내정보 요청 type = 51
+    // 친구 추가 type = 52
+    // 친구 삭제 type = 53
+    // 친구 목록 요청 type = 54
+    // 탈퇴하기 type = 55
 
 
-    // 방 생성 1
+    // 방 생성 1, 로그인 여부 확인 50, 친구추가 16
     public protocol(int typeofrequest, String sender, ArrayList<String> list){
         this.sender = sender;
         this.typeofrequest = typeofrequest;
@@ -52,7 +58,7 @@ public class protocol implements Serializable {
         this.list = list;
     }
 
-    // 방에서 나가기 3, 방 참여자 목록 불러오기 7, 아이디 찾기 8
+    // 방에서 나가기 3, 방 참여자 목록 불러오기 7, 아이디 찾기 8, 비밀번호 변경
     public protocol(int a, String b, String c){
         this.typeofrequest = a;
         this.sender = b;
@@ -60,6 +66,7 @@ public class protocol implements Serializable {
         this.phone = c;
         this.name = b;
         this.email = c;
+        this.password = c;
     }
 
     // 체팅 보내기 4
@@ -73,19 +80,22 @@ public class protocol implements Serializable {
         this.file_name = file_name;
     }
 
-    // 로그아웃 5, 자신이 속한 방 목록 불러오기 6, 비밀번호 변경 10, 내정보 요청 11
+    // 로그아웃 5, 자신이 속한 방 목록 불러오기 6, 내정보 요청 51, 탈퇴하기 55, 친구 목록 불러오기 54
     public protocol(int typeofrequest, String tmp) {
         this.typeofrequest = typeofrequest;
         this.sender = tmp;
-        this.password = tmp;
     }
 
     // 비밀번호 변경하기 위한 확인 9
-    public protocol(int typeofrequest, String id, String email, String phone) {
+    public protocol(int typeofrequest, String email, String name, String phone) {
         this.typeofrequest = typeofrequest;
-        this.id = id;
         this.email = email;
+        this.name = name;
         this.phone = phone;
+    }
+    public protocol(int typeofrequest, boolean tf){
+        this.typeofrequest = typeofrequest;
+        this.tf = tf;
     }
 
     //make getter function
@@ -116,7 +126,7 @@ public class protocol implements Serializable {
     public String getEmail() {
         return email;
     }
-    public String getPhone() {
+    public String getPhoneNum() {
         return phone;
     }
     public String getName(){
@@ -128,6 +138,7 @@ public class protocol implements Serializable {
     public String getPassword() {
         return password;
     }
+    public boolean getTf(){return tf;}
 
     //make setter function
     public void setTime() {

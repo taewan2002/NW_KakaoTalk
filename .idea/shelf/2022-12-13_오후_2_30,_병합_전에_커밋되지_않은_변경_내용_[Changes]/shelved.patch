@@ -1,0 +1,684 @@
+Index: src/GUI/chattingRoom.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package GUI;\r\n\r\nimport chatting.protocol;\r\nimport chatting_function.ListeningThread;\r\nimport chatting_function.chatting_client;\r\nimport chatting_function.file_client;\r\nimport chatting_function.imgchoose;\r\nimport function.ImgSetSize;\r\nimport function.cache_download;\r\nimport public_data.getCoinData;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport java.awt.event.KeyEvent;\r\nimport java.awt.event.KeyListener;\r\nimport java.io.BufferedInputStream;\r\nimport java.io.FileInputStream;\r\nimport java.io.IOException;\r\nimport java.nio.charset.StandardCharsets;\r\n\r\n\r\npublic class chattingRoom extends JFrame {\r\n    private String user_id;\r\n    private chatting_client client;\r\n    private ListeningThread t1;\r\n    private JTextField message;\r\n    private JButton send;\r\n    private JButton fileOption;\r\n    private JScrollPane chatPanel;\r\n    private JPanel chat;\r\n    private JPanel main;\r\n    private String room_id;\r\n\r\n    boolean running = true;\r\n    BufferedInputStream reader = null;\r\n\r\n    private class read extends Thread{\r\n        private GridBagConstraints gbc;\r\n        private JScrollPane chatPanel_thread;\r\n\r\n        public read(GridBagConstraints gbc, JScrollPane chatPanel){\r\n            this.gbc = gbc;\r\n            this.chatPanel_thread = chatPanel;\r\n        }\r\n        public void run() {\r\n            int i=0;\r\n            int k=0;\r\n            boolean t = false;\r\n            byte[] b = new byte[100000];\r\n            while (running) {\r\n                try {\r\n                    if (reader.available() > 0) {\r\n                        byte tmp = (byte)reader.read();\r\n                        if(tmp==13 || tmp==10){\r\n                            String s = new String(b, StandardCharsets.UTF_8);\r\n                            s=s.substring(0,i);\r\n                            System.out.println(s);\r\n                            String w[] = s.split(\":\");\r\n\r\n                            //w[0] (8,10): hours\r\n                            //w[0] (10,12): minutes\r\n                            //w[1]: user\r\n                            //w[2]: message\r\n                            //w[3]: file boolean\r\n                            //w[4]: file name\r\n                            // System.out.println(k);\r\n                            chatSchema pane = new chatSchema(w[0].substring(8,10),w[0].substring(10,12),w[1],w[2],w[3],w[4]);\r\n                            gbc.fill = GridBagConstraints.BOTH;\r\n                            gbc.gridx = 0;\r\n                            gbc.gridy = k;\r\n                            gbc.gridwidth = 1;\r\n                            gbc.gridheight = 1;\r\n\r\n                            chat.add(pane, gbc);\r\n                            chat.updateUI();\r\n                            chat.setVisible(true);\r\n                            k++;\r\n\r\n\r\n                            b = new byte[100000];\r\n                            i = 0;\r\n                            if (t == true){\r\n                                try {\r\n                                    Thread.sleep(150);\r\n                                    chatPanel_thread.getVerticalScrollBar().setValue(chatPanel_thread.getVerticalScrollBar().getMaximum());\r\n                                } catch (InterruptedException e) {\r\n                                    e.printStackTrace();\r\n                                }\r\n                            }\r\n                            chatPanel_thread.getVerticalScrollBar().setValue(chatPanel_thread.getVerticalScrollBar().getMaximum());\r\n                        }else{\r\n                            b[i] = tmp;\r\n                            i++;\r\n                        }\r\n                    } else {\r\n                        try {\r\n                            if (t == false) {\r\n                                t = true;\r\n                                Thread.sleep(50);\r\n                                chatPanel_thread.getVerticalScrollBar().setValue(chatPanel_thread.getVerticalScrollBar().getMaximum());\r\n                            }\r\n                            sleep(100);\r\n                        } catch (InterruptedException ex) {\r\n                            running = false;\r\n                        }\r\n                    }\r\n                } catch (IOException e) {\r\n                    e.printStackTrace();\r\n                }\r\n            }\r\n        }\r\n    }\r\n    public chattingRoom(String user_id, chatting_client client, ListeningThread t1, String room_id){\r\n        new cache_download(null,room_id,room_id,\"1\",2,client);\r\n        // 스크롤 패널 행스크롤 금지\r\n        chatPanel.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);\r\n        // 스크롤 속도 조절\r\n        chatPanel.getVerticalScrollBar().setUnitIncrement(16);\r\n\r\n        this.user_id = user_id;\r\n        this.client = client;\r\n        this.t1 = t1;\r\n        this.room_id = room_id;\r\n\r\n        setContentPane(main);\r\n        chat.setBackground(new Color(186,206,224));\r\n        setSize(480,650);\r\n        setVisible(true);\r\n        Dimension frameSize = getSize();\r\n        Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();\r\n        setLocation((windowSize.width - frameSize.width) / 2,\r\n                (windowSize.height - frameSize.height) / 2);\r\n\r\n        try {\r\n            reader = new BufferedInputStream(new FileInputStream(\"chatting_data/\"+room_id+\".txt\"));\r\n        }catch (Exception e){\r\n            try {\r\n                reader = new BufferedInputStream(new FileInputStream(\"chatting_data/\" + room_id + \".txt\"));\r\n            }catch (Exception e1){\r\n                e1.printStackTrace();\r\n            }\r\n        }\r\n\r\n        GridBagLayout Gbag = new GridBagLayout();\r\n        chat.setLayout(Gbag);\r\n        GridBagConstraints gbc = new GridBagConstraints();\r\n        gbc.weightx = 1.0;\r\n        gbc.weighty = 1.0;\r\n\r\n        new read(gbc, chatPanel).start();\r\n\r\n        message.addKeyListener(new KeyListener() {\r\n            @Override\r\n            public void keyTyped(KeyEvent e) {}\r\n\r\n            @Override\r\n            public void keyPressed(KeyEvent e) {\r\n                if(e.getKeyCode() == KeyEvent.VK_ENTER){\r\n                    send.doClick();\r\n                }\r\n            }\r\n            @Override\r\n            public void keyReleased(KeyEvent e) {}\r\n        });\r\n        send.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n\r\n                String messageSend = message.getText();\r\n\r\n                protocol time = new protocol();\r\n                //client에 message와 room_id보내기\r\n                client.send_messege(4,room_id, user_id, messageSend,false,null);\r\n                message.setText(\"\");\r\n            }\r\n        });\r\n        fileOption.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                new file_client(null,user_id,null,room_id,null,1,client);\r\n            }\r\n        });\r\n    }\r\n\r\n    public class chatSchema extends JPanel{\r\n\r\n        private String hours;\r\n        private String minutes;\r\n        private String send_user_id;\r\n        private String message;\r\n        private String file_bool;\r\n        private String file_name;\r\n\r\n        private JLabel user;\r\n        private JTextArea text;\r\n        private JLabel time;\r\n\r\n        private JButton file_down;\r\n        public chatSchema(String hours, String minutes, String send_user_id ,String message, String file_bool, String file_name){\r\n            this.hours = hours;\r\n            this.minutes = minutes;\r\n            this.send_user_id = send_user_id;\r\n            this.message = message;\r\n            this.file_bool = file_bool;\r\n            this.file_name = file_name;\r\n\r\n            setSize(480,50);\r\n            setVisible(true);\r\n\r\n            text = new JTextArea();\r\n\r\n            text.append(message);\r\n            user = new JLabel();\r\n            time = new JLabel();\r\n            String time_message = hours + \":\" + minutes;\r\n            time.setText(time_message);\r\n            setBackground(new Color(186,206,224));\r\n\r\n            JPanel bullon = new JPanel();\r\n            GridBagLayout Gbag = new GridBagLayout();\r\n            bullon.setLayout(Gbag);\r\n            GridBagConstraints gbc = new GridBagConstraints();\r\n            gbc.weightx = 1.0;\r\n            gbc.weighty = 1.0;\r\n            gbc.fill = GridBagConstraints.BOTH;\r\n\r\n            if(user_id.equals(send_user_id)){\r\n                setLayout(new FlowLayout(FlowLayout.RIGHT));\r\n                text.setForeground(new Color(0,0,0));\r\n                text.setBackground(new Color(255,230,0));\r\n\r\n                user.setText(\"나\");\r\n                user.setHorizontalTextPosition(SwingConstants.RIGHT);\r\n\r\n                gbc.gridx = 3;\r\n                gbc.gridy = 0;\r\n                gbc.gridwidth = 1;\r\n                gbc.gridheight = 1;\r\n                gbc.weightx = 0.25;\r\n                gbc.weighty = 0.5;\r\n                bullon.add(user,gbc);\r\n\r\n                gbc.gridx = 1;\r\n                gbc.gridy = 1;\r\n                gbc.gridwidth = 3;\r\n                gbc.gridheight = 1;\r\n                gbc.weightx = 0.75;\r\n                gbc.weighty = 0.5;\r\n\r\n\r\n                if(file_bool.equals(\"true\")){\r\n                    file_down = new JButton(\"file_down\");\r\n                    file_down.addActionListener(new ActionListener() {\r\n                        @Override\r\n                        public void actionPerformed(ActionEvent e) {\r\n                            String a = file_name;\r\n                            a.trim();\r\n                            new file_client(null,send_user_id ,a ,room_id,null,2, client);\r\n                        }\r\n                    });\r\n\r\n                    bullon.add(file_down,gbc);\r\n                }\r\n                else{\r\n                    text.setDisabledTextColor(new Color(0,0,0));\r\n                    text.setLineWrap(true);\r\n                    text.setWrapStyleWord(true);\r\n                    text.setEditable(false);\r\n                    bullon.add(text,gbc);\r\n                }\r\n\r\n                gbc.gridx = 0;\r\n                gbc.gridy = 1;\r\n                gbc.gridwidth = 1;\r\n                gbc.gridheight = 1;\r\n                gbc.weightx = 0.25;\r\n                gbc.weighty = 0.5;\r\n                bullon.add(time,gbc);\r\n            }\r\n            else{\r\n                setLayout(new FlowLayout(FlowLayout.LEFT));\r\n                text.setForeground(new Color(0,0,0));\r\n                text.setBackground(new Color(255, 255, 255));\r\n\r\n                user.setText(send_user_id);\r\n\r\n                gbc.gridx = 0;\r\n                gbc.gridy = 0;\r\n                gbc.gridwidth = 1;\r\n                gbc.gridheight = 1;\r\n                gbc.weightx = 0.25;\r\n                gbc.weighty = 0.5;\r\n                bullon.add(user,gbc);\r\n\r\n                gbc.gridx = 0;\r\n                gbc.gridy = 1;\r\n                gbc.gridwidth = 3;\r\n                gbc.gridheight = 1;\r\n                gbc.weightx = 0.75;\r\n                gbc.weighty = 0.5;\r\n\r\n                if(file_bool.equals(\"true\")){\r\n                    file_down = new JButton(\"file_down\");\r\n                    file_down.addActionListener(new ActionListener() {\r\n                        @Override\r\n                        public void actionPerformed(ActionEvent e) {\r\n                            String a = file_name;\r\n                            a.trim();\r\n                            new file_client(null,send_user_id ,a ,room_id,null,2, client);\r\n                        }\r\n                    });\r\n\r\n                    bullon.add(file_down,gbc);\r\n                }\r\n                else{\r\n                    text.setDisabledTextColor(new Color(0,0,0));\r\n                    text.setLineWrap(true);\r\n                    text.setWrapStyleWord(true);\r\n                    text.setEditable(false);\r\n                    bullon.add(text,gbc);\r\n                }\r\n\r\n                gbc.gridx = 3;\r\n                gbc.gridy = 1;\r\n                gbc.gridwidth = 1;\r\n                gbc.gridheight = 1;\r\n                gbc.weightx = 0.25;\r\n                gbc.weighty = 0.5;\r\n                bullon.add(time,gbc);\r\n            }\r\n\r\n            add(bullon);\r\n\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GUI/chattingRoom.java b/src/GUI/chattingRoom.java
+--- a/src/GUI/chattingRoom.java	(revision 38d379144241ac8e81ca923841634fd74e33708d)
++++ b/src/GUI/chattingRoom.java	(date 1670909442228)
+@@ -19,7 +19,7 @@
+ import java.io.FileInputStream;
+ import java.io.IOException;
+ import java.nio.charset.StandardCharsets;
+-
++import concave.*;
+ 
+ public class chattingRoom extends JFrame {
+     private String user_id;
+@@ -198,6 +198,8 @@
+         private JLabel time;
+ 
+         private JButton file_down;
++
++        private JButton concave;
+         public chatSchema(String hours, String minutes, String send_user_id ,String message, String file_bool, String file_name){
+             this.hours = hours;
+             this.minutes = minutes;
+@@ -263,6 +265,18 @@
+ 
+                     bullon.add(file_down,gbc);
+                 }
++                else if(message.equals("/오목")){
++                    concave = new JButton("들어오던가");
++
++                    concave.addActionListener(new ActionListener() {
++                        @Override
++                        public void actionPerformed(ActionEvent e) {
++                            GameMain gameMain = new GameMain();
++                        }
++                    });
++
++                    bullon.add(concave,gbc);
++                }
+                 else{
+                     text.setDisabledTextColor(new Color(0,0,0));
+                     text.setLineWrap(true);
+Index: src/concave/GUI_board.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package concave;\r\n\r\nimport javax.swing.*;\r\nimport function.*;\r\n\r\nimport java.awt.*;\r\nimport java.awt.event.*;\r\nimport java.io.File;\r\nimport java.io.IOException;\r\n\r\nimport javax.imageio.ImageIO;\r\nimport java.awt.image.BufferedImage;\r\nimport javax.swing.JOptionPane;\r\nimport java.awt.Graphics;\r\n\r\npublic class GUI_board extends JFrame{\r\n    BufferedImage img = null;\r\n\r\n    Image changeImg = null;\r\n\r\n    public static myPanel panel;\r\n\r\n    public GUI_board(GameMain ad) {\r\n        setTitle(\"오목\");\r\n\r\n        JLayeredPane layeredPane = new JLayeredPane();\r\n        layeredPane.setSize(480,650);\r\n        setResizable(false);\r\n        layeredPane.setVisible(true);\r\n\r\n        try {\r\n            img = ImageIO.read(new File(\"src/concave/concave_img.png\"));\r\n        } catch (IOException e) {\r\n            JOptionPane.showMessageDialog(null, \"이미지 불러오기 실패\");\r\n            System.exit(0);\r\n        }\r\n\r\n        panel = new myPanel();\r\n        panel.setSize(480,650);\r\n        layeredPane.add(panel);\r\n\r\n        setLayout(null);\r\n\r\n        add(layeredPane);\r\n\r\n        setBounds(720,220,480,650);\r\n        setVisible(true);\r\n        setResizable(false);\r\n        setDefaultCloseOperation(EXIT_ON_CLOSE);\r\n\r\n        Dimension frameSize = getSize();\r\n        Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();\r\n        setLocation((windowSize.width - frameSize.width) / 2,\r\n                (windowSize.height - frameSize.height) / 2);\r\n\r\n\r\n        for (int i=0;i<15;i++)\r\n        {\r\n            for (int j=0;j<15;j++)\r\n            {\r\n                String button_name = Integer.toString(i) + \" \" + Integer.toString(j);\r\n                JButton btn = new JButton(button_name);\r\n                btn.setBorderPainted(false);\r\n                btn.setContentAreaFilled(false);\r\n                btn.setFocusPainted(false);\r\n                btn.setOpaque(false);\r\n                btn.setBounds(31*j+9, 31*i+49, 16, 16);\r\n                btn.addActionListener(new EventHandler(ad));\r\n                panel.add(btn);\r\n\r\n            }\r\n        }\r\n        panel.setVisible(true);\r\n    }\r\n\r\n    class myPanel extends JPanel {\r\n        public void paint(Graphics g) {\r\n            g.drawImage(img, 0, 0, null);\r\n        }\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/concave/GUI_board.java b/src/concave/GUI_board.java
+--- a/src/concave/GUI_board.java	(revision 38d379144241ac8e81ca923841634fd74e33708d)
++++ b/src/concave/GUI_board.java	(date 1670909260250)
+@@ -20,10 +20,14 @@
+ 
+     public static myPanel panel;
+ 
++    public static JLayeredPane layeredPane;
++
+     public GUI_board(GameMain ad) {
+         setTitle("오목");
+ 
+-        JLayeredPane layeredPane = new JLayeredPane();
++        JPanel main = new JPanel();
++        setContentPane(main);
++        layeredPane = new JLayeredPane();
+         layeredPane.setSize(480,650);
+         setResizable(false);
+         layeredPane.setVisible(true);
+@@ -41,7 +45,8 @@
+ 
+         setLayout(null);
+ 
+-        add(layeredPane);
++        main.add(layeredPane);
++
+ 
+         setBounds(720,220,480,650);
+         setVisible(true);
+@@ -53,7 +58,6 @@
+         setLocation((windowSize.width - frameSize.width) / 2,
+                 (windowSize.height - frameSize.height) / 2);
+ 
+-
+         for (int i=0;i<15;i++)
+         {
+             for (int j=0;j<15;j++)
+Index: src/concave/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package concave;\r\n\r\npublic class Main {\r\n\r\n    public static void main(String[] args) {\r\n\r\n        GameMain gameMain = new GameMain();\r\n\r\n\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/concave/Main.java b/src/concave/Main.java
+--- a/src/concave/Main.java	(revision 38d379144241ac8e81ca923841634fd74e33708d)
++++ b/src/concave/Main.java	(date 1670906968575)
+@@ -2,11 +2,10 @@
+ 
+ public class Main {
+ 
+-    public static void main(String[] args) {
++    public static void main(String args[]) {
+ 
+         GameMain gameMain = new GameMain();
+ 
+-
+     }
+ 
+ }
+Index: src/function/get_data.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package function;\r\n\r\nimport chatting.protocol;\r\n\r\nimport java.io.*;\r\nimport java.net.Socket;\r\nimport java.util.ArrayList;\r\npublic class get_data{\r\n    private String host;\r\n    private int port;\r\n    public get_data(){\r\n        try{\r\n            readTxt read = new readTxt();\r\n            host = read.getHost();\r\n            ArrayList<String> temp = read.getPort();\r\n            port = Integer.parseInt(temp.get(3));\r\n        }catch (Exception e){\r\n            e.getStackTrace();\r\n        }\r\n    }\r\n    private InputStream is;\r\n    private OutputStream os;\r\n    private DataInputStream di;\r\n    private DataOutputStream ds;\r\n    private PrintWriter pw;\r\n    private ObjectOutputStream oos;\r\n    private ObjectInputStream ois;\r\n    private DataOutputStream dos;\r\n    private BufferedOutputStream bos;\r\n    private String user_id;\r\n    private int typeofrequest;\r\n    private String roomnumber;\r\n    private ArrayList<String> my_room_list; // 내가 속한 방 목록\r\n    private ArrayList<String> userlist_in_room; // 방에 있는 유저 목록\r\n    private ArrayList<String> allUserList; // 전체 유저 목록\r\n    private String follow_yes_or_no; // 팔로우 여부\r\n    private String heart_yes_or_no; // 하트 여부\r\n    private int followNum; // 팔로우 수\r\n    private int followerNum; // 팔로워 수\r\n    private int postNum; // 게시물 수\r\n    private String id;\r\n    private ArrayList<String> list;\r\n    private ArrayList<String> Tag_list;\r\n    private String message;\r\n    private String file_name;\r\n    private String feed_id;\r\n    private String post_id;\r\n    private String poster_id;\r\n    private int like_num;\r\n    private String name;\r\n    private String phoneNum;\r\n    private String email;\r\n\r\n\r\n    public void setType8(String name, String phoneNum){\r\n        this.typeofrequest = 8;\r\n        this.name = name;\r\n        this.phoneNum = phoneNum;\r\n    }\r\n    public void setType49(int typeofrequest, String user_id, String feed_id){\r\n        this.typeofrequest = typeofrequest;\r\n        this.user_id = user_id;\r\n        this.feed_id = feed_id;\r\n    }\r\n    public void setType50(int typeofrequest, String user_id, String feed_id){\r\n        this.typeofrequest = typeofrequest;\r\n        this.user_id = user_id;\r\n        this.feed_id = feed_id;\r\n    }\r\n    public void setType9(int typeofrequset, String user_id, String id){\r\n        this.typeofrequest = typeofrequset;\r\n        this.user_id = user_id;\r\n        this.id = id;\r\n    }\r\n    public void setType10(int typeofrequest, String user_id){\r\n        this.typeofrequest = typeofrequest;\r\n        this.user_id = user_id;\r\n    }\r\n    public void setType11(int typeofrequest, String user_id){\r\n        this.typeofrequest = typeofrequest;\r\n        this.user_id = user_id;\r\n    }\r\n    public void setType12(int typeofrequest, String user_id, String roomnumber){\r\n        this.typeofrequest = typeofrequest;\r\n        this.user_id = user_id;\r\n        this.roomnumber = roomnumber;\r\n    }\r\n    public void setType15(int typeofrequest, String user_id){\r\n        this.typeofrequest = typeofrequest;\r\n        this.user_id = user_id;\r\n    }\r\n    public void setType19(int typeofrequest, String user_id){\r\n        this.typeofrequest = typeofrequest;\r\n        this.user_id = user_id;\r\n    }\r\n    public void setType20(int typeofrequest, String user_id){\r\n        this.typeofrequest = typeofrequest;\r\n        this.user_id = user_id;\r\n    }\r\n    public void setType18(int typeofrequest, String feed_id) {\r\n        this.typeofrequest = typeofrequest;\r\n        this.feed_id = feed_id;\r\n    }\r\n    public void setType16(int typeofrequest, String user_id) {\r\n        this.typeofrequest = typeofrequest;\r\n        this.user_id = user_id;\r\n    }\r\n    public void setType21(int typeofrequest, String post_id) {\r\n        this.typeofrequest = typeofrequest;\r\n        this.post_id = post_id;\r\n    }\r\n    public void setType22(int typeofrequest, String user_id) {\r\n        this.typeofrequest = typeofrequest;\r\n        this.user_id = user_id;\r\n    }\r\n    public void setType23(int typeofrequest, String feed_id) {\r\n        this.typeofrequest = typeofrequest;\r\n        this.feed_id = feed_id;\r\n    }\r\n    public void request(protocol content){\r\n        try{\r\n            this.oos.writeObject(content); // 프로토콜로 담은 내용 전송\r\n            this.oos.flush();\r\n        }\r\n        catch(Exception e2){\r\n            System.out.println(e2);\r\n        }\r\n    }\r\n\r\n    public ArrayList<String> getMy_room_list() {\r\n        return my_room_list;\r\n    }\r\n    public ArrayList<String> get_users_in_room() {\r\n        return userlist_in_room;\r\n    }\r\n    public ArrayList<String> getAllUserList() {\r\n        return allUserList;\r\n    }\r\n    public int getFollowNum() {\r\n        System.out.println(\" followNum : \" + followNum);\r\n        return followNum;\r\n    }\r\n    public int getFollowerNum() {\r\n        System.out.println(\" followerNum : \" +followerNum);\r\n        return followerNum;\r\n    }\r\n    public int getPostNum() {\r\n        return postNum;\r\n    }\r\n    public String getFollow_yes_or_no() {\r\n        return follow_yes_or_no;\r\n    }\r\n    public String getHeart_yes_or_no() {\r\n        return heart_yes_or_no;\r\n    }\r\n    public String getMessage(){\r\n        return message;\r\n    }\r\n    public String getFile_name(){\r\n        return file_name;\r\n    }\r\n    public ArrayList<String> getTag_list(){\r\n        return Tag_list;\r\n    }\r\n    public ArrayList<String> getfeed_list(){\r\n        return list;\r\n    }\r\n    public String getFeed_id(){return feed_id;}\r\n    public String getposter_id(){return poster_id;}\r\n    public String getEmail(){return email;}\r\n\r\n    public int getLikeNum() {\r\n        return like_num;\r\n    }\r\n    public void start(){\r\n        try{\r\n            Socket socket = new Socket(host,port);\r\n            System.out.println(\"port : \" + port + \", host : \" + host + \"로 데이터 요청 시도\");\r\n            System.out.println(\"서버 연결 성공\");\r\n            this.is = socket.getInputStream();\r\n            this.os = socket.getOutputStream();\r\n\r\n            this.di = new DataInputStream(is);\r\n\r\n\r\n            this.ds = new DataOutputStream(os);\r\n            this.pw = new PrintWriter(os);\r\n            this.oos = new ObjectOutputStream(os);\r\n            this.dos = new DataOutputStream(os);\r\n            this.bos =new BufferedOutputStream(os);\r\n\r\n            this.pw = new PrintWriter(bos);\r\n            if(typeofrequest == 1){\r\n\r\n            } else if (typeofrequest == 8) {\r\n                // 아이디찾기\r\n                protocol p = new protocol(typeofrequest, name, phoneNum);\r\n                request(p);\r\n                this.ois = new ObjectInputStream(is);\r\n                while(true){\r\n                    try{\r\n                        protocol t = (protocol) ois.readObject();\r\n                        if(t.getTypeofrequest() == 8){\r\n                            email = t.getEmail();\r\n                            break;\r\n                        }\r\n                    }\r\n                    catch(Exception e){\r\n                        System.out.println(e);\r\n                    }\r\n                }\r\n            } else if(typeofrequest == 49){\r\n                protocol p = new protocol(typeofrequest, user_id, feed_id);\r\n                request(p);\r\n                this.ois = new ObjectInputStream(is);\r\n                while(true){\r\n                    try{\r\n                        protocol t = (protocol) ois.readObject();\r\n                        if(t.getTypeofrequest() == 49){\r\n                            // this.heart_yes_or_no = String.valueOf(t.getHeart());\r\n                            break;\r\n                        }\r\n                    }\r\n                    catch(Exception e){\r\n                        System.out.println(e);\r\n                    }\r\n                }\r\n            }\r\n            else if(typeofrequest == 50){\r\n                protocol p = new protocol(typeofrequest, user_id, feed_id);\r\n                request(p);\r\n                this.ois = new ObjectInputStream(is);\r\n                while(true){\r\n                    try{\r\n                        protocol t = (protocol) ois.readObject();\r\n                        if(t.getTypeofrequest() == 50){\r\n                            break;\r\n                        }\r\n                    }\r\n                    catch(Exception e){\r\n                        System.out.println(e);\r\n                    }\r\n                }\r\n            }\r\n            else if (typeofrequest == 9){\r\n                protocol p = new protocol(typeofrequest, user_id,id);\r\n                request(p);\r\n                this.ois = new ObjectInputStream(is);\r\n                while(true){\r\n                    try{\r\n                        protocol t = (protocol) ois.readObject();\r\n                        if(t.getTypeofrequest() == 9){\r\n                            // this.follow_yes_or_no = t.getFollow();\r\n                            break;\r\n                        }\r\n                    }\r\n                    catch(Exception e){\r\n                        System.out.println(e);\r\n                    }\r\n                }\r\n            }\r\n            else if(typeofrequest == 10){\r\n                protocol p = new protocol(typeofrequest, user_id);\r\n                request(p);\r\n                this.ois = new ObjectInputStream(is);\r\n                while(true){\r\n                    try{\r\n                        protocol t = (protocol) ois.readObject();\r\n                        if(t.getTypeofrequest() == 10){\r\n                            // this.postNum = t.getPostNum();\r\n                            break;\r\n                        }\r\n                    }\r\n                    catch(Exception e){\r\n                        System.out.println(e);\r\n                    }\r\n                }\r\n            }\r\n            else if(typeofrequest == 11) {\r\n                protocol p = new protocol(typeofrequest, user_id);\r\n                request(p);\r\n                this.ois = new ObjectInputStream(is);\r\n                while (true) {\r\n                    System.out.println(\"방 목록 받기\");\r\n                    try {\r\n                        protocol t = (protocol) ois.readObject();\r\n                        if (t.getTypeofrequest() == 11) {\r\n                            this.my_room_list = t.getList();\r\n                            break;\r\n                        }\r\n                    } catch (Exception e) {\r\n                        System.out.println(e);\r\n                    }\r\n                }\r\n            }\r\n            else if(typeofrequest == 12){\r\n                protocol p = new protocol(typeofrequest, user_id, roomnumber);\r\n                request(p);\r\n                this.ois = new ObjectInputStream(is);\r\n                while(true){\r\n                    try{\r\n                        protocol t = (protocol) ois.readObject();\r\n                        if(t.getTypeofrequest() == 12){\r\n                            userlist_in_room = t.getList();\r\n                            break;\r\n                        }\r\n                    }\r\n                    catch(Exception e){\r\n                        System.out.println(e);\r\n                    }\r\n                }\r\n            }\r\n            else if(typeofrequest == 15){\r\n                protocol p = new protocol(typeofrequest, user_id);\r\n                request(p);\r\n                this.ois = new ObjectInputStream(is);\r\n                while(true){\r\n                    try{\r\n                        protocol t = (protocol) ois.readObject();\r\n                        if(t.getTypeofrequest() == 15){\r\n                            allUserList = t.getList();\r\n                            break;\r\n                        }\r\n                    }\r\n                    catch(Exception e){\r\n                        System.out.println(e);\r\n                    }\r\n                }\r\n            }\r\n            else if(typeofrequest == 16) {\r\n                protocol p = new protocol(typeofrequest, user_id);\r\n                request(p);\r\n                this.ois = new ObjectInputStream(is);\r\n                while (true) {\r\n                    try {\r\n                        protocol t = (protocol) ois.readObject();\r\n                        if (t.getTypeofrequest() == 16) {\r\n                            list = t.getList();\r\n                            break;\r\n                        }\r\n                    } catch (Exception e) {\r\n                        System.out.println(e);\r\n                    }\r\n                }\r\n            }\r\n            else if(typeofrequest == 17){\r\n                // protocol p = new protocol(typeofrequest, user_id, message, Tag_list, file_name);\r\n                // request(p);\r\n                this.ois = new ObjectInputStream(is);\r\n            }\r\n            else if(typeofrequest == 18){\r\n                protocol p = new protocol(typeofrequest, feed_id);\r\n                request(p);\r\n                this.ois = new ObjectInputStream(is);\r\n                while(true){\r\n                    try{\r\n                        protocol t = (protocol) ois.readObject();\r\n                        if(t.getTypeofrequest() == 18){\r\n                            feed_id = t.getSender();\r\n                            // message = t.getMessage();\r\n                            Tag_list = t.getList();\r\n                            file_name = t.getFile_name();\r\n                            break;\r\n                        }\r\n                    }\r\n                    catch(Exception e){\r\n                        System.out.println(e);\r\n                    }\r\n                }\r\n            }\r\n            else if(typeofrequest == 19){\r\n                protocol p = new protocol(typeofrequest, user_id);\r\n                request(p);\r\n                this.ois = new ObjectInputStream(is);\r\n                while(true){\r\n                    try{\r\n                        protocol t = (protocol) ois.readObject();\r\n                        if(t.getTypeofrequest() == 19){\r\n                            // followerNum = t.get_follower_num();\r\n                            break;\r\n                        }\r\n                    }\r\n                    catch(Exception e){\r\n                        System.out.println(e);\r\n                    }\r\n                }\r\n            }\r\n            else if(typeofrequest == 20){\r\n                protocol p = new protocol(typeofrequest, user_id);\r\n                request(p);\r\n                this.ois = new ObjectInputStream(is);\r\n                while(true){\r\n                    try{\r\n                        protocol t = (protocol) ois.readObject();\r\n                        if(t.getTypeofrequest() == 20){\r\n                            // followNum = t.getFollow_num();\r\n                            break;\r\n                        }\r\n                    }\r\n                    catch(Exception e){\r\n                        System.out.println(e);\r\n                    }\r\n                }\r\n            }\r\n            else if(typeofrequest == 21){\r\n                protocol p = new protocol(typeofrequest, post_id);\r\n                request(p);\r\n                this.ois = new ObjectInputStream(is);\r\n                while(true){\r\n                    try{\r\n                        protocol t = (protocol) ois.readObject();\r\n                        if(t.getTypeofrequest() == 21){\r\n                            poster_id = t.getSender();\r\n                            System.out.println(poster_id);\r\n                            break;\r\n                        }\r\n                    }\r\n                    catch(Exception e){\r\n                        System.out.println(e);\r\n                    }\r\n                }\r\n            }\r\n            else if(typeofrequest == 22){\r\n                protocol p = new protocol(typeofrequest, user_id);\r\n                request(p);\r\n                this.ois = new ObjectInputStream(is);\r\n                while(true){\r\n                    try{\r\n                        protocol t = (protocol) ois.readObject();\r\n                        if(t.getTypeofrequest() == 22){\r\n                            list = t.getList();\r\n                            break;\r\n                        }\r\n                    }\r\n                    catch(Exception e){\r\n                        System.out.println(e);\r\n                    }\r\n                }\r\n            }\r\n            else if(typeofrequest == 23){\r\n                protocol p = new protocol(typeofrequest, feed_id);\r\n                request(p);\r\n                this.ois = new ObjectInputStream(is);\r\n                while(true){\r\n                    try{\r\n                        protocol t = (protocol) ois.readObject();\r\n                        if(t.getTypeofrequest() == 23){\r\n                            // like_num = t.getLikeNum();\r\n                            break;\r\n                        }\r\n                    }\r\n                    catch(Exception e){\r\n                        System.out.println(e);\r\n                    }\r\n                }\r\n            }\r\n\r\n            is.close();\r\n            os.close();\r\n            di.close();\r\n            ois.close();\r\n            ds.close();\r\n            pw.close();\r\n            oos.close();\r\n            bos.close();\r\n            pw.close();\r\n            socket.close();\r\n            System.out.println(typeofrequest);\r\n            System.out.println(\"서버 연결 종료\");\r\n        }catch (Exception e){\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/function/get_data.java b/src/function/get_data.java
+--- a/src/function/get_data.java	(revision 38d379144241ac8e81ca923841634fd74e33708d)
++++ b/src/function/get_data.java	(date 1670908040315)
+@@ -50,37 +50,38 @@
+     private String name;
+     private String phoneNum;
+     private String email;
++    private boolean tf;
++    private String password;
+ 
+-
++    public void setType7(String user_id, String roomnumber){
++        // 방 참여자 목록 불러오기
++        this.user_id = user_id;
++        this.roomnumber = roomnumber;
++        this.typeofrequest = 7;
++    }
+     public void setType8(String name, String phoneNum){
++        // 아이디 찾기
+         this.typeofrequest = 8;
+         this.name = name;
+         this.phoneNum = phoneNum;
+     }
+-    public void setType49(int typeofrequest, String user_id, String feed_id){
+-        this.typeofrequest = typeofrequest;
+-        this.user_id = user_id;
+-        this.feed_id = feed_id;
+-    }
+-    public void setType50(int typeofrequest, String user_id, String feed_id){
+-        this.typeofrequest = typeofrequest;
+-        this.user_id = user_id;
+-        this.feed_id = feed_id;
++    public void setType9(String email, String name, String phone){
++        this.typeofrequest = 9;
++        this.email = email;
++        this.name = name;
++        this.phoneNum = phone;
+     }
+-    public void setType9(int typeofrequset, String user_id, String id){
+-        this.typeofrequest = typeofrequset;
+-        this.user_id = user_id;
+-        this.id = id;
+-    }
+-    public void setType10(int typeofrequest, String user_id){
+-        this.typeofrequest = typeofrequest;
++    public void setType10(String user_id, String password){
++        this.typeofrequest = 10;
+         this.user_id = user_id;
++        this.password = new md5().encMD5(password);
+     }
+     public void setType11(int typeofrequest, String user_id){
+         this.typeofrequest = typeofrequest;
+         this.user_id = user_id;
+     }
+     public void setType12(int typeofrequest, String user_id, String roomnumber){
++
+         this.typeofrequest = typeofrequest;
+         this.user_id = user_id;
+         this.roomnumber = roomnumber;
+@@ -97,25 +98,23 @@
+         this.typeofrequest = typeofrequest;
+         this.user_id = user_id;
+     }
+-    public void setType18(int typeofrequest, String feed_id) {
+-        this.typeofrequest = typeofrequest;
+-        this.feed_id = feed_id;
+-    }
+     public void setType16(int typeofrequest, String user_id) {
+         this.typeofrequest = typeofrequest;
+         this.user_id = user_id;
+     }
+-    public void setType21(int typeofrequest, String post_id) {
+-        this.typeofrequest = typeofrequest;
+-        this.post_id = post_id;
+-    }
+     public void setType22(int typeofrequest, String user_id) {
+         this.typeofrequest = typeofrequest;
+         this.user_id = user_id;
+     }
+-    public void setType23(int typeofrequest, String feed_id) {
+-        this.typeofrequest = typeofrequest;
+-        this.feed_id = feed_id;
++    public void setType50(String user_id){
++        // 온라인 유저 목록 불러오기
++        this.typeofrequest = 50;
++        this.user_id = user_id;
++    }
++    public void setType51(String user_id){
++        // 내 정보 불러오기
++        this.typeofrequest = 51;
++        this.user_id = user_id;
+     }
+     public void request(protocol content){
+         try{
+@@ -136,6 +135,12 @@
+     public ArrayList<String> getAllUserList() {
+         return allUserList;
+     }
++    public boolean getTf(){
++        return tf;
++    }
++    public String getPassword(){
++        return password;
++    }
+     public int getFollowNum() {
+         System.out.println(" followNum : " + followNum);
+         return followNum;
+@@ -162,7 +167,7 @@
+     public ArrayList<String> getTag_list(){
+         return Tag_list;
+     }
+-    public ArrayList<String> getfeed_list(){
++    public ArrayList<String> getList(){
+         return list;
+     }
+     public String getFeed_id(){return feed_id;}
+@@ -175,7 +180,7 @@
+     public void start(){
+         try{
+             Socket socket = new Socket(host,port);
+-            System.out.println("port : " + port + ", host : " + host + "로 데이터 요청 시도");
++            System.out.println("host : " + host + ", port : " + port + "로 데이터 요청 시도");
+             System.out.println("서버 연결 성공");
+             this.is = socket.getInputStream();
+             this.os = socket.getOutputStream();
+@@ -197,16 +202,52 @@
+                 protocol p = new protocol(typeofrequest, name, phoneNum);
+                 request(p);
+                 this.ois = new ObjectInputStream(is);
+-                while(true){
+-                    try{
++                while (true) {
++                    try {
+                         protocol t = (protocol) ois.readObject();
+-                        if(t.getTypeofrequest() == 8){
++                        if (t.getTypeofrequest() == 8) {
+                             email = t.getEmail();
+                             break;
++                        }
++                    } catch (Exception e) {
++                        e.getStackTrace();
++                        break;
++                    }
++                }
++            } else if (typeofrequest == 9) {
++                // 비밀번호 변경을 위한 확인
++                protocol p = new protocol(typeofrequest, email, name, phoneNum);
++                request(p);
++                this.ois = new ObjectInputStream(is);
++                while(true){
++                    try{
++                        protocol t = (protocol) ois.readObject();
++                        if(t.getTypeofrequest() == 9){
++                            tf = t.getTf();
++                            break;
+                         }
+                     }
+                     catch(Exception e){
+-                        System.out.println(e);
++                        e.getStackTrace();
++                        break;
++                    }
++                }
++            }else if (typeofrequest == 10) {
++                // 비밀번호 변경을 위한 확인
++                protocol p = new protocol(typeofrequest, user_id, password);
++                request(p);
++                this.ois = new ObjectInputStream(is);
++                while(true){
++                    try{
++                        protocol t = (protocol) ois.readObject();
++                        if(t.getTypeofrequest() == 10){
++                            tf = t.getTf();
++                            break;
++                        }
++                    }
++                    catch(Exception e){
++                        e.getStackTrace();
++                        break;
+                     }
+                 }
+             } else if(typeofrequest == 49){
+@@ -222,40 +263,48 @@
+                         }
+                     }
+                     catch(Exception e){
+-                        System.out.println(e);
++                        e.getStackTrace();
++                        break;
+                     }
+                 }
+             }
+             else if(typeofrequest == 50){
+-                protocol p = new protocol(typeofrequest, user_id, feed_id);
++                protocol p = new protocol(typeofrequest, user_id, list);
+                 request(p);
+                 this.ois = new ObjectInputStream(is);
+                 while(true){
+                     try{
++                        // 온라인 유저 목록 요청
+                         protocol t = (protocol) ois.readObject();
+                         if(t.getTypeofrequest() == 50){
++                            list = t.getList();
+                             break;
+                         }
+                     }
+                     catch(Exception e){
+-                        System.out.println(e);
++                        e.getStackTrace();
++                        break;
+                     }
+                 }
+             }
+-            else if (typeofrequest == 9){
+-                protocol p = new protocol(typeofrequest, user_id,id);
++            else if(typeofrequest == 51){
++                protocol p = new protocol(typeofrequest, user_id);
+                 request(p);
+                 this.ois = new ObjectInputStream(is);
+                 while(true){
+                     try{
++                        // 온라인 유저 목록 요청
+                         protocol t = (protocol) ois.readObject();
+-                        if(t.getTypeofrequest() == 9){
+-                            // this.follow_yes_or_no = t.getFollow();
++                        if(t.getTypeofrequest() == 51){
++                            email = t.getEmail();
++                            name = t.getName();
++                            phoneNum = t.getPhoneNum();
+                             break;
+                         }
+                     }
+                     catch(Exception e){
+-                        System.out.println(e);
++                        e.getStackTrace();
++                        break;
+                     }
+                 }
+             }
+@@ -272,7 +321,8 @@
+                         }
+                     }
+                     catch(Exception e){
+-                        System.out.println(e);
++                        e.getStackTrace();
++                        break;
+                     }
+                 }
+             }
+@@ -289,7 +339,8 @@
+                             break;
+                         }
+                     } catch (Exception e) {
+-                        System.out.println(e);
++                        e.getStackTrace();
++                        break;
+                     }
+                 }
+             }
+@@ -306,7 +357,8 @@
+                         }
+                     }
+                     catch(Exception e){
+-                        System.out.println(e);
++                        e.getStackTrace();
++                        break;
+                     }
+                 }
+             }
+@@ -323,7 +375,8 @@
+                         }
+                     }
+                     catch(Exception e){
+-                        System.out.println(e);
++                        e.getStackTrace();
++                        break;
+                     }
+                 }
+             }
+@@ -339,7 +392,8 @@
+                             break;
+                         }
+                     } catch (Exception e) {
+-                        System.out.println(e);
++                        e.getStackTrace();
++                        break;
+                     }
+                 }
+             }
+@@ -364,7 +418,8 @@
+                         }
+                     }
+                     catch(Exception e){
+-                        System.out.println(e);
++                        e.getStackTrace();
++                        break;
+                     }
+                 }
+             }
+@@ -381,7 +436,8 @@
+                         }
+                     }
+                     catch(Exception e){
+-                        System.out.println(e);
++                        e.getStackTrace();
++                        break;
+                     }
+                 }
+             }
+@@ -398,7 +454,8 @@
+                         }
+                     }
+                     catch(Exception e){
+-                        System.out.println(e);
++                        e.getStackTrace();
++                        break;
+                     }
+                 }
+             }
+@@ -416,7 +473,8 @@
+                         }
+                     }
+                     catch(Exception e){
+-                        System.out.println(e);
++                        e.getStackTrace();
++                        break;
+                     }
+                 }
+             }
+@@ -433,7 +491,8 @@
+                         }
+                     }
+                     catch(Exception e){
+-                        System.out.println(e);
++                        e.getStackTrace();
++                        break;
+                     }
+                 }
+             }
+@@ -450,10 +509,15 @@
+                         }
+                     }
+                     catch(Exception e){
+-                        System.out.println(e);
++                        e.getStackTrace();
++                        break;
+                     }
+                 }
+             }
++            else{
++                System.out.println("잘못된 요청입니다.");
++            }
++
+ 
+             is.close();
+             os.close();
+@@ -469,6 +533,7 @@
+             System.out.println("서버 연결 종료");
+         }catch (Exception e){
+             e.printStackTrace();
++
+         }
+     }
+ }
+Index: src/concave/GameMain.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package concave;\r\n\r\nimport java.util.Random;\r\nimport java.util.Scanner;\r\nimport javax.swing.JOptionPane;\r\n\r\n\r\npublic class GameMain {\r\n    private static int black = 1;\r\n    private static int white = 2;\r\n\r\n    public static int temp_x = -1;\r\n    public static int temp_y = -1;\r\n\r\n    public static int getX()\r\n    {\r\n        int t_x;\r\n        while(true)\r\n        {\r\n            if (temp_x != -1)\r\n            {\r\n                t_x = temp_x;\r\n                break;\r\n            }\r\n            try {\r\n                Thread.sleep(100);\r\n            } catch (InterruptedException e) {\r\n                e.printStackTrace();\r\n            }\r\n        }\r\n        initialX();\r\n        return t_x;\r\n    }\r\n    public static int getY()\r\n    {\r\n        int t_y = temp_y;\r\n        initialY();\r\n        return t_y;\r\n        /*\r\n        while(true)\r\n        {\r\n            if (temp_y != -1)\r\n            {\r\n                int t_y = temp_y;\r\n                initialY();\r\n                return t_y;\r\n            }\r\n        }\r\n        */\r\n    }\r\n\r\n    private static void initialX()\r\n    {\r\n        temp_x = -1;\r\n    }\r\n    private static void initialY()\r\n    {\r\n        temp_y = -1;\r\n    }\r\n\r\n    private GameMain ad;\r\n    private void initialAddress(GameMain ad)\r\n    {\r\n        this.ad = ad;\r\n    }\r\n\r\n\r\n\r\n    // 메인 함수\r\n    public GameMain() {\r\n\r\n        GUI_board guiB = new GUI_board(ad);\r\n\r\n        Player playerOne = new Player(\"홍길동\", \"홍길동입니다.\");\r\n        Player playerTwo = new Player(\"고말숙\", \"고말숙입니다.\");\r\n        Board board = new Board();\r\n        playerSetting(playerOne, playerTwo);\r\n\r\n        Scanner scanner = new Scanner(System.in);\r\n        int x, y;\r\n\r\n        while(true)\r\n        {\r\n            if (playerOne.getPlayerColor() == black) {\r\n                board.show();\r\n                System.out.println(playerOne.getPlayerName() + \"이 둘 차례입니다.\");\r\n                System.out.print(\"둘 위치를 입력하세요 : \");\r\n                x = getX();\r\n                y = getY();\r\n                //x = scanner.nextInt();\r\n                //y = scanner.nextInt();\r\n                while (!board.put(x, y, playerOne, guiB)) {\r\n                    System.out.println(\"놓을 수 없는 자리입니다.\");\r\n                    System.out.println(\"둘 위치를 다시 선택하세요 : \");\r\n                    x = getX();\r\n                    y = getY();\r\n                }\r\n                board.show();\r\n                if (board.win(x, y, playerOne))\r\n                {\r\n                    JOptionPane aa=new JOptionPane();\r\n                    aa.showMessageDialog(null, \"승리자는 \" + playerOne.getPlayerName() + \"입니다.\");\r\n                    break;\r\n                }\r\n                System.out.println(playerTwo.getPlayerName() + \"이 둘 차례입니다.\");\r\n                System.out.print(\"둘 위치를 입력하세요 : \");\r\n                x = getX();\r\n                y = getY();\r\n                while (!board.put(x, y, playerTwo, guiB)) {\r\n                    System.out.println(\"놓을 수 없는 자리입니다.\");\r\n                    System.out.println(\"둘 위치를 다시 선택하세요 : \");\r\n                    x = getX();\r\n                    y = getY();\r\n                }\r\n                if (board.win(x, y, playerTwo))\r\n                {\r\n                    JOptionPane aa=new JOptionPane();\r\n                    aa.showMessageDialog(null, \"승리자는 \" + playerTwo.getPlayerName() + \"입니다.\");\r\n                    break;\r\n                }\r\n            }\r\n            else {\r\n                board.show();\r\n                System.out.println(playerTwo.getPlayerName() + \"이 둘 차례입니다.\");\r\n                System.out.print(\"둘 위치를 입력하세요 : \");\r\n                x = getX();\r\n                y = getY();\r\n                System.out.println(x);\r\n                System.out.println(y);\r\n                while (!board.put(x, y, playerTwo, guiB)) {\r\n                    System.out.println(\"놓을 수 없는 자리입니다.\");\r\n                    System.out.println(\"둘 위치를 다시 선택하세요 : \");\r\n                    x = getX();\r\n                    y = getY();\r\n                }\r\n                board.show();\r\n                if (board.win(x, y, playerTwo))\r\n                {\r\n                    JOptionPane aa=new JOptionPane();\r\n                    aa.showMessageDialog(null, \"승리자는 \" + playerTwo.getPlayerName() + \"입니다.\");\r\n                    break;\r\n                }\r\n                System.out.println(playerOne.getPlayerName() + \"이 둘 차례입니다.\");\r\n                System.out.print(\"둘 위치를 입력하세요 : \");\r\n                x = getX();\r\n                y = getY();\r\n                while (!board.put(x, y, playerOne, guiB)) {\r\n                    System.out.println(\"놓을 수 없는 자리입니다.\");\r\n                    System.out.println(\"둘 위치를 다시 선택하세요 : \");\r\n                    x = getX();\r\n                    y = getY();\r\n                }\r\n                if (board.win(x, y, playerOne))\r\n                {\r\n                    JOptionPane aa=new JOptionPane();\r\n                    aa.showMessageDialog(null, \"승리자는 \" + playerOne.getPlayerName() + \"입니다.\");\r\n                    break;\r\n                }\r\n            }\r\n        }\r\n        System.out.println(\"승리자는 \" + board.getWinner().getPlayerName() + \"입니다.\");\r\n    }\r\n\r\n    // 플레이어 순서 결정\r\n    public static void playerSetting(Player playerOne, Player playerTwo)\r\n    {\r\n        Random random = new Random();\r\n        if(random.nextBoolean() == true)\r\n        {\r\n            playerOne.setPlayerColor(black);\r\n            playerTwo.setPlayerColor(white);\r\n        }\r\n        else\r\n        {\r\n            playerOne.setPlayerColor(white);\r\n            playerTwo.setPlayerColor(black);\r\n        }\r\n    }\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/concave/GameMain.java b/src/concave/GameMain.java
+--- a/src/concave/GameMain.java	(revision 38d379144241ac8e81ca923841634fd74e33708d)
++++ b/src/concave/GameMain.java	(date 1670907401932)
+@@ -69,11 +69,11 @@
+     // 메인 함수
+     public GameMain() {
+ 
+-        GUI_board guiB = new GUI_board(ad);
++        GUI_board guiB = new concave.GUI_board(ad);
+ 
+         Player playerOne = new Player("홍길동", "홍길동입니다.");
+         Player playerTwo = new Player("고말숙", "고말숙입니다.");
+-        Board board = new Board();
++        Board board = new concave.Board();
+         playerSetting(playerOne, playerTwo);
+ 
+         Scanner scanner = new Scanner(System.in);
+Index: chatting_data/07e02a7874d1cb4f8d85ed18b5dfc01c.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>20221204074837:ssohye@icloud.com:ㅋㅋㅋ:false:20221204074837:\r\n20221204074839:ssohye@icloud.com:ㅎㅇ:false:20221204074839:\r\n20221204074842:ssohye@icloud.com:님?:false:20221204074842:\r\n20221204074842:1:하:false:20221204074842:\r\n20221204074844:1:드디ㅓ:false:20221204074844:\r\n20221204074846:ssohye@icloud.com:너무 힘들었어:false:20221204074846:\r\n20221204074847:ssohye@icloud.com:진짜:false:20221204074847:\r\n20221204074847:1:근데:false:20221204074847:\r\n20221204074850:ssohye@icloud.com:자삶마렵네:false:20221204074850:\r\n20221204074851:ssohye@icloud.com:;;:false:20221204074851:\r\n20221204074852:1:아직 마무리:false:20221204074852:\r\n20221204074853:1:안됌:false:20221204074853:\r\n20221204074854:ssohye@icloud.com:ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ:false:20221204074854:\r\n20221204074855:1:안됨:false:20221204074855:\r\n20221204074856:ssohye@icloud.com:아니;;:false:20221204074856:\r\n20221204074856:1:ㅋㅋㅋ:false:20221204074856:\r\n20221204074858:ssohye@icloud.com:게다가 ...:false:20221204074858:\r\n20221204074901:ssohye@icloud.com:진짜 인스타랑은:false:20221204074901:\r\n20221204074902:ssohye@icloud.com:거리가:false:20221204074902:\r\n20221204074904:ssohye@icloud.com:너무 멀다:false:20221204074904:\r\n20221204074905:ssohye@icloud.com:...:false:20221204074905:\r\n20221204074905:1:ㅋㅋㅋㅋㅋㅋㅋ:false:20221204074905:\r\n20221204074910:ssohye@icloud.com:돌겠네:false:20221204074910:\r\n20221204080236:ssohye@icloud.com:와 진짜:false:20221204080236:\r\n20221204080237:ssohye@icloud.com:돌겠넨:false:20221204080237:\r\n20221204080238:ssohye@icloud.com:ㄴ:false:20221204080238:\r\n20221204080238:ssohye@icloud.com:ㄴ:false:20221204080238:\r\n20221204080238:ssohye@icloud.com:ㅁ:false:20221204080238:\r\n20221204080238:ssohye@icloud.com:ㅇ:false:20221204080238:\r\n20221204080238:ssohye@icloud.com:ㅁㅇ:false:20221204080238:\r\n20221204080238:ssohye@icloud.com:ㅁㄴ:false:20221204080238:\r\n20221204080239:ssohye@icloud.com:ㄹㄴㅁ:false:20221204080239:\r\n20221204080239:ssohye@icloud.com:ㅎㄴㅁ:false:20221204080239:\r\n20221204080239:ssohye@icloud.com:ㅎ:false:20221204080239:\r\n20221204080239:ssohye@icloud.com:ㄴㅇㅎ:false:20221204080239:\r\n20221204080239:ssohye@icloud.com:ㄴㅁㅇㄹ:false:20221204080239:\r\n20221204080239:ssohye@icloud.com:ㄴㅁ:false:20221204080239:\r\n20221204080239:ssohye@icloud.com:ㄹㄴㅁ:false:20221204080239:\r\n20221204080240:ssohye@icloud.com:ㅎ:false:20221204080240:\r\n20221204080240:ssohye@icloud.com:ㄴㅎ:false:20221204080240:\r\n20221204080240:ssohye@icloud.com:ㄴㅁ:false:20221204080240:\r\n20221204080240:ssohye@icloud.com:ㅎㄴㅁ:false:20221204080240:\r\n20221204080240:ssohye@icloud.com:ㅎ:false:20221204080240:\r\n20221204080240:ssohye@icloud.com:ㄴㅁ:false:20221204080240:\r\n20221204080240:ssohye@icloud.com:ㅎㄴㅁ:false:20221204080240:\r\n20221204080241:ssohye@icloud.com:ㄹㅎㄴㅁ:false:20221204080241:\r\n20221204080241:ssohye@icloud.com:ㄹㅎㄴ:false:20221204080241:\r\n20221204080241:ssohye@icloud.com:ㅁㅎ:false:20221204080241:\r\n20221204080241:ssohye@icloud.com:ㄴㅁ:false:20221204080241:\r\n20221204080241:ssohye@icloud.com:ㅎㄴㅁ:false:20221204080241:\r\n20221204080241:ssohye@icloud.com:ㅎㄹ:false:20221204080241:\r\n20221204080241:ssohye@icloud.com:ㄴ모:false:20221204080241:\r\n20221204080242:ssohye@icloud.com:ㄴㅁㄹ:false:20221204080242:\r\n20221204080242:ssohye@icloud.com:ㅇㄴ:false:20221204080242:\r\n20221204080242:ssohye@icloud.com:ㅎ:false:20221204080242:\r\n20221204080242:ssohye@icloud.com:ㅇ노:false:20221204080242:\r\n20221204080242:ssohye@icloud.com:ㄴㅁ:false:20221204080242:\r\n20221204080242:ssohye@icloud.com:ㅎㅇㄴ:false:20221204080242:\r\n20221204080243:ssohye@icloud.com:ㅎㅇㄴ:false:20221204080243:\r\n20221204080243:ssohye@icloud.com:ㅗ:false:20221204080243:\r\n20221204080243:ssohye@icloud.com:오:false:20221204080243:\r\n20221204080243:ssohye@icloud.com:ㅇ:false:20221204080243:\r\n20221204080243:ssohye@icloud.com:ㅗㅇㄴ:false:20221204080243:\r\n20221204080243:ssohye@icloud.com:홍:false:20221204080243:\r\n20221204080244:ssohye@icloud.com:노:false:20221204080244:\r\n20221204080244:ssohye@icloud.com:ㅇ노:false:20221204080244:\r\n20221204080244:ssohye@icloud.com:ㅇ:false:20221204080244:\r\n20221204080244:ssohye@icloud.com:ㅎ:false:20221204080244:\r\n20221204080244:ssohye@icloud.com:ㅇ놓:false:20221204080244:\r\n20221204080244:ssohye@icloud.com:ㄷ:false:20221204080244:\r\n20221204213947:ssohye@icloud.com:얔@:false:20221204213947:\r\n20221204213948:ssohye@icloud.com:야!:false:20221204213948:\r\n20221204213949:ssohye@icloud.com:채팅:false:20221204213949:\r\n20221204213950:ssohye@icloud.com:ㅏㅓㄴㅇ호러ㅗㅇㄴㄹ햐ㅕ인ㅁㄹㅎㄷㅈ:false:20221204213950:\r\n20221204213950:ssohye@icloud.com:ㅇㄴㅎ:false:20221204213950:\r\n20221204213950:ssohye@icloud.com:ㅇㄴㅎㅇㄴ:false:20221204213950:\r\n20221204213950:ssohye@icloud.com:ㅎㄷㄱㄴㅇ:false:20221204213950:\r\n20221204213950:ssohye@icloud.com:ㅎ:false:20221204213950:\r\n20221204213950:ssohye@icloud.com:ㄸㄴㅎ:false:20221204213950:\r\n20221204213951:ssohye@icloud.com:ㅇ:false:20221204213951:\r\n20221204213951:ssohye@icloud.com:ㅗㅎ:false:20221204213951:\r\n20221204213951:ssohye@icloud.com:ㅇㄹㄴ:false:20221204213951:\r\n20221204213951:ssohye@icloud.com:홍ㄷㄴ:false:20221204213951:\r\n20221204213951:ssohye@icloud.com:ㅎ:false:20221204213951:\r\n20221204213951:ssohye@icloud.com:ㅁㅇㄹ:false:20221204213951:\r\n20221204213951:ssohye@icloud.com:혹ㄷ:false:20221204213951:\r\n20221204213951:ssohye@icloud.com:오:false:20221204213951:\r\n20221204213952:ssohye@icloud.com:ㄱㅇ:false:20221204213952:\r\n20221204213952:ssohye@icloud.com:ㅗㅜㅁㄱㄷ:false:20221204213952:\r\n20221204213952:ssohye@icloud.com:러ㅜ:false:20221204213952:\r\n20221204213952:ssohye@icloud.com:ㅁ\\ㄷ4ㅈ3ㅂ:false:20221204213952:\r\n20221204213952:ssohye@icloud.com:YHart:false:20221204213952:\r\n20221204213952:ssohye@icloud.com:sfghn:false:20221204213952:\r\n20221204213952:ssohye@icloud.com:DSTYGhj:false:20221204213952:\r\n20221204213954:ssohye@icloud.com:nsrtfg:false:20221204213954:\r\n20221204235125:ssohye@icloud.com:tq:false:20221204235125:\r\n20221204235127:ssohye@icloud.com:ㅋ;;:false:20221204235127:\r\n20221212173521:1:gd:false:null:\r\n20221212173522:1:gd:false:null:\r\n20221212173522:1:gd:false:null:\r\n20221212173522:1:gd:false:null:\r\n20221212173523:1:gd:false:null:\r\n20221212173533:1:gd:false:null:\r\n20221212173839:1:dksl:false:null:\r\n20221212173843:1:dkslas:false:null:\r\n20221212173844:1:dkslasasd:false:null:\r\n20221212173849:1:dkslasasd:false:null:\r\n20221212175813:1:as:false:null:\r\n20221212175815:1:asas:false:null:\r\n20221212175817:1:asasas:false:null:\r\n20221212180110:1:dksl:false:null:\r\n20221212180113:1:dksTLqkf:false:null:\r\n20221212180451:1:ksl:false:null:\r\n20221212180453:1:ksl아니:false:null:\r\n20221212190617:1:gd:false:null:\r\n20221212190624:1:dkssud:false:null:\r\n20221212210806:null:파일 전송 완료:true:20221212210806.png:\r\n20221212212301:1:파일 전송 완료:true:20221212212301.png:\r\n20221212212741:1:파일 전송 완료:true:20221212212741.png:\r\n20221212232946:1:파일 전송 완료:true:20221212232946.png:\r\n20221212233019:1:파일 전송 완료:true:20221212233019.png:\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/chatting_data/07e02a7874d1cb4f8d85ed18b5dfc01c.txt b/chatting_data/07e02a7874d1cb4f8d85ed18b5dfc01c.txt
+--- a/chatting_data/07e02a7874d1cb4f8d85ed18b5dfc01c.txt	(revision 38d379144241ac8e81ca923841634fd74e33708d)
++++ b/chatting_data/07e02a7874d1cb4f8d85ed18b5dfc01c.txt	(date 1670909357142)
+@@ -119,3 +119,5 @@
+ 20221212212741:1:파일 전송 완료:true:20221212212741.png:
+ 20221212232946:1:파일 전송 완료:true:20221212232946.png:
+ 20221212233019:1:파일 전송 완료:true:20221212233019.png:
++20221213132835:1:/오목:false:null:
++20221213135111:1:/오목:false:null:
+Index: chatting_data/aba20b6a191ceb1bf63bdab30a319a27.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/chatting_data/aba20b6a191ceb1bf63bdab30a319a27.txt b/chatting_data/aba20b6a191ceb1bf63bdab30a319a27.txt
+--- a/chatting_data/aba20b6a191ceb1bf63bdab30a319a27.txt	(revision 38d379144241ac8e81ca923841634fd74e33708d)
++++ b/chatting_data/aba20b6a191ceb1bf63bdab30a319a27.txt	(date 1670906784251)
+@@ -1,0 +1,1 @@
++20221213134104:1:/오목:false:null:
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"1c437c3d-3b45-414f-929f-611a89f11dfc\" name=\"Changes\" comment=\"chatting 폰트 수정\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/chatting_data/cd35e23b7dfd88827aa26123b6cfa3b7.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/chatting_data/cd35e23b7dfd88827aa26123b6cfa3b7.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/GUI/chats.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/GUI/chats.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/GUI/find.form\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/GUI/find.form\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/GUI/find.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/GUI/find.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/GUI/invite.form\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/GUI/invite.form\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/GUI/invite.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/GUI/invite.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/GUI/login.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/GUI/login.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"package.json\" />\r\n        <option value=\"JavaScript File\" />\r\n        <option value=\"TypeScript File\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"uijin\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2IfO58fuPxWEStm5oHW96ICiDx1\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Downloaded.Files.Path.Enabled\": \"false\",\r\n    \"Repository.Attach.Annotations\": \"false\",\r\n    \"Repository.Attach.JavaDocs\": \"false\",\r\n    \"Repository.Attach.Sources\": \"false\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW\": \"true\",\r\n    \"UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH\": \"366\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"last_opened_file_path\": \"C:/Users/white/IdeaProjects/KakaoTalk\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"project.structure.last.edited\": \"Libraries\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.2\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateClassDialog.RecentsKey\">\r\n      <recent name=\"public_data\" />\r\n    </key>\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"$PROJECT_DIR$\" />\r\n      <recent name=\"$PROJECT_DIR$/src/function\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Administrator\\IdeaProjects\\KakaoTalk\\src\\IMG\" />\r\n      <recent name=\"$PROJECT_DIR$/src/IMG\" />\r\n      <recent name=\"$PROJECT_DIR$/src/public_data\" />\r\n      <recent name=\"$PROJECT_DIR$/openAPI\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"애플리케이션.Main\">\r\n    <configuration name=\"ApiTestApplication\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"public_data.ApiTestApplication\" />\r\n      <module name=\"KakaoTalk\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"public_data.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"KakaoTalk\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"getData2\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"getData2\" />\r\n      <module name=\"KakaoTalk\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"stockData\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"GUI.stockData\" />\r\n      <module name=\"KakaoTalk\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"GUI.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"test\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"public_data.test\" />\r\n      <module name=\"KakaoTalk\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"public_data.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"test1\" type=\"Application\" factoryName=\"Application\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"public_data.test1\" />\r\n      <module name=\"KakaoTalk\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"public_data.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"애플리케이션.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"1c437c3d-3b45-414f-929f-611a89f11dfc\" name=\"Changes\" comment=\"\" />\r\n      <created>1670568984234</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1670568984234</updated>\r\n      <workItem from=\"1670568985270\" duration=\"3887000\" />\r\n      <workItem from=\"1670573800337\" duration=\"2100000\" />\r\n      <workItem from=\"1670576190090\" duration=\"16798000\" />\r\n      <workItem from=\"1670595604778\" duration=\"3974000\" />\r\n      <workItem from=\"1670725355073\" duration=\"76000\" />\r\n      <workItem from=\"1670725433516\" duration=\"409000\" />\r\n      <workItem from=\"1670746283535\" duration=\"3786000\" />\r\n      <workItem from=\"1670770269623\" duration=\"884000\" />\r\n      <workItem from=\"1670855180833\" duration=\"75000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"test1\">\r\n      <created>1670570617039</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670570617039</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"코인 정보 불러오기 upbit api\">\r\n      <created>1670586737097</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670586737097</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"코인 정보 불러오기 upbit api, getCoinData\">\r\n      <created>1670588549263</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670588549263</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"코인 변동률 0.0일때 발생하는 오류 해결\">\r\n      <created>1670747239162</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670747239162</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"코인 이미지 오류 수정\">\r\n      <created>1670751669485</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670751669485</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"코인데이터 화면 form수정\">\r\n      <created>1670823504458</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670823504458</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"코인데이터 화면 form수정\">\r\n      <created>1670827331022</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670827331022</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"스크롤패인 ㅈ버그 수정\">\r\n      <created>1670839159659</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670839159659</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"chatting 폰트 수정\">\r\n      <created>1670849040749</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670849040749</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"10\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"test1\" />\r\n    <MESSAGE value=\"코인 정보 불러오기 upbit api\" />\r\n    <MESSAGE value=\"코인 정보 불러오기 upbit api, getCoinData\" />\r\n    <MESSAGE value=\"코인 변동률 0.0일때 발생하는 오류 해결\" />\r\n    <MESSAGE value=\"코인 이미지 오류 수정\" />\r\n    <MESSAGE value=\"코인데이터 화면 form수정\" />\r\n    <MESSAGE value=\"스크롤패인 ㅈ버그 수정\" />\r\n    <MESSAGE value=\"chatting 폰트 수정\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"chatting 폰트 수정\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/KakaoTalk$Main.ic\" NAME=\"Main Coverage Results\" MODIFIED=\"1670747029056\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 38d379144241ac8e81ca923841634fd74e33708d)
++++ b/.idea/workspace.xml	(date 1670909077194)
+@@ -4,15 +4,16 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="chatting 폰트 수정">
++    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="채팅 완성">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/chatting_data/cd35e23b7dfd88827aa26123b6cfa3b7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/cd35e23b7dfd88827aa26123b6cfa3b7.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/GUI/chats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chats.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/GUI/find.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/find.form" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/GUI/find.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/find.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/GUI/invite.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/invite.form" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/GUI/invite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/invite.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/GUI/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/login.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/chatting_data/07e02a7874d1cb4f8d85ed18b5dfc01c.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/07e02a7874d1cb4f8d85ed18b5dfc01c.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/chatting_data/aba20b6a191ceb1bf63bdab30a319a27.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/aba20b6a191ceb1bf63bdab30a319a27.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/GUI/chattingRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chattingRoom.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/IMG/search.png" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/concave/GUI_board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/concave/GUI_board.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/concave/GameMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/concave/GameMain.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/concave/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/concave/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/function/get_data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/function/get_data.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -47,29 +48,29 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "Downloaded.Files.Path.Enabled": "false",
+-    "Repository.Attach.Annotations": "false",
+-    "Repository.Attach.JavaDocs": "false",
+-    "Repository.Attach.Sources": "false",
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "366",
+-    "WebServerToolWindowFactoryState": "false",
+-    "last_opened_file_path": "C:/Users/white/IdeaProjects/KakaoTalk",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "project.structure.last.edited": "Libraries",
+-    "project.structure.proportion": "0.15",
+-    "project.structure.side.proportion": "0.2",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
++    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
++    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
++    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
++    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;366&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/white/IdeaProjects/KakaoTalk&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CreateClassDialog.RecentsKey">
+       <recent name="public_data" />
+@@ -86,12 +87,19 @@
+     </key>
+   </component>
+   <component name="RunManager" selected="애플리케이션.Main">
+-    <configuration name="ApiTestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="public_data.ApiTestApplication" />
++    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="Main" />
++      <module name="KakaoTalk" />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="concave.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="concave.Main" />
+       <module name="KakaoTalk" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="public_data.*" />
++          <option name="PATTERN" value="concave.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+@@ -99,13 +107,6 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="Main" />
+-      <module name="KakaoTalk" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+     <configuration name="getData2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="getData2" />
+       <module name="KakaoTalk" />
+@@ -155,6 +156,7 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="애플리케이션.Main" />
++        <item itemvalue="애플리케이션.concave.Main" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -175,6 +177,7 @@
+       <workItem from="1670746283535" duration="3786000" />
+       <workItem from="1670770269623" duration="884000" />
+       <workItem from="1670855180833" duration="75000" />
++      <workItem from="1670906401391" duration="2461000" />
+     </task>
+     <task id="LOCAL-00001" summary="test1">
+       <created>1670570617039</created>
+@@ -268,6 +271,6 @@
+     <option name="LAST_COMMIT_MESSAGE" value="chatting 폰트 수정" />
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+-    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main Coverage Results" MODIFIED="1670747029056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
++    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main 커버리지 결과" MODIFIED="1670746914059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+   </component>
+ </project>
+\ No newline at end of file

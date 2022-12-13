@@ -113,7 +113,7 @@
             </constraints>
             <properties>
               <background color="-1"/>
-              <text value="Email"/>
+              <text value="Name"/>
             </properties>
           </component>
           <component id="1db2e" class="javax.swing.JTextField" binding="phonepassword">

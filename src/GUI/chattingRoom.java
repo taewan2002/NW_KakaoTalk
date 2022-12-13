@@ -19,7 +19,7 @@ import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-
+import concave.*;
 
 public class chattingRoom extends JFrame {
     private String user_id;
@@ -83,7 +83,7 @@ public class chattingRoom extends JFrame {
                             i = 0;
                             if (t == true){
                                 try {
-                                    Thread.sleep(50);
+                                    Thread.sleep(150);
                                     chatPanel_thread.getVerticalScrollBar().setValue(chatPanel_thread.getVerticalScrollBar().getMaximum());
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
@@ -198,6 +198,8 @@ public class chattingRoom extends JFrame {
         private JLabel time;
 
         private JButton file_down;
+
+        private JButton concave1;
         public chatSchema(String hours, String minutes, String send_user_id ,String message, String file_bool, String file_name){
             this.hours = hours;
             this.minutes = minutes;
@@ -263,6 +265,19 @@ public class chattingRoom extends JFrame {
 
                     bullon.add(file_down,gbc);
                 }
+                else if(message.equals("/오목")){
+                    concave1 = new JButton("들어오던가");
+
+                    concave1.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            Main a = new Main();
+                            a.start();
+                        }
+                    });
+
+                    bullon.add(concave1,gbc);
+                }
                 else{
                     text.setDisabledTextColor(new Color(0,0,0));
                     text.setLineWrap(true);
@@ -313,6 +328,19 @@ public class chattingRoom extends JFrame {
                     });
 
                     bullon.add(file_down,gbc);
+                }
+                else if(message.equals("/오목")){
+                    concave1 = new JButton("들어오던가");
+
+                    concave1.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            Main a = new Main();
+                            a.start();
+                        }
+                    });
+
+                    bullon.add(concave1,gbc);
                 }
                 else{
                     text.setDisabledTextColor(new Color(0,0,0));

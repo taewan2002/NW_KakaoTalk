@@ -62,7 +62,7 @@ public class login extends JFrame{
             @Override
             public void mouseExited(MouseEvent e) {
                 if(id.getText().equals("")){
-                    id.setText("전화번호, 사용자이름 또는 이메일");
+                    id.setText("아이디");
                 }
             }
         });
@@ -83,7 +83,7 @@ public class login extends JFrame{
             public void mouseExited(MouseEvent e) {
                 String pwd = new String(password.getPassword());
                 if (pwd.equals("")) {
-                    password.setText("비밀번호486");
+                    password.setText("비밀번호");
                 }
             }
         });
@@ -122,6 +122,10 @@ public class login extends JFrame{
             public void keyReleased(KeyEvent e) {}
         });
 
+        setTitle("kakaotalk");
+        ImgSetSize kakao = new ImgSetSize("src/IMG/kakaoIcon.png", 10000, 10000);
+        Image img = kakao.getImg().getImage();
+        setIconImage(img);
         setContentPane(main);
         setSize(480,650);
         setVisible(true);
