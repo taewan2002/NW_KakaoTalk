@@ -6,6 +6,7 @@ import chatting_function.chatting_client;
 import chatting_function.file_client;
 import chatting_function.imgchoose;
 import function.ImgSetSize;
+import function.cache_download;
 import public_data.getCoinData;
 
 import javax.swing.*;
@@ -82,7 +83,7 @@ public class chattingRoom extends JFrame {
                             i = 0;
                             if (t == true){
                                 try {
-                                    Thread.sleep(50);
+                                    Thread.sleep(150);
                                     chatPanel_thread.getVerticalScrollBar().setValue(chatPanel_thread.getVerticalScrollBar().getMaximum());
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
@@ -112,6 +113,7 @@ public class chattingRoom extends JFrame {
         }
     }
     public chattingRoom(String user_id, chatting_client client, ListeningThread t1, String room_id){
+        new cache_download(null,room_id,room_id,"1",2,client);
         // 스크롤 패널 행스크롤 금지
         chatPanel.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         // 스크롤 속도 조절
@@ -246,6 +248,10 @@ public class chattingRoom extends JFrame {
                 gbc.weightx = 0.75;
                 gbc.weighty = 0.5;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/uijin
                 if(file_bool.equals("true")){
                     file_down = new JButton("file_down");
                     file_down.addActionListener(new ActionListener() {
@@ -260,7 +266,14 @@ public class chattingRoom extends JFrame {
                     bullon.add(file_down,gbc);
                 }
                 else{
+<<<<<<< HEAD
                     text.setForeground(new Color(0,0,0));
+=======
+                    text.setDisabledTextColor(new Color(0,0,0));
+                    text.setLineWrap(true);
+                    text.setWrapStyleWord(true);
+                    text.setEditable(false);
+>>>>>>> origin/uijin
                     bullon.add(text,gbc);
 
                     text.setEnabled(false);
@@ -309,7 +322,14 @@ public class chattingRoom extends JFrame {
                     bullon.add(file_down,gbc);
                 }
                 else{
+<<<<<<< HEAD
                     text.setForeground(new Color(0,0,0));
+=======
+                    text.setDisabledTextColor(new Color(0,0,0));
+                    text.setLineWrap(true);
+                    text.setWrapStyleWord(true);
+                    text.setEditable(false);
+>>>>>>> origin/uijin
                     bullon.add(text,gbc);
 
                     text.setEnabled(false);

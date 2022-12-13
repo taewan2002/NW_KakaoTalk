@@ -188,6 +188,7 @@
 20221212220654:ssohye@icloud.com:::::::::false:20221212220654:
 20221212220705:ssohye@icloud.com:fileexist:true:false:20221212220705:
 20221212220713:ssohye@icloud.com:파일:true:false:20221212220713:
+<<<<<<< HEAD
 20221213120949:1:gd:false:null:
 20221213120950:1:ㅎㅇ:false:null:
 20221213120951:ssohye@icloud.com:dd:false:20221213120951:
@@ -210,3 +211,5 @@
 20221213120958:ssohye@icloud.com:ㄴㅇㄴㅇ:false:20221213120958:
 20221213120959:1:ㅋㅋ:false:null:
 20221213121000:ssohye@icloud.com:ㅇㅇㅇ:false:20221213121000:
+=======
+>>>>>>> origin/uijin

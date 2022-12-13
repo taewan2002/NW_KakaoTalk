@@ -76,6 +76,7 @@ public class CoinData extends JFrame {
             String imgPath = "src/img/" + market.get(k) + ".png";
             ImgSetSize img = new ImgSetSize(imgPath, 50, 50);
             label.setIcon(img.getImg());
+            // 라벨 텍스트 길이 일정하게 맞추기
             label.setText("  이름 : " + pane.getMarket() + " 가격 : " + pane.getTrade_price() + " 변동률 : " + pane.getChangeRate());
             Scorll.add(label, gbc);
             Scorll.updateUI();
