@@ -228,6 +228,7 @@ public class chattingRoom extends JFrame {
 
             if(user_id.equals(send_user_id)){
                 setLayout(new FlowLayout(FlowLayout.RIGHT));
+                text.setForeground(new Color(0,0,0));
                 text.setBackground(new Color(255,230,0));
 
                 user.setText("나");
@@ -248,22 +249,7 @@ public class chattingRoom extends JFrame {
                 gbc.weightx = 0.75;
                 gbc.weighty = 0.5;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> origin/uijin
-=======
-
->>>>>>> origin/uijin
-=======
-
->>>>>>> origin/uijin
-=======
-
->>>>>>> 759f5248608998697c89508edfa3ebf4ef49bf81
                 if(file_bool.equals("true")){
                     file_down = new JButton("file_down");
                     file_down.addActionListener(new ActionListener() {
@@ -278,35 +264,11 @@ public class chattingRoom extends JFrame {
                     bullon.add(file_down,gbc);
                 }
                 else{
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    text.setForeground(new Color(0,0,0));
-=======
-=======
->>>>>>> origin/uijin
-=======
->>>>>>> origin/uijin
-=======
->>>>>>> 759f5248608998697c89508edfa3ebf4ef49bf81
                     text.setDisabledTextColor(new Color(0,0,0));
                     text.setLineWrap(true);
                     text.setWrapStyleWord(true);
                     text.setEditable(false);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> origin/uijin
-=======
->>>>>>> origin/uijin
-=======
->>>>>>> origin/uijin
-=======
->>>>>>> 759f5248608998697c89508edfa3ebf4ef49bf81
                     bullon.add(text,gbc);
-
-                    text.setEnabled(false);
                 }
 
                 gbc.gridx = 0;
@@ -319,6 +281,7 @@ public class chattingRoom extends JFrame {
             }
             else{
                 setLayout(new FlowLayout(FlowLayout.LEFT));
+                text.setForeground(new Color(0,0,0));
                 text.setBackground(new Color(255, 255, 255));
 
                 user.setText(send_user_id);
@@ -352,35 +315,11 @@ public class chattingRoom extends JFrame {
                     bullon.add(file_down,gbc);
                 }
                 else{
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    text.setForeground(new Color(0,0,0));
-=======
-=======
->>>>>>> origin/uijin
-=======
->>>>>>> origin/uijin
-=======
->>>>>>> 759f5248608998697c89508edfa3ebf4ef49bf81
                     text.setDisabledTextColor(new Color(0,0,0));
                     text.setLineWrap(true);
                     text.setWrapStyleWord(true);
                     text.setEditable(false);
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> origin/uijin
-=======
->>>>>>> origin/uijin
-=======
->>>>>>> origin/uijin
-=======
->>>>>>> 759f5248608998697c89508edfa3ebf4ef49bf81
                     bullon.add(text,gbc);
-
-                    text.setEnabled(false);
                 }
 
                 gbc.gridx = 3;

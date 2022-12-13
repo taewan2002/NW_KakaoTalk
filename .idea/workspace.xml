@@ -4,20 +4,6 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="채팅 완성">
-      <change beforePath="$PROJECT_DIR$/src/GUI/chats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/more.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/more.form" afterDir="false" />
-=======
-=======
->>>>>>> origin/uijin
-=======
->>>>>>> origin/uijin
-=======
->>>>>>> 759f5248608998697c89508edfa3ebf4ef49bf81
     <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="chatting 폰트 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chatting_data/cd35e23b7dfd88827aa26123b6cfa3b7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/cd35e23b7dfd88827aa26123b6cfa3b7.txt" afterDir="false" />
@@ -27,16 +13,6 @@
       <change beforePath="$PROJECT_DIR$/src/GUI/invite.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/invite.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/invite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/invite.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/login.java" afterDir="false" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> origin/uijin
-=======
->>>>>>> origin/uijin
-=======
->>>>>>> origin/uijin
-=======
->>>>>>> 759f5248608998697c89508edfa3ebf4ef49bf81
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,23 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <entry key="$PROJECT_DIR$" value="hw" />
-=======
         <entry key="$PROJECT_DIR$" value="uijin" />
->>>>>>> origin/uijin
-=======
-        <entry key="$PROJECT_DIR$" value="uijin" />
->>>>>>> origin/uijin
-=======
-        <entry key="$PROJECT_DIR$" value="uijin" />
->>>>>>> origin/uijin
-=======
-        <entry key="$PROJECT_DIR$" value="uijin" />
->>>>>>> 759f5248608998697c89508edfa3ebf4ef49bf81
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -87,36 +47,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/taewan/IdeaProjects/KakaoTalk&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-=======
-=======
->>>>>>> origin/uijin
-=======
->>>>>>> origin/uijin
-=======
->>>>>>> 759f5248608998697c89508edfa3ebf4ef49bf81
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Downloaded.Files.Path.Enabled": "false",
@@ -138,16 +68,6 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> origin/uijin
-=======
->>>>>>> origin/uijin
-=======
->>>>>>> origin/uijin
-=======
->>>>>>> 759f5248608998697c89508edfa3ebf4ef49bf81
   }
 }]]></component>
   <component name="RecentsManager">
@@ -254,22 +174,7 @@
       <workItem from="1670725433516" duration="409000" />
       <workItem from="1670746283535" duration="3786000" />
       <workItem from="1670770269623" duration="884000" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
       <workItem from="1670855180833" duration="75000" />
->>>>>>> origin/uijin
-=======
-      <workItem from="1670855180833" duration="75000" />
->>>>>>> origin/uijin
-=======
-      <workItem from="1670855180833" duration="75000" />
->>>>>>> origin/uijin
-=======
-      <workItem from="1670855180833" duration="75000" />
->>>>>>> 759f5248608998697c89508edfa3ebf4ef49bf81
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1670570617039</created>
@@ -306,9 +211,6 @@
       <option name="project" value="LOCAL" />
       <updated>1670751669485</updated>
     </task>
-<<<<<<< HEAD
-    <option name="localTasksCounter" value="6" />
-=======
     <task id="LOCAL-00006" summary="코인데이터 화면 form수정">
       <created>1670823504458</created>
       <option name="number" value="00006" />
@@ -338,7 +240,6 @@
       <updated>1670849040749</updated>
     </task>
     <option name="localTasksCounter" value="10" />
->>>>>>> origin/uijin
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,23 +262,10 @@
     <MESSAGE value="코인 정보 불러오기 upbit api, getCoinData" />
     <MESSAGE value="코인 변동률 0.0일때 발생하는 오류 해결" />
     <MESSAGE value="코인 이미지 오류 수정" />
-<<<<<<< HEAD
-    <option name="LAST_COMMIT_MESSAGE" value="코인 이미지 오류 수정" />
-=======
     <MESSAGE value="코인데이터 화면 form수정" />
     <MESSAGE value="스크롤패인 ㅈ버그 수정" />
     <MESSAGE value="chatting 폰트 수정" />
     <option name="LAST_COMMIT_MESSAGE" value="chatting 폰트 수정" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> origin/uijin
-=======
->>>>>>> origin/uijin
-=======
->>>>>>> origin/uijin
-=======
->>>>>>> 759f5248608998697c89508edfa3ebf4ef49bf81
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main Coverage Results" MODIFIED="1670747029056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
