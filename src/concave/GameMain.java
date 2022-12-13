@@ -4,8 +4,18 @@ import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
+import chatting.protocol;
+import chatting_function.ListeningThread;
+import chatting_function.chatting_client;
+
 
 public class GameMain {
+    private String user_id;
+    private chatting_client client;
+    private ListeningThread t1;
+    private String room_id;
+
+
     private static int black = 1;
     private static int white = 2;
 
@@ -52,7 +62,11 @@ public class GameMain {
 
 
     // 메인 함수
-    public GameMain() {
+    public GameMain(chatting_client client, String room_id, String user_id, ListeningThread t1) {
+        this.client = client;
+        this.room_id = room_id;
+        this.user_id = user_id;
+        this.t1 = t1;
 
         GUI_board guiB = new concave.GUI_board(ad);
 
@@ -63,6 +77,7 @@ public class GameMain {
 
         Scanner scanner = new Scanner(System.in);
         int x, y;
+        String message;
 
         while(true)
         {
@@ -80,6 +95,9 @@ public class GameMain {
                     x = getX();
                     y = getY();
                 }
+                System.out.println("!오목!" + Integer.toString(x) + "!" + Integer.toString(y) + "!" + playerOne.getPlayerName());
+                message = "!오목!" + Integer.toString(x) + "!" + Integer.toString(y) + "!" + playerOne.getPlayerName();
+                client.send_messege(4,room_id, user_id, message,false,null);
                 //board.show();
                 if (board.win(x, y, playerOne))
                 {
@@ -97,6 +115,9 @@ public class GameMain {
                     x = getX();
                     y = getY();
                 }
+                System.out.println("!오목!" + Integer.toString(x) + "!" + Integer.toString(y) + "!" + playerTwo.getPlayerName());
+                message = "!오목!" + Integer.toString(x) + "!" + Integer.toString(y) + "!" + playerTwo.getPlayerName();
+                client.send_messege(4,room_id, user_id, message,false,null);
                 if (board.win(x, y, playerTwo))
                 {
                     JOptionPane aa=new JOptionPane();
@@ -110,14 +131,15 @@ public class GameMain {
                 //System.out.print("둘 위치를 입력하세요 : ");
                 x = getX();
                 y = getY();
-                System.out.println(x);
-                System.out.println(y);
                 while (!board.put(x, y, playerTwo, guiB)) {
                     //System.out.println("놓을 수 없는 자리입니다.");
                     //System.out.println("둘 위치를 다시 선택하세요 : ");
                     x = getX();
                     y = getY();
                 }
+                System.out.println("!오목!" + Integer.toString(x) + "!" + Integer.toString(y) + "!" + playerTwo.getPlayerName());
+                message = "!오목!" + Integer.toString(x) + "!" + Integer.toString(y) + "!" + playerTwo.getPlayerName();
+                client.send_messege(4,room_id, user_id, message,false,null);
                 //board.show();
                 if (board.win(x, y, playerTwo))
                 {
@@ -135,6 +157,9 @@ public class GameMain {
                     x = getX();
                     y = getY();
                 }
+                System.out.println("!오목!" + Integer.toString(x) + "!" + Integer.toString(y) + "!" + playerOne.getPlayerName());
+                message = "!오목!" + Integer.toString(x) + "!" + Integer.toString(y) + "!" + playerOne.getPlayerName();
+                client.send_messege(4,room_id, user_id, message,false,null);
                 if (board.win(x, y, playerOne))
                 {
                     JOptionPane aa=new JOptionPane();
