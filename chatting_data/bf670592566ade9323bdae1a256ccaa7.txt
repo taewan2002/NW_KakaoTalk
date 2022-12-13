@@ -105,3 +105,108 @@
 20221212185820:taewan2002:ddsdfasdasdfasdasdgasdgdgsaadgsagdsadgsadgs:false:null:
 20221212185820:taewan2002:ddsdfasdasdfasdasdgasdgdgsaadgsagdsadgsadgs:false:null:
 20221212185820:taewan2002:ddsdfasdasdfasdasdgasdgdgsaadgsagdsadgsadgs:false:null:
+20221212214814:taewan2002:f:false:null:
+20221212214815:taewan2002:sdfg:false:null:
+20221212214815:taewan2002:sdgf:false:null:
+20221212214815:taewan2002:dsfg:false:null:
+20221212214816:taewan2002:dgsf:false:null:
+20221212214816:taewan2002::false:null:
+20221212214816:taewan2002:dsfg:false:null:
+20221212214816:taewan2002:sdfg:false:null:
+20221212214818:whitekuj02:잘오네:false:null:
+20221212214819:whitekuj02:ㅋ:false:null:
+20221212215129:taewan2002:package function;  import java.io.File; import java.util.ArrayList; import java.io.FileReader; import java.io.BufferedReader;  public class readTxt {     String host;     ArrayList<String> port = new ArrayList<String>();     // port(0) = 9898, 로그인포트, listeningThread 포트     // port(1) = 25589, 캐시파일 다운로드 포트, 파일 client, server 포트     // port(2) = 25588, chatting 포트     // port(3) = 9998, getData 포트     // port(4) = 9797, imgdownload 포트      public readTxt() {         try{             // host.txt, port.txt 파일에서 정보 불러와서 저장하기             File hostfile = new File("connectionInfo/host.txt");             File portfile = new File("connectionInfo/port.txt");             if(hostfile.exists() && portfile.exists()){                 FileReader hostfr = new FileReader(hostfile);                 FileReader portfr = new FileReader(portfile);                 BufferedReader hostbr = new BufferedReader(hostfr);                 BufferedReader portbr = new BufferedReader(portfr);                 host = hostbr.readLine();                 String portline = portbr.readLine();                 while(portline != null){                     port.add(portline);                     portline = portbr.readLine();                 }                 hostbr.close();                 portbr.close();             }             else{                 System.out.println("host.txt, port.txt 파일이 존재하지 않습니다.");             }         }catch(Exception e) {             e.getStackTrace();         }     }     public String getHost(){         return host;     }     public ArrayList<String> getPort(){         return port;     } }:false:null:
+20221212215200:taewan2002:dkssu:false:null:
+20221212215201:taewan2002:ㅇㅏㄴ녕:false:null:
+20221212215201:whitekuj02:ㅎㅇ:false:null:
+20221212215202:taewan2002:안녕:false:null:
+20221212215206:whitekuj02:ㅎㅇ:false:null:
+20221212215222:whitekuj02:파일 전송 완료:true:20221212215222.png:
+20221212215406:taewan2002:안녕:false:null:
+20221212215409:taewan2002:안녕:false:null:
+20221212215412:taewan2002:sex:false:null:
+20221212220315:1:와우:false:null:
+20221212220319:whitekuj02:ㅋㅋㅋ:false:null:
+20221212220322:taewan2002:ㅇㅏ니:false:null:
+20221212220323:taewan2002:모해:false:null:
+20221212220323:taewan2002:!~~:false:null:
+20221212220325:taewan2002:모ㅓ헤ㅐ~~:false:null:
+20221212220328:taewan2002:모해~!!!:false:null:
+20221212220401:whitekuj02:뭐:false:null:
+20221212220404:whitekuj02:어쩔티비:false:null:
+20221212220409:whitekuj02:ㅋㅋ:false:null:
+20221212220410:1:ㅋㅋㅋㅋ:false:null:
+20221212220413:whitekuj02:쿠쿠루삥뽕:false:null:
+20221212220415:1:기가 막히구만:false:null:
+20221212220423:whitekuj02:ㅋㅋㅋㅋㅋㅋㅋㅋ:false:null:
+20221212220428:whitekuj02:ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ:false:null:
+20221212220447:1:dsds:false:20221212220447:
+20221212220447:whitekuj02:ㅎㅇ:false:null:
+20221212220447:1:sd:false:20221212220447:
+20221212220448:whitekuj02:ㅎ:false:null:
+20221212220449:1:fffsf:false:20221212220449:
+20221212220449:whitekuj02:ㅎㅇ:false:null:
+20221212220449:1:ㅋㅋㅋㅋ:false:null:
+20221212220450:1:sdsds:false:20221212220450:
+20221212220451:1:sfsfsf:false:20221212220451:
+20221212220453:1:ㅎㅇ:false:20221212220453:
+20221212220520:1:ㅋㅋㅋㅋㅋㅋㅋ:false:null:
+20221212220521:1::false:null:
+20221212220521:ssohye@icloud.com:gd:false:20221212220521:
+20221212220522:whitekuj02:ㅎㅇ:false:null:
+20221212220522:1:ㅋㅋㅋㅋ:false:null:
+20221212220522:whitekuj02:ㅎㅇ:false:null:
+20221212220523:ssohye@icloud.com:하이:false:20221212220523:
+20221212220523:whitekuj02:ㅎㅇ:false:null:
+20221212220523:whitekuj02:ㅎㅇ:false:null:
+20221212220524:ssohye@icloud.com:님:false:20221212220524:
+20221212220524:whitekuj02:ㅎㅇ:false:null:
+20221212220524:taewan2002:안녕:false:null:
+20221212220525:ssohye@icloud.com:들:false:20221212220525:
+20221212220525:1:ㄴㅁㅇㄹㅇ:false:null:
+20221212220525:taewan2002:ㅋㅋ:false:null:
+20221212220526:ssohye@icloud.com:ㅋㅋㅋㅋㅋㅋ:false:20221212220526:
+20221212220526:whitekuj02:이거지:false:null:
+20221212220527:1:ㄱ긔ㅏㅇ라ㅣ:false:null:
+20221212220527:whitekuj02:ㅋㅋ:false:null:
+20221212220527:ssohye@icloud.com:ㅋㅋㅋㅋㅋ:false:20221212220527:
+20221212220527:taewan2002:파일보내ㅑ:false:null:
+20221212220529:1:뭔데:false:null:
+20221212220529:taewan2002:의진:false:null:
+20221212220534:taewan2002:ㅇ의진 파일보내:false:null:
+20221212220537:ssohye@icloud.com:파일:false:20221212220537:
+20221212220540:1:ㅋㅋㅋㅋㅋㅋ:false:null:
+20221212220542:1:채팅 서공:false:null:
+20221212220543:null:파일 전송 완료:true:20221212220543.txt:
+20221212220544:1:ㅋㅋㅋㅋ:false:null:
+20221212220556:whitekuj02:파일 전송 완료:true:20221212220556.png:
+20221212220557:null:파일 전송 완료:true:20221212220557.txt:
+20221212220612:taewan2002:이거 보냈구만:false:null:
+20221212220613:whitekuj02:ㅋㅋㅋ:false:null:
+20221212220648:ssohye@icloud.com:파일: 234242342342342423.png:false:20221212220648:
+20221212220652:ssohye@icloud.com::::::false:20221212220652:
+20221212220654:ssohye@icloud.com:::::::::false:20221212220654:
+20221212220705:ssohye@icloud.com:fileexist:true:false:20221212220705:
+20221212220713:ssohye@icloud.com:파일:true:false:20221212220713:
+20221213120949:1:gd:false:null:
+20221213120950:1:ㅎㅇ:false:null:
+20221213120951:ssohye@icloud.com:dd:false:20221213120951:
+20221213120952:ssohye@icloud.com:하이:false:20221213120952:
+20221213120951:1:ㅎㅇ:false:null:
+20221213120951:1:ㅎㅇ:false:null:
+20221213120952:1:ㅎㅇ:false:null:
+20221213120952:ssohye@icloud.com:님:false:20221213120952:
+20221213120952:1:ㅎㅇ:false:null:
+20221213120952:1:ㅎㅇ:false:null:
+20221213120953:ssohye@icloud.com:들:false:20221213120953:
+20221213120953:1:큨ㅎㅋ:false:null:
+20221213120954:ssohye@icloud.com:쩜:false:20221213120954:
+20221213120953:1:ㅎㅋ:false:null:
+20221213120955:ssohye@icloud.com:굿:false:20221213120955:
+20221213120956:ssohye@icloud.com:굿:false:20221213120956:
+20221213120955:1:요종도:false:null:
+20221213120957:ssohye@icloud.com:굿:false:20221213120957:
+20221213120957:1:요종도~:false:null:
+20221213120958:ssohye@icloud.com:ㄴㅇㄴㅇ:false:20221213120958:
+20221213120959:1:ㅋㅋ:false:null:
+20221213121000:ssohye@icloud.com:ㅇㅇㅇ:false:20221213121000:

@@ -3,7 +3,6 @@ package GUI;
 import chatting_function.ListeningThread;
 import chatting_function.chatting_client;
 import function.ImgSetSize;
-import function.get_data;
 import public_data.setCoinData;
 import function.*;
 
