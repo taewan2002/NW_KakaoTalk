@@ -4,6 +4,8 @@ import java.util.Random;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
+import chatting.protocol;
+
 
 public class GameMain {
     private static int black = 1;
@@ -110,8 +112,6 @@ public class GameMain {
                 //System.out.print("둘 위치를 입력하세요 : ");
                 x = getX();
                 y = getY();
-                System.out.println(x);
-                System.out.println(y);
                 while (!board.put(x, y, playerTwo, guiB)) {
                     //System.out.println("놓을 수 없는 자리입니다.");
                     //System.out.println("둘 위치를 다시 선택하세요 : ");
