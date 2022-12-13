@@ -32,6 +32,7 @@ public class chattingRoom extends JFrame {
     private JPanel chat;
     private JPanel main;
     private String room_id;
+    private Main gmain;
 
     boolean running = true;
     BufferedInputStream reader = null;
@@ -271,8 +272,8 @@ public class chattingRoom extends JFrame {
                     concave1.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            Main a = new Main();
-                            a.start();
+                            gmain = new Main(client, room_id, user_id, t1);
+                            gmain.start();
                         }
                     });
 
@@ -335,12 +336,18 @@ public class chattingRoom extends JFrame {
                     concave1.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            Main a = new Main();
-                            a.start();
+                            gmain = new Main(client, room_id, user_id, t1);
+                            gmain.start();
                         }
                     });
 
                     bullon.add(concave1,gbc);
+                }
+                else if (message.substring(0,1).equals("!")){
+                    String[] modNum = message.split("!");
+                    gmain.gamemain.temp_x = Integer.parseInt(modNum[2]);
+                    gmain.gamemain.temp_y = Integer.parseInt(modNum[3]);
+
                 }
                 else{
                     text.setDisabledTextColor(new Color(0,0,0));

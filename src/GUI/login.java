@@ -138,8 +138,8 @@ public class login extends JFrame{
 
         setTitle("kakaotalk");
         ImgSetSize kakao = new ImgSetSize("src/IMG/kakaoIcon.png", 10000, 10000);
-        Image img = kakao.getImg().getImage();
-        setIconImage(img);
+        Image img1 = kakao.getImg().getImage();
+        setIconImage(img1);
         setContentPane(main);
         setSize(480,650);
         setVisible(true);
