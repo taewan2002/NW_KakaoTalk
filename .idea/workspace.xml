@@ -8,10 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-13__10_49_________Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-13__10_49_________Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-13__10_49_________Changes_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-13__10_49_________Changes_2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-13__9_46_________Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-13__9_46_________Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-12-13__11_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-12-13__11_00__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_2022-12-13__10_50__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_2022-12-13__10_50__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatting_data/014b90249a7166df3d3f2448f15cb8f4.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/014b90249a7166df3d3f2448f15cb8f4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatting_data/014b90249a7166df3d3f2448f15cb8f4.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/chatting_data/27ee406753aa8685c4d0d868cc535488.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/27ee406753aa8685c4d0d868cc535488.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/chattingRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chattingRoom.java" afterDir="false" />
     </list>
@@ -88,7 +86,7 @@
       <recent name="$PROJECT_DIR$/openAPI" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.test1">
+  <component name="RunManager" selected="애플리케이션.Main">
     <configuration name="ApiTestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="public_data.ApiTestApplication" />
       <module name="KakaoTalk" />
@@ -155,6 +153,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="애플리케이션.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -295,10 +298,10 @@
     <MESSAGE value="비밀번호 변경, 아이디 찾기 프로토콜 제작 및 구현" />
     <MESSAGE value="친구 추가 함수 추가" />
     <MESSAGE value="친구 목록 불러오기 성공!!" />
-    <MESSAGE value="오목" />
-    <option name="LAST_COMMIT_MESSAGE" value="오목" />
+    <MESSAGE value="친구 목록" />
+    <option name="LAST_COMMIT_MESSAGE" value="친구 목록" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main Coverage Results" MODIFIED="1670747029056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main 커버리지 결과" MODIFIED="1670746914059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
