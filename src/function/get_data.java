@@ -50,6 +50,8 @@ public class get_data{
     private String name;
     private String phoneNum;
     private String email;
+    private boolean tf;
+    private String password;
 
     public void setType7(String user_id, String roomnumber){
         // 방 참여자 목록 불러오기
@@ -63,14 +65,16 @@ public class get_data{
         this.name = name;
         this.phoneNum = phoneNum;
     }
-    public void setType9(int typeofrequset, String user_id, String id){
-        this.typeofrequest = typeofrequset;
-        this.user_id = user_id;
-        this.id = id;
+    public void setType9(String email, String name, String phone){
+        this.typeofrequest = 9;
+        this.email = email;
+        this.name = name;
+        this.phoneNum = phone;
     }
-    public void setType10(int typeofrequest, String user_id){
-        this.typeofrequest = typeofrequest;
+    public void setType10(String user_id, String password){
+        this.typeofrequest = 10;
         this.user_id = user_id;
+        this.password = new md5().encMD5(password);
     }
     public void setType11(int typeofrequest, String user_id){
         this.typeofrequest = typeofrequest;
@@ -130,6 +134,12 @@ public class get_data{
     }
     public ArrayList<String> getAllUserList() {
         return allUserList;
+    }
+    public boolean getTf(){
+        return tf;
+    }
+    public String getPassword(){
+        return password;
     }
     public int getFollowNum() {
         System.out.println(" followNum : " + followNum);
@@ -192,11 +202,46 @@ public class get_data{
                 protocol p = new protocol(typeofrequest, name, phoneNum);
                 request(p);
                 this.ois = new ObjectInputStream(is);
+                while (true) {
+                    try {
+                        protocol t = (protocol) ois.readObject();
+                        if (t.getTypeofrequest() == 8) {
+                            email = t.getEmail();
+                            break;
+                        }
+                    } catch (Exception e) {
+                        e.getStackTrace();
+                        break;
+                    }
+                }
+            } else if (typeofrequest == 9) {
+                    // 비밀번호 변경을 위한 확인
+                    protocol p = new protocol(typeofrequest, email, name, phoneNum);
+                    request(p);
+                    this.ois = new ObjectInputStream(is);
+                    while(true){
+                        try{
+                            protocol t = (protocol) ois.readObject();
+                            if(t.getTypeofrequest() == 9){
+                                tf = t.getTf();
+                                break;
+                            }
+                        }
+                        catch(Exception e){
+                            e.getStackTrace();
+                            break;
+                        }
+                    }
+                }else if (typeofrequest == 10) {
+                // 비밀번호 변경을 위한 확인
+                protocol p = new protocol(typeofrequest, user_id, password);
+                request(p);
+                this.ois = new ObjectInputStream(is);
                 while(true){
                     try{
                         protocol t = (protocol) ois.readObject();
-                        if(t.getTypeofrequest() == 8){
-                            email = t.getEmail();
+                        if(t.getTypeofrequest() == 10){
+                            tf = t.getTf();
                             break;
                         }
                     }

@@ -1,6 +1,7 @@
 package GUI;
 
 import function.ImgSetSize;
+import function.get_data;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,8 +13,10 @@ public class repassword extends JFrame{
     private JButton commit;
     private JLabel kakaoicon;
     private JPasswordField duplicate;
+    private String user_id;
 
-    public repassword(){
+    public repassword(String user_id){
+        this.user_id = user_id;
         newPassword.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -107,9 +110,17 @@ public class repassword extends JFrame{
                 //비번 변경
                 JOptionPane id_option = new JOptionPane();
                 if(new_password.equals(duplicate_password)){
-                    id_option.showMessageDialog(null, "비밀번호가 성공적으로 바뀌었습니다");
-                    new login();
-                    setVisible(false);
+                    get_data data = new get_data();
+                    data.setType10(user_id, new_password);
+                    data.start();
+                    if(data.getTf()) {
+                        id_option.showMessageDialog(null, "비밀번호가 성공적으로 바뀌었습니다");
+                        new login();
+                        setVisible(false);
+                    }
+                    else{
+                        id_option.showMessageDialog(null, "비밀번호 변경에 실패했습니다");
+                    }
                 }
                 else{
                     id_option.showMessageDialog(null, "비밀번호 중복 확인이 실패했습니다");

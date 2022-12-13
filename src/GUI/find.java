@@ -10,9 +10,9 @@ public class find extends JFrame{
     private JTextField emailid;
     private JTextField phoneid;
     private JButton findid;
-    private JTextField idpassword;
-    private JTextField emailpassword;
-    private JTextField phonepassword;
+    private JTextField getID;
+    private JTextField getName;
+    private JTextField getPhoneNum;
     private JButton findpassword;
     private JPanel main;
 
@@ -27,13 +27,21 @@ public class find extends JFrame{
         findpassword.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String id_password = idpassword.getText();
-                String Email_password = emailpassword.getText();
-                String phone_password = phonepassword.getText();
-
-                new repassword();
-                setVisible(false);
-
+                String id_password = getID.getText();
+                String name_password = getName.getText();
+                String phone_password = getPhoneNum.getText();
+                // 비밀번호 찾기
+                get_data data = new get_data();
+                data.setType9(id_password, name_password, phone_password);
+                data.start();
+                if(data.getTf()){
+                    // db에 회원 정보가 있으면 비밀번호 변경 창으로 넘어감
+                    new repassword(id_password);
+                    setVisible(false);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "존재하지 않는 정보입니다.");
+                }
             }
         });
         findid.addActionListener(new ActionListener() {
