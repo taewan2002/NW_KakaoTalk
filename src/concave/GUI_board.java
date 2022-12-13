@@ -28,6 +28,11 @@ public class GUI_board extends JFrame{
         setResizable(false);
         layeredPane.setVisible(true);
 
+        //setLayout(null);
+        //add(layeredPane);
+        //setBounds(720,220,480,650);
+        //setVisible(true);
+
         try {
             img = ImageIO.read(new File("src/concave/concave_img.png"));
         } catch (IOException e) {
@@ -70,7 +75,11 @@ public class GUI_board extends JFrame{
 
             }
         }
+
         panel.setVisible(true);
+
+
+
     }
 
     class myPanel extends JPanel {
