@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="코인데이터 화면 form수정">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_09_________Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_09_________Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_15_________Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_15_________Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_12_11_7_36_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_12_11_7_36_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_12_11_7_18_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_12_11_7_18_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IMG/chattingButtonIconActive.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMG/chattingButtonIconActive.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IMG/chattingButtonIconNoActive.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMG/chattingButtonIconNoActive.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IMG/friendButtonIconActive.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMG/friendButtonIconActive.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IMG/friendButtonIconNoActive.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/src/IMG/friendButtonIconNoActive.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public_data/getCoinData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/public_data/getCoinData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/public_data/setCoinData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/public_data/setCoinData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,49 +44,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/taewan/IdeaProjects/KakaoTalk&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/hyeonwoo/IdeaProjects/KakaoTalk/src/concave",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="public_data" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hyeonwoo\IdeaProjects\KakaoTalk\src\concave" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/function" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hyeonwoo\IdeaProjects\KakaoTalk\src\concave" />
       <recent name="C:\Users\Administrator\IdeaProjects\KakaoTalk\src\IMG" />
       <recent name="$PROJECT_DIR$/src/IMG" />
       <recent name="$PROJECT_DIR$/src/public_data" />
       <recent name="$PROJECT_DIR$/openAPI" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="ApiTestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="public_data.ApiTestApplication" />
+  <component name="RunManager" selected="Application.concave.Main">
+    <configuration name="GameMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="concave.GameMain" />
       <module name="KakaoTalk" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="public_data.*" />
+          <option name="PATTERN" value="concave.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -103,9 +103,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="getData2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="getData2" />
+    <configuration name="concave.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="concave.Main" />
       <module name="KakaoTalk" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="concave.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -151,6 +157,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.concave.Main" />
+        <item itemvalue="Application.GameMain" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
