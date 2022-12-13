@@ -33,7 +33,9 @@ public class more extends JFrame {
         Data.start();
         if(Data.getTf()){
             JOptionPane.showMessageDialog(null, "탈퇴되었습니다.");
-            new login();
+            login a = new login();
+            a.setVisible(true);
+            setVisible(false);
         }
         else{
             JOptionPane.showMessageDialog(null, "탈퇴에 실패하였습니다.");
