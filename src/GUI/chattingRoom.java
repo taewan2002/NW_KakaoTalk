@@ -60,13 +60,26 @@ public class chattingRoom extends JFrame {
                             System.out.println(s);
                             String w[] = s.split(":");
 
-                            //w[0] (8,10): hours
-                            //w[0] (10,12): minutes
-                            //w[1]: user
-                            //w[2]: message
-                            //w[3]: file boolean
-                            //w[4]: file name
-                            // System.out.println(k);
+                            /*
+                            if ((w[2].substring(0,3).equals("!오목")) && (user_id.equals(w[1])))
+                            {
+
+                            }
+                            else {
+                                chatSchema pane = new chatSchema(w[0].substring(8,10),w[0].substring(10,12),w[1],w[2],w[3],w[4]);
+                                gbc.fill = GridBagConstraints.BOTH;
+                                gbc.gridx = 0;
+                                gbc.gridy = k;
+                                gbc.gridwidth = 1;
+                                gbc.gridheight = 1;
+
+                                chat.add(pane, gbc);
+                                chat.updateUI();
+                                chat.setVisible(true);
+                                k++;
+                            }
+                            */
+
                             chatSchema pane = new chatSchema(w[0].substring(8,10),w[0].substring(10,12),w[1],w[2],w[3],w[4]);
                             gbc.fill = GridBagConstraints.BOTH;
                             gbc.gridx = 0;
@@ -78,6 +91,15 @@ public class chattingRoom extends JFrame {
                             chat.updateUI();
                             chat.setVisible(true);
                             k++;
+
+                            //w[0] (8,10): hours
+                            //w[0] (10,12): minutes
+                            //w[1]: user
+                            //w[2]: message
+                            //w[3]: file boolean
+                            //w[4]: file name
+                            // System.out.println(k);
+
 
 
                             b = new byte[100000];
@@ -124,6 +146,8 @@ public class chattingRoom extends JFrame {
         this.client = client;
         this.t1 = t1;
         this.room_id = room_id;
+
+        gmain = new Main(client, room_id, user_id, t1);
 
         setContentPane(main);
         chat.setBackground(new Color(186,206,224));
@@ -272,13 +296,23 @@ public class chattingRoom extends JFrame {
                     concave1.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            gmain = new Main(client, room_id, user_id, t1);
+                            //gmain = new Main(client, room_id, user_id, t1);
                             gmain.start();
                         }
                     });
 
                     bullon.add(concave1,gbc);
                 }
+                else if (message.substring(0,1).equals("!")){
+                    String[] modNum = message.split("!");
+                    gmain.gamemain.temp_x = Integer.parseInt(modNum[2]);
+                    gmain.gamemain.temp_y = Integer.parseInt(modNum[3]);
+
+                }
+                /*
+                else if (message.substring(0,3).equals("!오목")){
+
+                }*/
                 else{
                     text.setDisabledTextColor(new Color(0,0,0));
                     text.setLineWrap(true);
@@ -336,7 +370,7 @@ public class chattingRoom extends JFrame {
                     concave1.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            gmain = new Main(client, room_id, user_id, t1);
+                            //gmain = new Main(client, room_id, user_id, t1);
                             gmain.start();
                         }
                     });
