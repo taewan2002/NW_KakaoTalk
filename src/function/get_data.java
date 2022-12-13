@@ -90,6 +90,11 @@ public class get_data{
         this.typeofrequest = typeofrequest;
         this.user_id = user_id;
     }
+    public void setType16(String user_id, ArrayList<String> friend){
+        this.typeofrequest = 16;
+        this.user_id = user_id;
+        this.list = friend;
+    }
     public void setType19(int typeofrequest, String user_id){
         this.typeofrequest = typeofrequest;
         this.user_id = user_id;
@@ -114,6 +119,11 @@ public class get_data{
     public void setType51(String user_id){
         // 내 정보 불러오기
         this.typeofrequest = 51;
+        this.user_id = user_id;
+    }
+    public void setType54(String user_id){
+        // 내 친구 목록 불러오기
+        this.typeofrequest = 54;
         this.user_id = user_id;
     }
     public void request(protocol content){
@@ -215,24 +225,24 @@ public class get_data{
                     }
                 }
             } else if (typeofrequest == 9) {
-                // 비밀번호 변경을 위한 확인
-                protocol p = new protocol(typeofrequest, email, name, phoneNum);
-                request(p);
-                this.ois = new ObjectInputStream(is);
-                while(true){
-                    try{
-                        protocol t = (protocol) ois.readObject();
-                        if(t.getTypeofrequest() == 9){
-                            tf = t.getTf();
+                    // 비밀번호 변경을 위한 확인
+                    protocol p = new protocol(typeofrequest, email, name, phoneNum);
+                    request(p);
+                    this.ois = new ObjectInputStream(is);
+                    while(true){
+                        try{
+                            protocol t = (protocol) ois.readObject();
+                            if(t.getTypeofrequest() == 9){
+                                tf = t.getTf();
+                                break;
+                            }
+                        }
+                        catch(Exception e){
+                            e.getStackTrace();
                             break;
                         }
                     }
-                    catch(Exception e){
-                        e.getStackTrace();
-                        break;
-                    }
-                }
-            }else if (typeofrequest == 10) {
+                }else if (typeofrequest == 10) {
                 // 비밀번호 변경을 위한 확인
                 protocol p = new protocol(typeofrequest, user_id, password);
                 request(p);
@@ -250,7 +260,26 @@ public class get_data{
                         break;
                     }
                 }
-            } else if(typeofrequest == 49){
+            }else if (typeofrequest == 16) {
+                // 비밀번호 변경을 위한 확인
+                protocol p = new protocol(typeofrequest, user_id, list);
+                request(p);
+                this.ois = new ObjectInputStream(is);
+                while(true){
+                    try{
+                        protocol t = (protocol) ois.readObject();
+                        if(t.getTypeofrequest() == 16){
+                            tf = t.getTf();
+                            break;
+                        }
+                    }
+                    catch(Exception e){
+                        e.getStackTrace();
+                        break;
+                    }
+                }
+            }
+            else if(typeofrequest == 49){
                 protocol p = new protocol(typeofrequest, user_id, feed_id);
                 request(p);
                 this.ois = new ObjectInputStream(is);
@@ -299,6 +328,25 @@ public class get_data{
                             email = t.getEmail();
                             name = t.getName();
                             phoneNum = t.getPhoneNum();
+                            break;
+                        }
+                    }
+                    catch(Exception e){
+                        e.getStackTrace();
+                        break;
+                    }
+                }
+            }
+            else if(typeofrequest == 54){
+                protocol p = new protocol(typeofrequest, user_id);
+                request(p);
+                this.ois = new ObjectInputStream(is);
+                while(true){
+                    try{
+                        // 온라인 유저 목록 요청
+                        protocol t = (protocol) ois.readObject();
+                        if(t.getTypeofrequest() == 54){
+                            list = t.getList();
                             break;
                         }
                     }

@@ -4,6 +4,8 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -38,7 +40,7 @@ public class getCoinData {
                 this.changeRate = temp.get("signed_change_rate").toString();
             }
         } catch (Exception e) {
-
+            System.out.println("https://api.upbit.com의 데이터 불러오기 실패, 다시 시도 중...");
         }
     }
 

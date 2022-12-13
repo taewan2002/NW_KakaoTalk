@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="스크롤패인 ㅈ버그 수정" />
+    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="친구 목록 불러오기 성공!!" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,10 +14,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="package.json" />
         <option value="JavaScript File" />
         <option value="TypeScript File" />
         <option value="Class" />
+        <option value="package.json" />
       </list>
     </option>
   </component>
@@ -49,7 +49,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;24&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/white/IdeaProjects/KakaoTalk&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Administrator/IdeaProjects/KakaoTalk/src/IMG&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -62,9 +62,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="GUI" />
       <recent name="public_data" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\IdeaProjects\KakaoTalk\src\IMG" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/function" />
     </key>
@@ -75,7 +77,7 @@
       <recent name="$PROJECT_DIR$/openAPI" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.Main">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="ApiTestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="public_data.ApiTestApplication" />
       <module name="KakaoTalk" />
@@ -144,7 +146,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="애플리케이션.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -164,6 +166,7 @@
       <workItem from="1670725433516" duration="409000" />
       <workItem from="1670746283535" duration="3786000" />
       <workItem from="1670770269623" duration="884000" />
+      <workItem from="1670855180833" duration="75000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1670570617039</created>
@@ -228,7 +231,28 @@
       <option name="project" value="LOCAL" />
       <updated>1670849040749</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="비밀번호 변경, 아이디 찾기 프로토콜 제작 및 구현">
+      <created>1670906891565</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1670906891565</updated>
+    </task>
+    <task id="LOCAL-00011" summary="친구 추가 함수 추가">
+      <created>1670912330905</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670912330905</updated>
+    </task>
+    <task id="LOCAL-00012" summary="친구 목록 불러오기 성공!!">
+      <created>1670915178476</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1670915178476</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,9 +278,12 @@
     <MESSAGE value="코인데이터 화면 form수정" />
     <MESSAGE value="스크롤패인 ㅈ버그 수정" />
     <MESSAGE value="chatting 폰트 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="chatting 폰트 수정" />
+    <MESSAGE value="비밀번호 변경, 아이디 찾기 프로토콜 제작 및 구현" />
+    <MESSAGE value="친구 추가 함수 추가" />
+    <MESSAGE value="친구 목록 불러오기 성공!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="친구 목록 불러오기 성공!!" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main 커버리지 결과" MODIFIED="1670746914059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main Coverage Results" MODIFIED="1670747029056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

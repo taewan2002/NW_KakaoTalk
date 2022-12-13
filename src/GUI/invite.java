@@ -10,6 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 public class invite extends JFrame{
     private JPanel main;
@@ -100,32 +101,19 @@ public class invite extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 // 친구 추가 만들기
+                if(List.size() != 0){
+                    get_data data = new get_data();
+                    data.setType16(user_id, List);
+                    data.start();
+                    JOptionPane.showMessageDialog(null, "친구 추가 완료");
+                    dispose();
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "추가할 친구를 선택해주세요");
+                }
 
 
-                // 이건 아님
-//                for(int i = 0;i< List.size();i++){
-//                    System.out.println(List.get(i));
-//                }
-//                //chatting_client에 List 전달
-//                client.make_room(1,user_id,List);
-//                get_data getData = new get_data();
-//                getData.setType11(11, user_id);
-//                getData.start();
-//                ArrayList<String> b = getData.getMy_room_list();
-//                System.out.println("chatting_data/" + b.get(b.size()-1) + ".txt");
-//                File file = new File("chatting_data/" + b.get(b.size()-1) + ".txt");
-//                try{
-//                    FileWriter fw =new FileWriter(file,true);
-//                    BufferedWriter bw= new BufferedWriter(fw);
-//                    bw.close();
-//                }
-//                catch(IOException e2){
-//                    e2.printStackTrace();
-//                }
-//
-//                chattingRoom a = new chattingRoom(user_id,client,t1);
-//                a.setVisible(true);
-//                dispose();
+
             }
         });
     }
