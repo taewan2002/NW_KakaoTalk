@@ -199,7 +199,7 @@ public class chattingRoom extends JFrame {
 
         private JButton file_down;
 
-        private JButton concave;
+        private JButton concave1;
         public chatSchema(String hours, String minutes, String send_user_id ,String message, String file_bool, String file_name){
             this.hours = hours;
             this.minutes = minutes;
@@ -266,16 +266,17 @@ public class chattingRoom extends JFrame {
                     bullon.add(file_down,gbc);
                 }
                 else if(message.equals("/오목")){
-                    concave = new JButton("들어오던가");
+                    concave1 = new JButton("들어오던가");
 
-                    concave.addActionListener(new ActionListener() {
+                    concave1.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            GameMain gameMain = new GameMain();
+                            Main a = new Main();
+                            a.start();
                         }
                     });
 
-                    bullon.add(concave,gbc);
+                    bullon.add(concave1,gbc);
                 }
                 else{
                     text.setDisabledTextColor(new Color(0,0,0));
@@ -327,6 +328,19 @@ public class chattingRoom extends JFrame {
                     });
 
                     bullon.add(file_down,gbc);
+                }
+                else if(message.equals("/오목")){
+                    concave1 = new JButton("들어오던가");
+
+                    concave1.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            Main a = new Main();
+                            a.start();
+                        }
+                    });
+
+                    bullon.add(concave1,gbc);
                 }
                 else{
                     text.setDisabledTextColor(new Color(0,0,0));

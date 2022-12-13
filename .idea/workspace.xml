@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="코인데이터 화면 form수정">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_09_________Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_09_________Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_15_________Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_15_________Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_12_11_7_36_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_12_11_7_36_PM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_12_11_7_18_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_12_11_7_18_PM__Changes_.xml" afterDir="false" />
+    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="채팅 완성">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatting_data/07e02a7874d1cb4f8d85ed18b5dfc01c.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/07e02a7874d1cb4f8d85ed18b5dfc01c.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/chattingRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chattingRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chatting/protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting/protocol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/concave/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/concave/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +54,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/hyeonwoo/IdeaProjects/KakaoTalk/src/concave",
+    "last_opened_file_path": "C:/Users/white/IdeaProjects/KakaoTalk",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -82,7 +82,7 @@
       <recent name="$PROJECT_DIR$/openAPI" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.concave.Main">
+  <component name="RunManager" selected="애플리케이션.Main">
     <configuration name="GameMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="concave.GameMain" />
       <module name="KakaoTalk" />
@@ -157,9 +157,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.concave.Main" />
-        <item itemvalue="Application.GameMain" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="애플리케이션.Main" />
+        <item itemvalue="애플리케이션.concave.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -179,6 +178,7 @@
       <workItem from="1670725433516" duration="409000" />
       <workItem from="1670746283535" duration="3786000" />
       <workItem from="1670770269623" duration="884000" />
+      <workItem from="1670911933373" duration="2022000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1670570617039</created>
@@ -241,6 +241,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="코인 이미지 오류 수정" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main Coverage Results" MODIFIED="1670747029056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main 커버리지 결과" MODIFIED="1670746914059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
