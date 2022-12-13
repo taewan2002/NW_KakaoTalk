@@ -19,7 +19,7 @@ import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-
+import concave.*;
 
 public class chattingRoom extends JFrame {
     private String user_id;
@@ -198,6 +198,8 @@ public class chattingRoom extends JFrame {
         private JLabel time;
 
         private JButton file_down;
+
+        private JButton concave;
         public chatSchema(String hours, String minutes, String send_user_id ,String message, String file_bool, String file_name){
             this.hours = hours;
             this.minutes = minutes;
@@ -262,6 +264,18 @@ public class chattingRoom extends JFrame {
                     });
 
                     bullon.add(file_down,gbc);
+                }
+                else if(message.equals("/오목")){
+                    concave = new JButton("들어오던가");
+
+                    concave.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            GameMain gameMain = new GameMain();
+                        }
+                    });
+
+                    bullon.add(concave,gbc);
                 }
                 else{
                     text.setDisabledTextColor(new Color(0,0,0));

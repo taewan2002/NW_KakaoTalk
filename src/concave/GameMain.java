@@ -54,11 +54,11 @@ public class GameMain {
     // 메인 함수
     public GameMain() {
 
-        GUI_board guiB = new GUI_board(ad);
+        GUI_board guiB = new concave.GUI_board(ad);
 
         Player playerOne = new Player("p1", "p1입니다.");
         Player playerTwo = new Player("p2", "p2입니다.");
-        Board board = new Board();
+        Board board = new concave.Board();
         playerSetting(playerOne, playerTwo);
 
         Scanner scanner = new Scanner(System.in);
