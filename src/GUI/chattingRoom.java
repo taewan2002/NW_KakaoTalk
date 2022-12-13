@@ -249,6 +249,10 @@ public class chattingRoom extends JFrame {
                 gbc.weighty = 0.5;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/uijin
 =======
 
 >>>>>>> origin/uijin
@@ -267,12 +271,18 @@ public class chattingRoom extends JFrame {
                 }
                 else{
 <<<<<<< HEAD
+<<<<<<< HEAD
                     text.setForeground(new Color(0,0,0));
 =======
+=======
+>>>>>>> origin/uijin
                     text.setDisabledTextColor(new Color(0,0,0));
                     text.setLineWrap(true);
                     text.setWrapStyleWord(true);
                     text.setEditable(false);
+<<<<<<< HEAD
+>>>>>>> origin/uijin
+=======
 >>>>>>> origin/uijin
                     bullon.add(text,gbc);
 
@@ -323,12 +333,18 @@ public class chattingRoom extends JFrame {
                 }
                 else{
 <<<<<<< HEAD
+<<<<<<< HEAD
                     text.setForeground(new Color(0,0,0));
 =======
+=======
+>>>>>>> origin/uijin
                     text.setDisabledTextColor(new Color(0,0,0));
                     text.setLineWrap(true);
                     text.setWrapStyleWord(true);
                     text.setEditable(false);
+<<<<<<< HEAD
+>>>>>>> origin/uijin
+=======
 >>>>>>> origin/uijin
                     bullon.add(text,gbc);
 
