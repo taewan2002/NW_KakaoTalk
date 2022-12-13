@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="채팅 완성">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatting_data/07e02a7874d1cb4f8d85ed18b5dfc01c.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/07e02a7874d1cb4f8d85ed18b5dfc01c.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatting_data/bf670592566ade9323bdae1a256ccaa7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/bf670592566ade9323bdae1a256ccaa7.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/friends.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/friends.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/friends.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/friends.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/invite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/invite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/login.java" afterDir="false" />
-    </list>
+    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="친구 목록" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -175,7 +167,7 @@
       <workItem from="1670746283535" duration="3786000" />
       <workItem from="1670770269623" duration="884000" />
       <workItem from="1670855180833" duration="75000" />
-      <workItem from="1670923186847" duration="1643000" />
+      <workItem from="1670923186847" duration="2033000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1670570617039</created>
@@ -261,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670915178476</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="친구 목록">
+      <created>1670925097374</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1670925097374</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +289,8 @@
     <MESSAGE value="비밀번호 변경, 아이디 찾기 프로토콜 제작 및 구현" />
     <MESSAGE value="친구 추가 함수 추가" />
     <MESSAGE value="친구 목록 불러오기 성공!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="친구 목록 불러오기 성공!!" />
+    <MESSAGE value="친구 목록" />
+    <option name="LAST_COMMIT_MESSAGE" value="친구 목록" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main 커버리지 결과" MODIFIED="1670746914059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
