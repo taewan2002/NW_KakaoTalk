@@ -27,18 +27,46 @@ public class friends extends JFrame{
     private ListeningThread t1;
     private ArrayList<String> friend_list = new ArrayList<String>();
     private ArrayList<String> onlinList;
+    private ArrayList<String> friendList;
 
 
     public friends(String user_id, chatting_client client, ListeningThread t1){
+        this.user_id = user_id;
+        this.client = client;
+        this.t1 = t1;
+
+        // 친구 목록 불러오고 온라인 유저 목록 불러와서 표시하기
+        // 온라인 유저 목록 불러오기
         get_data get = new get_data();
         get.setType50(user_id);
         get.start();
-        this.onlinList = get.getList(); // 온라인 유저 목록 불러오기
-        this.user_id = user_id;
-        this.client = client;
-        System.out.println(onlinList);
-        this.t1 = t1;
+        this.onlinList = get.getList();
 
+        // 내 친구 목록 불러오기
+//        get_data getFriends = new get_data();
+//        getFriends.setType54(user_id);
+//        getFriends.start();
+//        this.friendList = getFriends.getList();
+//
+//        System.out.println(onlinList);
+//        System.out.println(friendList);
+//
+//        GridBagLayout Gbag = new GridBagLayout();
+//        friend.setLayout(Gbag);
+//        GridBagConstraints gbc = new GridBagConstraints();
+//        gbc.weightx = 1.0;
+//        gbc.weighty = 1.0;
+//        for(int i = 0;i<friendList.size();i++){
+//            JLabel label = new JLabel(friendList.get(i), JLabel.CENTER);;
+//            gbc.fill = GridBagConstraints.BOTH;
+//            gbc.ipadx = 850;
+//            gbc.ipady = 100;
+//            gbc.gridx = 0;
+//            gbc.gridy = i*100;
+//            Gbag.setConstraints(label,gbc);
+//            friendPanel.add(label);
+//            friendPanel.updateUI();
+//        }
 
         ImgSetSize friendIcon = new ImgSetSize("src/IMG/friendButtonIconActive.png", 35,35);
         friendButton.setIcon(friendIcon.getImg());

@@ -43,7 +43,7 @@ public class protocol implements Serializable {
     // 탈퇴하기 type = 55
 
 
-    // 방 생성 1, 로그인 여부 확인 50
+    // 방 생성 1, 로그인 여부 확인 50, 친구추가 16
     public protocol(int typeofrequest, String sender, ArrayList<String> list){
         this.sender = sender;
         this.typeofrequest = typeofrequest;
@@ -80,7 +80,7 @@ public class protocol implements Serializable {
         this.file_name = file_name;
     }
 
-    // 로그아웃 5, 자신이 속한 방 목록 불러오기 6, 내정보 요청 51, 탈퇴하기 55
+    // 로그아웃 5, 자신이 속한 방 목록 불러오기 6, 내정보 요청 51, 탈퇴하기 55, 친구 목록 불러오기 54
     public protocol(int typeofrequest, String tmp) {
         this.typeofrequest = typeofrequest;
         this.sender = tmp;
