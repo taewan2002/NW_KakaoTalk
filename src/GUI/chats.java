@@ -106,7 +106,7 @@ public class chats extends JFrame{
         createRoom.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //new chattingRoom(user_id, client, t1);
+                new inviteRoom(user_id, client, t1);
                 setVisible(false);
             }
         });

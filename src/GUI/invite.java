@@ -58,7 +58,8 @@ public class invite extends JFrame{
                     duplicate = true;
                 }
             }
-            if(!duplicate){
+
+            if(!(duplicate) && !(friend_list.get(i).equals(user_id))){
                 friend pane = new friend(friend_list.get(i));
                 gbc.fill = GridBagConstraints.BOTH;
                 gbc.ipadx = 0;
@@ -116,7 +117,8 @@ public class invite extends JFrame{
                     data.setType16(user_id, List);
                     data.start();
                     JOptionPane.showMessageDialog(null, "친구 추가 완료");
-                    dispose();
+                    setVisible(false);
+                    new chats(user_id,client,t1);
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "추가할 친구를 선택해주세요");

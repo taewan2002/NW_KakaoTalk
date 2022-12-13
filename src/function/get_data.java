@@ -126,6 +126,11 @@ public class get_data{
         this.typeofrequest = 54;
         this.user_id = user_id;
     }
+    public void setType55(String user_id){
+        // 탈퇴하기
+        this.typeofrequest = 55;
+        this.user_id = user_id;
+    }
     public void request(protocol content){
         try{
             this.oos.writeObject(content); // 프로토콜로 담은 내용 전송
@@ -347,6 +352,25 @@ public class get_data{
                         protocol t = (protocol) ois.readObject();
                         if(t.getTypeofrequest() == 54){
                             list = t.getList();
+                            break;
+                        }
+                    }
+                    catch(Exception e){
+                        e.getStackTrace();
+                        break;
+                    }
+                }
+            }
+            else if (typeofrequest == 55) {
+                // 탈퇴하기
+                protocol p = new protocol(typeofrequest, user_id);
+                request(p);
+                this.ois = new ObjectInputStream(is);
+                while(true){
+                    try{
+                        protocol t = (protocol) ois.readObject();
+                        if(t.getTypeofrequest() == 55){
+                            tf = t.getTf();
                             break;
                         }
                     }
