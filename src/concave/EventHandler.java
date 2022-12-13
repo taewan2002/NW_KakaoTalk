@@ -17,7 +17,7 @@ public class EventHandler implements ActionListener {
         String[] modNum = button_name.split(" ");
         x = Integer.parseInt(modNum[0]);
         y = Integer.parseInt(modNum[1]);
-        System.out.println(Integer.toString(x) + " " + Integer.toString(y));
+        //System.out.println(Integer.toString(x) + " " + Integer.toString(y));
 
         ad.temp_x = x;
         ad.temp_y = y;

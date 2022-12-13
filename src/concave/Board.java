@@ -41,6 +41,12 @@ public class Board {
 
         JButton btn2 = new JButton();
         btn2.setBounds(31*y+4, 31*x+44, 26, 26);
+
+        //Container contentPane = guiB.getContentPane();
+        //contentPane.setBounds(0, 590, 50, 60);
+        //guiB.layeredPane.add(contentPane);
+
+
         if (player.getPlayerColor() == 1)
         {
             btn2.setBackground(new Color(255,255,255));

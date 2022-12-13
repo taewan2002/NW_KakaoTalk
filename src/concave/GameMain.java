@@ -36,17 +36,6 @@ public class GameMain {
         int t_y = temp_y;
         initialY();
         return t_y;
-        /*
-        while(true)
-        {
-            if (temp_y != -1)
-            {
-                int t_y = temp_y;
-                initialY();
-                return t_y;
-            }
-        }
-        */
     }
 
     private static void initialX()
@@ -59,10 +48,6 @@ public class GameMain {
     }
 
     private GameMain ad;
-    private void initialAddress(GameMain ad)
-    {
-        this.ad = ad;
-    }
 
 
 
@@ -71,8 +56,8 @@ public class GameMain {
 
         GUI_board guiB = new GUI_board(ad);
 
-        Player playerOne = new Player("홍길동", "홍길동입니다.");
-        Player playerTwo = new Player("고말숙", "고말숙입니다.");
+        Player playerOne = new Player("p1", "p1입니다.");
+        Player playerTwo = new Player("p2", "p2입니다.");
         Board board = new Board();
         playerSetting(playerOne, playerTwo);
 
@@ -82,33 +67,33 @@ public class GameMain {
         while(true)
         {
             if (playerOne.getPlayerColor() == black) {
-                board.show();
-                System.out.println(playerOne.getPlayerName() + "이 둘 차례입니다.");
-                System.out.print("둘 위치를 입력하세요 : ");
+                //board.show();
+                //System.out.println(playerOne.getPlayerName() + "이 둘 차례입니다.");
+                //System.out.print("둘 위치를 입력하세요 : ");
                 x = getX();
                 y = getY();
                 //x = scanner.nextInt();
                 //y = scanner.nextInt();
                 while (!board.put(x, y, playerOne, guiB)) {
-                    System.out.println("놓을 수 없는 자리입니다.");
-                    System.out.println("둘 위치를 다시 선택하세요 : ");
+                    //System.out.println("놓을 수 없는 자리입니다.");
+                    //System.out.println("둘 위치를 다시 선택하세요 : ");
                     x = getX();
                     y = getY();
                 }
-                board.show();
+                //board.show();
                 if (board.win(x, y, playerOne))
                 {
                     JOptionPane aa=new JOptionPane();
                     aa.showMessageDialog(null, "승리자는 " + playerOne.getPlayerName() + "입니다.");
                     break;
                 }
-                System.out.println(playerTwo.getPlayerName() + "이 둘 차례입니다.");
-                System.out.print("둘 위치를 입력하세요 : ");
+                //System.out.println(playerTwo.getPlayerName() + "이 둘 차례입니다.");
+                //System.out.print("둘 위치를 입력하세요 : ");
                 x = getX();
                 y = getY();
                 while (!board.put(x, y, playerTwo, guiB)) {
-                    System.out.println("놓을 수 없는 자리입니다.");
-                    System.out.println("둘 위치를 다시 선택하세요 : ");
+                    //System.out.println("놓을 수 없는 자리입니다.");
+                    //System.out.println("둘 위치를 다시 선택하세요 : ");
                     x = getX();
                     y = getY();
                 }
@@ -120,33 +105,33 @@ public class GameMain {
                 }
             }
             else {
-                board.show();
-                System.out.println(playerTwo.getPlayerName() + "이 둘 차례입니다.");
-                System.out.print("둘 위치를 입력하세요 : ");
+                //board.show();
+                //System.out.println(playerTwo.getPlayerName() + "이 둘 차례입니다.");
+                //System.out.print("둘 위치를 입력하세요 : ");
                 x = getX();
                 y = getY();
                 System.out.println(x);
                 System.out.println(y);
                 while (!board.put(x, y, playerTwo, guiB)) {
-                    System.out.println("놓을 수 없는 자리입니다.");
-                    System.out.println("둘 위치를 다시 선택하세요 : ");
+                    //System.out.println("놓을 수 없는 자리입니다.");
+                    //System.out.println("둘 위치를 다시 선택하세요 : ");
                     x = getX();
                     y = getY();
                 }
-                board.show();
+                //board.show();
                 if (board.win(x, y, playerTwo))
                 {
                     JOptionPane aa=new JOptionPane();
                     aa.showMessageDialog(null, "승리자는 " + playerTwo.getPlayerName() + "입니다.");
                     break;
                 }
-                System.out.println(playerOne.getPlayerName() + "이 둘 차례입니다.");
-                System.out.print("둘 위치를 입력하세요 : ");
+                //System.out.println(playerOne.getPlayerName() + "이 둘 차례입니다.");
+                //System.out.print("둘 위치를 입력하세요 : ");
                 x = getX();
                 y = getY();
                 while (!board.put(x, y, playerOne, guiB)) {
-                    System.out.println("놓을 수 없는 자리입니다.");
-                    System.out.println("둘 위치를 다시 선택하세요 : ");
+                    //System.out.println("놓을 수 없는 자리입니다.");
+                    //System.out.println("둘 위치를 다시 선택하세요 : ");
                     x = getX();
                     y = getY();
                 }
