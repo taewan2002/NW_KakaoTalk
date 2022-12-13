@@ -1,11 +1,11 @@
 package concave;
 
-public class Main {
+public class Main extends Thread{
 
-    public static void main(String args[]) {
+    public Main() {}
 
-        GameMain gameMain = new GameMain();
-
+    public void run(){
+        new GameMain();
     }
 
 }

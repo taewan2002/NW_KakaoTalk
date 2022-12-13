@@ -40,6 +40,7 @@ public class chatting_client implements Runnable { // 채팅 클라이언트
             pw.flush();
         } catch (Exception e) {
             System.out.println(e);
+
         }
     }
     public void chat_message(protocol content){

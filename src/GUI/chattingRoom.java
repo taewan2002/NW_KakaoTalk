@@ -19,9 +19,7 @@ import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-
-import concave.GameMain;
-
+import concave.*;
 
 public class chattingRoom extends JFrame {
     private String user_id;
@@ -201,7 +199,7 @@ public class chattingRoom extends JFrame {
 
         private JButton file_down;
 
-        private JButton concave_button;
+        private JButton concave1;
         public chatSchema(String hours, String minutes, String send_user_id ,String message, String file_bool, String file_name){
             this.hours = hours;
             this.minutes = minutes;
@@ -268,16 +266,17 @@ public class chattingRoom extends JFrame {
                     bullon.add(file_down,gbc);
                 }
                 else if(message.equals("/오목")){
-                    concave_button = new JButton("들어오던가");
+                    concave1 = new JButton("들어오던가");
 
-                    concave_button.addActionListener(new ActionListener() {
+                    concave1.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            new GameMain();
+                            Main a = new Main();
+                            a.start();
                         }
                     });
 
-                    bullon.add(concave_button,gbc);
+                    bullon.add(concave1,gbc);
                 }
                 else{
                     text.setDisabledTextColor(new Color(0,0,0));
@@ -329,6 +328,19 @@ public class chattingRoom extends JFrame {
                     });
 
                     bullon.add(file_down,gbc);
+                }
+                else if(message.equals("/오목")){
+                    concave1 = new JButton("들어오던가");
+
+                    concave1.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            Main a = new Main();
+                            a.start();
+                        }
+                    });
+
+                    bullon.add(concave1,gbc);
                 }
                 else{
                     text.setDisabledTextColor(new Color(0,0,0));

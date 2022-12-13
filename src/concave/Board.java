@@ -50,10 +50,12 @@ public class Board {
         if (player.getPlayerColor() == 1)
         {
             btn2.setBackground(new Color(0,0,0));
+            //bt_img = new JButton(img);
         }
         else
         {
             btn2.setBackground(new Color(255,255,255));
+
         }
         guiB.panel.add(btn2);
 
