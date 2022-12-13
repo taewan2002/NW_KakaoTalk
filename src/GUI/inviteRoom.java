@@ -34,10 +34,15 @@ public class inviteRoom extends JFrame{
         this.client = client;
         this.user_id = user_id;
         this.t1 = t1;
-        // setContentPane(main);
+        setContentPane(main);
 
-        setSize(850, 1000);
+        setVisible(true);
+        setSize(480, 650);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        Dimension frameSize = getSize();
+        Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
+        setLocation((windowSize.width - frameSize.width) / 2,
+                (windowSize.height - frameSize.height) / 2);
 
         // client에서 list 받아오기 get_friend_list();
 
@@ -56,8 +61,8 @@ public class inviteRoom extends JFrame{
         for(int i = 0;i<friend_list.size();i++){
             friend pane = new friend(friend_list.get(i));
             gbc.fill = GridBagConstraints.BOTH;
-            gbc.ipadx = 850;
-            gbc.ipady = 100;
+            gbc.ipadx = 0;
+            gbc.ipady = 0;
             gbc.gridx = 0;
             gbc.gridy = i;
             Gbag.setConstraints(pane,gbc);
@@ -76,8 +81,8 @@ public class inviteRoom extends JFrame{
                     if(friend_list.get(i).contains(email)){
                         friend pane = new friend(friend_list.get(i));
                         gbc.fill = GridBagConstraints.BOTH;
-                        gbc.ipadx = 850;
-                        gbc.ipady = 100;
+                        gbc.ipadx = 0;
+                        gbc.ipady = 0;
                         gbc.gridx = 0;
                         gbc.gridy = i;
                         Gbag.setConstraints(pane,gbc);
