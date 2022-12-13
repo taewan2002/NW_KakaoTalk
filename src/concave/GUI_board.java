@@ -16,14 +16,14 @@ import java.awt.Graphics;
 public class GUI_board extends JFrame{
     BufferedImage img = null;
 
-    Image changeImg = null;
-
     public static myPanel panel;
+
+    public static JLayeredPane layeredPane;
 
     public GUI_board(GameMain ad) {
         setTitle("오목");
 
-        JLayeredPane layeredPane = new JLayeredPane();
+        layeredPane = new JLayeredPane();
         layeredPane.setSize(480,650);
         setResizable(false);
         layeredPane.setVisible(true);

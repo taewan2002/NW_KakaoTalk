@@ -4,15 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="chatting 폰트 수정">
+    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="코인데이터 화면 form수정">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_09_________Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_09_________Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_15_________Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-12__12_15_________Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_12_11_7_36_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022_12_11_7_36_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_12_11_7_18_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_12_11_7_18_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatting_data/cd35e23b7dfd88827aa26123b6cfa3b7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/cd35e23b7dfd88827aa26123b6cfa3b7.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/chats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/find.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/find.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/find.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/find.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/invite.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/invite.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/invite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/invite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/login.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="uijin" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,10 +53,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "366",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/white/IdeaProjects/KakaoTalk",
+    "last_opened_file_path": "C:/Users/hyeonwoo/IdeaProjects/KakaoTalk/src/concave",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,23 +70,25 @@
       <recent name="public_data" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hyeonwoo\IdeaProjects\KakaoTalk\src\concave" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/function" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hyeonwoo\IdeaProjects\KakaoTalk\src\concave" />
       <recent name="C:\Users\Administrator\IdeaProjects\KakaoTalk\src\IMG" />
       <recent name="$PROJECT_DIR$/src/IMG" />
       <recent name="$PROJECT_DIR$/src/public_data" />
       <recent name="$PROJECT_DIR$/openAPI" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.Main">
-    <configuration name="ApiTestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="public_data.ApiTestApplication" />
+  <component name="RunManager" selected="Application.concave.Main">
+    <configuration name="GameMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="concave.GameMain" />
       <module name="KakaoTalk" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="public_data.*" />
+          <option name="PATTERN" value="concave.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -106,9 +103,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="getData2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="getData2" />
+    <configuration name="concave.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="concave.Main" />
       <module name="KakaoTalk" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="concave.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -154,7 +157,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="애플리케이션.Main" />
+        <item itemvalue="Application.concave.Main" />
+        <item itemvalue="Application.GameMain" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -174,7 +179,6 @@
       <workItem from="1670725433516" duration="409000" />
       <workItem from="1670746283535" duration="3786000" />
       <workItem from="1670770269623" duration="884000" />
-      <workItem from="1670855180833" duration="75000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1670570617039</created>
@@ -211,35 +215,7 @@
       <option name="project" value="LOCAL" />
       <updated>1670751669485</updated>
     </task>
-    <task id="LOCAL-00006" summary="코인데이터 화면 form수정">
-      <created>1670823504458</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1670823504458</updated>
-    </task>
-    <task id="LOCAL-00007" summary="코인데이터 화면 form수정">
-      <created>1670827331022</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1670827331022</updated>
-    </task>
-    <task id="LOCAL-00008" summary="스크롤패인 ㅈ버그 수정">
-      <created>1670839159659</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1670839159659</updated>
-    </task>
-    <task id="LOCAL-00009" summary="chatting 폰트 수정">
-      <created>1670849040749</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1670849040749</updated>
-    </task>
-    <option name="localTasksCounter" value="10" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,10 +238,7 @@
     <MESSAGE value="코인 정보 불러오기 upbit api, getCoinData" />
     <MESSAGE value="코인 변동률 0.0일때 발생하는 오류 해결" />
     <MESSAGE value="코인 이미지 오류 수정" />
-    <MESSAGE value="코인데이터 화면 form수정" />
-    <MESSAGE value="스크롤패인 ㅈ버그 수정" />
-    <MESSAGE value="chatting 폰트 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="chatting 폰트 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="코인 이미지 오류 수정" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main Coverage Results" MODIFIED="1670747029056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
