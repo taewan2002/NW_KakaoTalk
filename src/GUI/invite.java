@@ -27,11 +27,13 @@ public class invite extends JFrame{
     private ArrayList<String> friend_list = new ArrayList<String>();
     private final static ArrayList<String> List= new ArrayList<String>();
 
-    public invite(String user_id, chatting_client client, ListeningThread t1){
+    private ArrayList<String> friendList = new ArrayList<>();
+
+    public invite(String user_id, chatting_client client, ListeningThread t1, ArrayList<String> friend1){
         this.user_id = user_id;
         this.client = client;
         this.t1 = t1;
-
+        this.friendList = friend1;
         // 유저리스트 검색해서 받아오기
         get_data data = new get_data();
         data.setType15(15, user_id);
@@ -50,15 +52,23 @@ public class invite extends JFrame{
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         for(int i = 0;i<friend_list.size();i++){
-            friend pane = new friend(friend_list.get(i));
-            gbc.fill = GridBagConstraints.BOTH;
-            gbc.ipadx = 0;
-            gbc.ipady = 0;
-            gbc.gridx = 0;
-            gbc.gridy = i;
-            Gbag.setConstraints(pane,gbc);
-            invite.add(pane);
-            invite.updateUI();
+            boolean duplicate = false;
+            for(int k = 0;k<friendList.size();k++){
+                if(friend_list.get(i).equals(friendList.get(k)) == true){
+                    duplicate = true;
+                }
+            }
+            if(!duplicate){
+                friend pane = new friend(friend_list.get(i));
+                gbc.fill = GridBagConstraints.BOTH;
+                gbc.ipadx = 0;
+                gbc.ipady = 0;
+                gbc.gridx = 0;
+                gbc.gridy = i;
+                Gbag.setConstraints(pane,gbc);
+                invite.add(pane);
+                invite.updateUI();
+            }
         }
         invitePanel.setViewportView(invite);
         invitePanel.setVisible(true);

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class friends extends JFrame{
     private JPanel main;
     private JScrollPane friendPanel;
-    private JPanel friend;
+    private JPanel friend_pane;
     private JButton friendButton;
     private JButton roomButton;
     private JButton publicDataButton;
@@ -26,7 +26,7 @@ public class friends extends JFrame{
     private chatting_client client;
     private ListeningThread t1;
     private ArrayList<String> friend_list = new ArrayList<String>();
-    private ArrayList<String> onlinList;
+    private ArrayList<String> onlineList;
     private ArrayList<String> friendList;
 
 
@@ -40,7 +40,7 @@ public class friends extends JFrame{
         get_data get = new get_data();
         get.setType50(user_id);
         get.start();
-        this.onlinList = get.getList();
+        this.onlineList = get.getList();
 
         // 내 친구 목록 불러오기
         get_data getFriends = new get_data();
@@ -48,25 +48,23 @@ public class friends extends JFrame{
         getFriends.start();
         this.friendList = getFriends.getList();
 
-        System.out.println(onlinList);
-        System.out.println(friendList);
-//
-//        GridBagLayout Gbag = new GridBagLayout();
-//        friend.setLayout(Gbag);
-//        GridBagConstraints gbc = new GridBagConstraints();
-//        gbc.weightx = 1.0;
-//        gbc.weighty = 1.0;
-//        for(int i = 0;i<friendList.size();i++){
-//            JLabel label = new JLabel(friendList.get(i), JLabel.CENTER);;
-//            gbc.fill = GridBagConstraints.BOTH;
-//            gbc.ipadx = 850;
-//            gbc.ipady = 100;
-//            gbc.gridx = 0;
-//            gbc.gridy = i*100;
-//            Gbag.setConstraints(label,gbc);
-//            friendPanel.add(label);
-//            friendPanel.updateUI();
-//        }
+        GridBagLayout Gbag = new GridBagLayout();
+        friend_pane.setLayout(Gbag);
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        System.out.println(friendList.size());
+        for(int i = 0;i<friendList.size();i++){
+            friend_panel a = new friend_panel(friendList.get(i),this.onlineList);
+            gbc.fill = GridBagConstraints.BOTH;
+            gbc.ipadx = 0;
+            gbc.ipady = 10;
+            gbc.gridx = 0;
+            gbc.gridy = i;
+            Gbag.setConstraints(a,gbc);
+            friend_pane.add(a);
+            friend_pane.updateUI();
+        }
 
         ImgSetSize friendIcon = new ImgSetSize("src/IMG/friendButtonIconActive.png", 35,35);
         friendButton.setIcon(friendIcon.getImg());
@@ -125,9 +123,88 @@ public class friends extends JFrame{
         inviteFriend.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new invite(user_id, client, t1);
+                new invite(user_id, client, t1, friendList);
                 setVisible(false);
             }
         });
+    }
+    public class friend_panel extends JPanel{
+
+        private String friend;
+
+        private ArrayList<String> online_list;
+
+        private boolean online_bool;
+
+        private JTextArea name;
+
+        private JLabel online_bool_label;
+        public friend_panel(String friend, ArrayList<String> online){
+            this.friend = friend;
+            this.online_list = online;
+            this.online_bool = false;
+
+            GridBagLayout Gbag = new GridBagLayout();
+            setLayout(Gbag);
+            GridBagConstraints gbc = new GridBagConstraints();
+            gbc.weightx = 1.0;
+            gbc.weighty = 1.0;
+
+            for(int k=0;k<online.size();k++){
+                if(friend.equals(online.get(k))){
+                    this.online_bool = true;
+                }
+            }
+
+            name = new JTextArea();
+            name.setDisabledTextColor(new Color(0,0,0));
+            name.setLineWrap(true);
+            name.setWrapStyleWord(true);
+            name.setEditable(false);
+            name.setText(friend);
+
+            gbc.fill = GridBagConstraints.BOTH;
+            gbc.gridx = 0;
+            gbc.gridy = 0;
+            gbc.gridwidth = 2;
+            gbc.gridheight = 1;
+            gbc.weightx = 0.4;
+            gbc.weighty = 1;
+            add(name,gbc);
+
+            online_bool_label = new JLabel();
+            if(this.online_bool){
+                online_bool_label.setForeground(new Color(0, 180, 0));
+
+                online_bool_label.setText("online");
+            }
+            else{
+                online_bool_label.setForeground(new Color(200, 200, 200));
+
+                online_bool_label.setText("offline");
+            }
+
+            gbc.fill = GridBagConstraints.BOTH;
+            gbc.gridx = 2;
+            gbc.gridy = 0;
+            gbc.gridwidth = 1;
+            gbc.gridheight = 1;
+            gbc.weightx = 0.2;
+            gbc.weighty = 1;
+            add(online_bool_label,gbc);
+
+            JLabel a = new JLabel();
+            gbc.fill = GridBagConstraints.BOTH;
+            gbc.gridx = 3;
+            gbc.gridy = 0;
+            gbc.gridwidth = 2;
+            gbc.gridheight = 1;
+            gbc.weightx = 0.4;
+            gbc.weighty = 1;
+            add(a,gbc);
+
+            setSize(480,50);
+            setVisible(true);
+        }
     }
 }
