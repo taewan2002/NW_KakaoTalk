@@ -43,13 +43,13 @@ public class friends extends JFrame{
         this.onlinList = get.getList();
 
         // 내 친구 목록 불러오기
-//        get_data getFriends = new get_data();
-//        getFriends.setType54(user_id);
-//        getFriends.start();
-//        this.friendList = getFriends.getList();
-//
-//        System.out.println(onlinList);
-//        System.out.println(friendList);
+        get_data getFriends = new get_data();
+        getFriends.setType54(user_id);
+        getFriends.start();
+        this.friendList = getFriends.getList();
+
+        System.out.println(onlinList);
+        System.out.println(friendList);
 //
 //        GridBagLayout Gbag = new GridBagLayout();
 //        friend.setLayout(Gbag);
