@@ -172,6 +172,8 @@ public class get_data{
     public String getFeed_id(){return feed_id;}
     public String getposter_id(){return poster_id;}
     public String getEmail(){return email;}
+    public String getPhoneNum(){return phoneNum;}
+    public String getName(){return name;}
 
     public int getLikeNum() {
         return like_num;
@@ -296,7 +298,6 @@ public class get_data{
                         // 내 정보 요청
                         protocol t = (protocol) ois.readObject();
                         if(t.getTypeofrequest() == 51){
-                            email = t.getEmail();
                             name = t.getName();
                             phoneNum = t.getPhoneNum();
                             break;

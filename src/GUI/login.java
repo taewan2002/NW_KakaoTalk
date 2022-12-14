@@ -170,6 +170,8 @@ public class login extends JFrame{
                     a.setVisible(true);
                 }
                 else{
+                    // 로그인 실패 팝업창 띄우기
+                    JOptionPane.showMessageDialog(null, "로그인 실패", "로그인 실패", JOptionPane.ERROR_MESSAGE);
                     System.out.println("x");
                 }
 //                new friends();
