@@ -117,8 +117,32 @@ public class friends extends JFrame{
         more.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new more(user_id, client, t1);
-                setVisible(false);
+                String[] option_message = {"내 정보","로그 아웃","탈퇴"};
+                int result = JOptionPane.showOptionDialog(null,"Option","option",JOptionPane.DEFAULT_OPTION,JOptionPane.ERROR_MESSAGE,null,option_message,null);
+
+                if (result == 0){
+                    new more(user_id,client,t1);
+                    setVisible(false);
+                }
+                else if (result == 1) {
+                    new login();
+                    setVisible(false);
+                }
+                else {
+                    // 탈퇴하기
+                    get_data Data = new get_data();
+                    Data.setType55(user_id);
+                    Data.start();
+                    if(Data.getTf()){
+                        JOptionPane.showMessageDialog(null, "탈퇴되었습니다.");
+                        login a = new login();
+                        a.setVisible(true);
+                        setVisible(false);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "탈퇴에 실패하였습니다.");
+                    }
+                }
             }
         });
         inviteFriend.addActionListener(new ActionListener() {

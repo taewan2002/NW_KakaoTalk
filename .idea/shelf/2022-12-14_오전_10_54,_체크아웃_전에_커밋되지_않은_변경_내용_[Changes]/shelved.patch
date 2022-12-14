@@ -1,0 +1,220 @@
+Index: src/GUI/more.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package GUI;\r\n\r\nimport chatting_function.ListeningThread;\r\nimport chatting_function.chatting_client;\r\nimport function.*;\r\nimport java.util.ArrayList;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\n\r\npublic class more extends JFrame {\r\n    private JPanel main;\r\n    private String user_id;\r\n    private chatting_client client;\r\n    private ListeningThread t1;\r\n    public more(String user_id, chatting_client client, ListeningThread t1){\r\n        this.user_id = user_id;\r\n        this.client = client;\r\n        this.t1 = t1;\r\n\r\n        setSize(480,650);\r\n        setVisible(true);\r\n        Dimension frameSize = getSize();\r\n        Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();\r\n        setLocation((windowSize.width - frameSize.width) / 2,\r\n                (windowSize.height - frameSize.height) / 2);\r\n\r\n\r\n\r\n        // 탈퇴하기\r\n        get_data Data = new get_data();\r\n        Data.setType55(user_id);\r\n        Data.start();\r\n        if(Data.getTf()){\r\n            JOptionPane.showMessageDialog(null, \"탈퇴되었습니다.\");\r\n            login a = new login();\r\n            a.setVisible(true);\r\n            setVisible(false);\r\n        }\r\n        else{\r\n            JOptionPane.showMessageDialog(null, \"탈퇴에 실패하였습니다.\");\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GUI/more.java b/src/GUI/more.java
+--- a/src/GUI/more.java	(revision 8b26ad04f9303cb4918c904a92a6c02069b9b9a4)
++++ b/src/GUI/more.java	(date 1670982591067)
+@@ -27,18 +27,6 @@
+ 
+ 
+ 
+-        // 탈퇴하기
+-        get_data Data = new get_data();
+-        Data.setType55(user_id);
+-        Data.start();
+-        if(Data.getTf()){
+-            JOptionPane.showMessageDialog(null, "탈퇴되었습니다.");
+-            login a = new login();
+-            a.setVisible(true);
+-            setVisible(false);
+-        }
+-        else{
+-            JOptionPane.showMessageDialog(null, "탈퇴에 실패하였습니다.");
+-        }
++
+     }
+ }
+Index: src/GUI/chats.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package GUI;\r\n\r\nimport chatting_function.ListeningThread;\r\nimport chatting_function.chatting_client;\r\nimport function.ImgSetSize;\r\nimport public_data.setCoinData;\r\nimport function.*;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.awt.event.ActionEvent;\r\nimport java.awt.event.ActionListener;\r\nimport java.io.File;\r\nimport java.util.ArrayList;\r\n\r\npublic class chats extends JFrame{\r\n    private JPanel main;\r\n    private JButton friendButton;\r\n    private JButton roomButton;\r\n    private JButton publicDataButton;\r\n    private JScrollPane roomPanel;\r\n    private JPanel room;\r\n    private JTextField search_room;\r\n    private JButton searchButton;\r\n    private JButton createRoom;\r\n    private JButton more;\r\n    private String user_id;\r\n    private chatting_client client;\r\n    private ListeningThread t1;\r\n\r\n\r\n    private static ArrayList<String> room_id;\r\n    private static ArrayList<String> member_list;\r\n\r\n    public chats(String user_id, chatting_client client, ListeningThread t1){\r\n        this.user_id = user_id;\r\n        this.client = client;\r\n        this.t1 = t1;\r\n\r\n        setContentPane(main);\r\n        setSize(480,650);\r\n        setVisible(true);\r\n        Dimension frameSize = getSize();\r\n        Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();\r\n        setLocation((windowSize.width - frameSize.width) / 2,\r\n                (windowSize.height - frameSize.height) / 2);\r\n\r\n        ImgSetSize friendIcon = new ImgSetSize(\"src/IMG/friendButtonIconNoActive.png\", 35,35);\r\n        friendButton.setIcon(friendIcon.getImg());\r\n        ImgSetSize roomIcon = new ImgSetSize(\"src/IMG/chattingButtonIconActive.png\", 35,35);\r\n        roomButton.setIcon(roomIcon.getImg());\r\n        ImgSetSize dataIcon = new ImgSetSize(\"src/IMG/btcBlack.png\", 35,35);\r\n        publicDataButton.setIcon(dataIcon.getImg());\r\n        ImgSetSize search = new ImgSetSize(\"src/IMG/search.png\", 35,25);\r\n        searchButton.setIcon(search.getImg());\r\n        ImgSetSize create = new ImgSetSize(\"src/IMG/roomCreate.png\", 35,25);\r\n        createRoom.setIcon(create.getImg());\r\n        ImgSetSize moreicon = new ImgSetSize(\"src/IMG/moreicon.png\", 35,35);\r\n        more.setIcon(moreicon.getImg());\r\n\r\n        get_data getData = new get_data();\r\n        getData.setType11(11, user_id);\r\n        getData.start();\r\n        room_id = getData.getMy_room_list();\r\n\r\n        for(int i = 0;i<room_id.size();i++){\r\n            System.out.println(room_id.get(i));\r\n        }\r\n        roomPanel.getVerticalScrollBar().setUnitIncrement(15);\r\n\r\n        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);\r\n\r\n        GridBagLayout Gbag = new GridBagLayout();\r\n        room.setLayout(Gbag);\r\n        GridBagConstraints gbc = new GridBagConstraints();\r\n        gbc.weightx = 1.0;\r\n        gbc.weighty = 1.0;\r\n        for(int i = 0;i<room_id.size();i++){\r\n            getData.setType12(12, user_id, room_id.get(i));\r\n            getData.start();\r\n            member_list = getData.get_users_in_room();\r\n            roomPanel pane = new roomPanel(member_list,room_id.get(i));\r\n            gbc.fill = GridBagConstraints.BOTH;\r\n            gbc.ipadx = 0;\r\n            gbc.ipady = 10;\r\n            gbc.gridx = 0;\r\n            gbc.gridy = i;\r\n            Gbag.setConstraints(pane,gbc);\r\n            room.add(pane);\r\n            room.updateUI();\r\n        }\r\n\r\n        friendButton.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                new friends(user_id, client, t1);\r\n                setVisible(false);\r\n            }\r\n        });\r\n        searchButton.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n\r\n            }\r\n        });\r\n        createRoom.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                new inviteRoom(user_id, client, t1);\r\n                setVisible(false);\r\n            }\r\n        });\r\n        publicDataButton.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                new setCoinData(user_id, client, t1);\r\n                setVisible(false);\r\n            }\r\n        });\r\n        more.addActionListener(new ActionListener() {\r\n            @Override\r\n            public void actionPerformed(ActionEvent e) {\r\n                new more(user_id, client, t1);\r\n                setVisible(false);\r\n            }\r\n        });\r\n    }\r\n    public class roomPanel extends JPanel{\r\n        private  ArrayList<String> member_list = new ArrayList<>();\r\n        private String room_id;\r\n        private JTextArea member;\r\n        private JButton in;\r\n        private JButton out;\r\n        public roomPanel(ArrayList<String> member , String id){\r\n            this.member_list = member;\r\n            this.room_id = id;\r\n            this.member = new JTextArea();\r\n            String a = member_list.get(0);\r\n            for(int i = 1;i<member_list.size();i++){\r\n                a = a + \" , \" + member_list.get(i);\r\n                System.out.println(member_list.get(i));\r\n            }\r\n            this.member.setText(a);\r\n            this.in = new JButton(\"in\");\r\n            this.out = new JButton(\"out\");\r\n\r\n            GridBagLayout Gbag = new GridBagLayout();\r\n            setLayout(Gbag);\r\n            GridBagConstraints gbc = new GridBagConstraints();\r\n            gbc.weightx = 1.0;\r\n            gbc.weighty = 1.0;\r\n            this.member.setBackground(new Color(180,255,255));\r\n            this.in.setBackground(new Color(255,250,50));\r\n            this.out.setBackground(new Color(255,100,50));\r\n\r\n            gbc.fill = GridBagConstraints.BOTH;\r\n            gbc.gridx = 4;\r\n            gbc.gridy = 0;\r\n            gbc.gridwidth = 1;\r\n            gbc.gridheight = 1;\r\n            add(this.out,gbc);\r\n\r\n            gbc.fill = GridBagConstraints.BOTH;\r\n            gbc.gridx = 3;\r\n            gbc.gridy = 0;\r\n            gbc.gridwidth = 1;\r\n            gbc.gridheight = 1;\r\n            add(this.in,gbc);\r\n\r\n            this.member.setLineWrap(true);\r\n            this.member.setWrapStyleWord(true);\r\n            this.member.setEditable(false);\r\n            gbc.fill = GridBagConstraints.BOTH;\r\n            gbc.gridx = 0;\r\n            gbc.gridy = 0;\r\n            gbc.gridwidth = 3;\r\n            gbc.gridheight = 1;\r\n            add(this.member,gbc);\r\n            in.addActionListener(new ActionListener() {\r\n                @Override\r\n                public void actionPerformed(ActionEvent e) {\r\n                    chattingRoom a = new chattingRoom(user_id,client,t1,room_id);\r\n                    a.setVisible(true);\r\n\r\n                }\r\n            });\r\n            out.addActionListener(new ActionListener() {\r\n                @Override\r\n                public void actionPerformed(ActionEvent e) {\r\n                    client.exit_room(3,user_id,room_id);\r\n                    File b = new File(\"chatting_data/\" + room_id + \".txt\");\r\n                    System.out.println(\"chatting_data/\" + room_id + \".txt\");\r\n                    if(b.exists()){\r\n                        System.out.println(\"있다\");\r\n                        b.delete();\r\n                    }\r\n                    else{\r\n                        System.out.println(\"없다\");\r\n                    }\r\n\r\n                    chats a = new chats(user_id,client,t1);\r\n                    setVisible(false);\r\n                    a.setVisible(true);\r\n                    dispose();\r\n                }\r\n            });\r\n        } // 생성자\r\n    } // roomPanel\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/GUI/chats.java b/src/GUI/chats.java
+--- a/src/GUI/chats.java	(revision 8b26ad04f9303cb4918c904a92a6c02069b9b9a4)
++++ b/src/GUI/chats.java	(date 1670982825807)
+@@ -120,8 +120,32 @@
+         more.addActionListener(new ActionListener() {
+             @Override
+             public void actionPerformed(ActionEvent e) {
+-                new more(user_id, client, t1);
+-                setVisible(false);
++                String[] option_message = {"내 정보","로그 아웃","탈퇴"};
++                int result = JOptionPane.showOptionDialog(null,"Option","option",JOptionPane.DEFAULT_OPTION,JOptionPane.ERROR_MESSAGE,null,option_message,null);
++
++                if (result == 0){
++                    new more(user_id,client,t1);
++                    setVisible(false);
++                }
++                else if (result == 1) {
++                    new login();
++                    setVisible(false);
++                }
++                else {
++                    // 탈퇴하기
++                    get_data Data = new get_data();
++                    Data.setType55(user_id);
++                    Data.start();
++                    if(Data.getTf()){
++                        JOptionPane.showMessageDialog(null, "탈퇴되었습니다.");
++                        login a = new login();
++                        a.setVisible(true);
++                        setVisible(false);
++                    }
++                    else{
++                        JOptionPane.showMessageDialog(null, "탈퇴에 실패하였습니다.");
++                    }
++                }
+             }
+         });
+     }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"1c437c3d-3b45-414f-929f-611a89f11dfc\" name=\"Changes\" comment=\"거의 다 했고\">\r\n      <change beforePath=\"$PROJECT_DIR$/README.md\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/README.md\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/chatting/protocol.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/chatting/protocol.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/function/get_data.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/function/get_data.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Interface\" />\r\n        <option value=\"JavaScript File\" />\r\n        <option value=\"TypeScript File\" />\r\n        <option value=\"package.json\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"uijin\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2IfO58fuPxWEStm5oHW96ICiDx1\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,\r\n    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;24&quot;,\r\n    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;223&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;/Users/taewan/IdeaProjects/KakaoTalk/src/GUI&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateClassDialog.RecentsKey\">\r\n      <recent name=\"GUI\" />\r\n      <recent name=\"public_data\" />\r\n    </key>\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"$PROJECT_DIR$/src/GUI\" />\r\n      <recent name=\"C:\\Users\\Administrator\\IdeaProjects\\KakaoTalk\\src\\IMG\" />\r\n      <recent name=\"$PROJECT_DIR$\" />\r\n      <recent name=\"$PROJECT_DIR$/src/function\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Administrator\\IdeaProjects\\KakaoTalk\\src\\IMG\" />\r\n      <recent name=\"$PROJECT_DIR$/src/IMG\" />\r\n      <recent name=\"$PROJECT_DIR$/src/public_data\" />\r\n      <recent name=\"$PROJECT_DIR$/openAPI\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.Main\">\r\n    <configuration name=\"ApiTestApplication\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"public_data.ApiTestApplication\" />\r\n      <module name=\"KakaoTalk\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"public_data.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"Main\" />\r\n      <module name=\"KakaoTalk\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"getData2\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"getData2\" />\r\n      <module name=\"KakaoTalk\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"stockData\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"GUI.stockData\" />\r\n      <module name=\"KakaoTalk\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"GUI.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"test\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"public_data.test\" />\r\n      <module name=\"KakaoTalk\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"public_data.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"test1\" type=\"Application\" factoryName=\"Application\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"public_data.test1\" />\r\n      <module name=\"KakaoTalk\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"public_data.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.Main\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"1c437c3d-3b45-414f-929f-611a89f11dfc\" name=\"Changes\" comment=\"\" />\r\n      <created>1670568984234</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1670568984234</updated>\r\n      <workItem from=\"1670568985270\" duration=\"3887000\" />\r\n      <workItem from=\"1670573800337\" duration=\"2100000\" />\r\n      <workItem from=\"1670576190090\" duration=\"16798000\" />\r\n      <workItem from=\"1670595604778\" duration=\"3974000\" />\r\n      <workItem from=\"1670725355073\" duration=\"76000\" />\r\n      <workItem from=\"1670725433516\" duration=\"409000\" />\r\n      <workItem from=\"1670746283535\" duration=\"3786000\" />\r\n      <workItem from=\"1670770269623\" duration=\"884000\" />\r\n      <workItem from=\"1670855180833\" duration=\"75000\" />\r\n      <workItem from=\"1670935614248\" duration=\"4101000\" />\r\n      <workItem from=\"1670940121709\" duration=\"6324000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"test1\">\r\n      <created>1670570617039</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670570617039</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"코인 정보 불러오기 upbit api\">\r\n      <created>1670586737097</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670586737097</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"코인 정보 불러오기 upbit api, getCoinData\">\r\n      <created>1670588549263</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670588549263</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"코인 변동률 0.0일때 발생하는 오류 해결\">\r\n      <created>1670747239162</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670747239162</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"코인 이미지 오류 수정\">\r\n      <created>1670751669485</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670751669485</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"코인데이터 화면 form수정\">\r\n      <created>1670823504458</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670823504458</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"코인데이터 화면 form수정\">\r\n      <created>1670827331022</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670827331022</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"스크롤패인 ㅈ버그 수정\">\r\n      <created>1670839159659</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670839159659</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"chatting 폰트 수정\">\r\n      <created>1670849040749</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670849040749</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"비밀번호 변경, 아이디 찾기 프로토콜 제작 및 구현\">\r\n      <created>1670906891565</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670906891565</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"친구 추가 함수 추가\">\r\n      <created>1670912330905</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670912330905</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"친구 목록 불러오기 성공!!\">\r\n      <created>1670915178476</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670915178476</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"친구 목록 불러오기 성공!!\">\r\n      <created>1670915319829</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670915319829</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"초대하기 기능 추가 폼 제작 아직 못함 의진아 도와줘 ㅎㅎ\">\r\n      <created>1670939837877</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670939837877</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"README.md\">\r\n      <created>1670940216217</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670940216217</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"거의 다 했고\">\r\n      <created>1670942883810</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1670942883810</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"17\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"test1\" />\r\n    <MESSAGE value=\"코인 정보 불러오기 upbit api\" />\r\n    <MESSAGE value=\"코인 정보 불러오기 upbit api, getCoinData\" />\r\n    <MESSAGE value=\"코인 변동률 0.0일때 발생하는 오류 해결\" />\r\n    <MESSAGE value=\"코인 이미지 오류 수정\" />\r\n    <MESSAGE value=\"코인데이터 화면 form수정\" />\r\n    <MESSAGE value=\"스크롤패인 ㅈ버그 수정\" />\r\n    <MESSAGE value=\"chatting 폰트 수정\" />\r\n    <MESSAGE value=\"비밀번호 변경, 아이디 찾기 프로토콜 제작 및 구현\" />\r\n    <MESSAGE value=\"친구 추가 함수 추가\" />\r\n    <MESSAGE value=\"친구 목록 불러오기 성공!!\" />\r\n    <MESSAGE value=\"초대하기 기능 추가 폼 제작 아직 못함 의진아 도와줘 ㅎㅎ\" />\r\n    <MESSAGE value=\"README.md\" />\r\n    <MESSAGE value=\"거의 다 했고\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"거의 다 했고\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/KakaoTalk$Main.ic\" NAME=\"Main Coverage Results\" MODIFIED=\"1670747029056\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 8b26ad04f9303cb4918c904a92a6c02069b9b9a4)
++++ b/.idea/workspace.xml	(date 1670982825839)
+@@ -4,10 +4,10 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="거의 다 했고">
+-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/chatting/protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting/protocol.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/function/get_data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/function/get_data.java" afterDir="false" />
++    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="README.md">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/GUI/chats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chats.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/GUI/more.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/more.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -32,6 +32,7 @@
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++    <option name="UPDATE_TYPE" value="REBASE" />
+   </component>
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
+@@ -42,30 +43,30 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;24&quot;,
+-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;223&quot;,
+-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;/Users/taewan/IdeaProjects/KakaoTalk/src/GUI&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Downloaded.Files.Path.Enabled": "false",
++    "Repository.Attach.Annotations": "false",
++    "Repository.Attach.JavaDocs": "false",
++    "Repository.Attach.Sources": "false",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
++    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "24",
++    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "223",
++    "WebServerToolWindowFactoryState": "false",
++    "last_opened_file_path": "C:/Users/white/IdeaProjects/KakaoTalk",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "project.structure.last.edited": "Libraries",
++    "project.structure.proportion": "0.15",
++    "project.structure.side.proportion": "0.2",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CreateClassDialog.RecentsKey">
+       <recent name="GUI" />
+@@ -84,7 +85,7 @@
+       <recent name="$PROJECT_DIR$/openAPI" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Application.Main">
++  <component name="RunManager" selected="애플리케이션.Main">
+     <configuration name="ApiTestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="public_data.ApiTestApplication" />
+       <module name="KakaoTalk" />
+@@ -153,7 +154,7 @@
+     </configuration>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="Application.Main" />
++        <item itemvalue="애플리케이션.Main" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -175,7 +176,8 @@
+       <workItem from="1670770269623" duration="884000" />
+       <workItem from="1670855180833" duration="75000" />
+       <workItem from="1670935614248" duration="4101000" />
+-      <workItem from="1670940121709" duration="6324000" />
++      <workItem from="1670940121709" duration="2130000" />
++      <workItem from="1670981666181" duration="916000" />
+     </task>
+     <task id="LOCAL-00001" summary="test1">
+       <created>1670570617039</created>
+@@ -282,14 +284,7 @@
+       <option name="project" value="LOCAL" />
+       <updated>1670940216217</updated>
+     </task>
+-    <task id="LOCAL-00016" summary="거의 다 했고">
+-      <created>1670942883810</created>
+-      <option name="number" value="00016" />
+-      <option name="presentableId" value="LOCAL-00016" />
+-      <option name="project" value="LOCAL" />
+-      <updated>1670942883810</updated>
+-    </task>
+-    <option name="localTasksCounter" value="17" />
++    <option name="localTasksCounter" value="16" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -320,10 +315,9 @@
+     <MESSAGE value="친구 목록 불러오기 성공!!" />
+     <MESSAGE value="초대하기 기능 추가 폼 제작 아직 못함 의진아 도와줘 ㅎㅎ" />
+     <MESSAGE value="README.md" />
+-    <MESSAGE value="거의 다 했고" />
+-    <option name="LAST_COMMIT_MESSAGE" value="거의 다 했고" />
++    <option name="LAST_COMMIT_MESSAGE" value="README.md" />
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+-    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main Coverage Results" MODIFIED="1670747029056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
++    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main 커버리지 결과" MODIFIED="1670746914059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+   </component>
+ </project>
+\ No newline at end of file
