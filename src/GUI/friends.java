@@ -117,8 +117,10 @@ public class friends extends JFrame{
         more.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String[] option_message = {"내 정보","로그 아웃","탈퇴"};
-                int result = JOptionPane.showOptionDialog(null,"Option","option",JOptionPane.DEFAULT_OPTION,JOptionPane.ERROR_MESSAGE,null,option_message,null);
+                String[] option_message = {"내 정보","로그 아웃","탈퇴","비밀번호 변경"};
+                ImgSetSize kakao = new ImgSetSize("src/IMG/kakaoIcon.png", 50, 50);
+                int result = JOptionPane.showOptionDialog(null,"Option","option",
+                        JOptionPane.DEFAULT_OPTION,JOptionPane.ERROR_MESSAGE,kakao.getImg(),option_message,option_message[0]);
 
                 if (result == 0){
                     new more(user_id,client,t1);
@@ -128,7 +130,7 @@ public class friends extends JFrame{
                     new login();
                     setVisible(false);
                 }
-                else {
+                else if (result == 2) {
                     // 탈퇴하기
                     get_data Data = new get_data();
                     Data.setType55(user_id);
@@ -142,6 +144,10 @@ public class friends extends JFrame{
                     else{
                         JOptionPane.showMessageDialog(null, "탈퇴에 실패하였습니다.");
                     }
+                }
+                else {
+                    new repassword(user_id);
+                    setVisible(false);
                 }
             }
         });
