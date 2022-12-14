@@ -4,14 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="친구 목록 불러오기 성공!!">
+    <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="오목">
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-13__10_49_________Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-13__10_49_________Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-13__10_49_________Changes_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-13__10_49_________Changes_2.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/2022-12-13__9_46_________Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/2022-12-13__9_46_________Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-12-13__11_00__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2022-12-13__11_00__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_2022-12-13__10_50__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_2022-12-13__10_50__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatting_data/014b90249a7166df3d3f2448f15cb8f4.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/chatting_data/27ee406753aa8685c4d0d868cc535488.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/27ee406753aa8685c4d0d868cc535488.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/chattingRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chattingRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatting_data/c1f2a6000e20c7be8d23115a97e8e381.txt" beforeDir="false" afterPath="$PROJECT_DIR$/chatting_data/c1f2a6000e20c7be8d23115a97e8e381.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chatting/protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting/protocol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/concave/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/concave/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/concave/GUI_board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/concave/GUI_board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/concave/GameMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/concave/GameMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +91,7 @@
       <recent name="$PROJECT_DIR$/openAPI" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.Main">
+  <component name="RunManager" selected="Application.test1">
     <configuration name="ApiTestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="public_data.ApiTestApplication" />
       <module name="KakaoTalk" />
@@ -153,11 +158,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="애플리케이션.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -269,7 +269,28 @@
       <option name="project" value="LOCAL" />
       <updated>1670915319829</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="오목">
+      <created>1670944445635</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1670944445635</updated>
+    </task>
+    <task id="LOCAL-00015" summary="오목">
+      <created>1670944465288</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1670944465288</updated>
+    </task>
+    <task id="LOCAL-00016" summary="오목">
+      <created>1670944475585</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1670944475585</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,9 +320,10 @@
     <MESSAGE value="친구 추가 함수 추가" />
     <MESSAGE value="친구 목록 불러오기 성공!!" />
     <MESSAGE value="친구 목록" />
-    <option name="LAST_COMMIT_MESSAGE" value="친구 목록" />
+    <MESSAGE value="오목" />
+    <option name="LAST_COMMIT_MESSAGE" value="오목" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main 커버리지 결과" MODIFIED="1670746914059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main Coverage Results" MODIFIED="1670747029056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

@@ -45,3 +45,5 @@
 20221213235958:whitekuj02:as:false:null:
 20221214000101:whitekuj02:asd:false:null:
 20221214000103:whitekuj02:as:false:null:
+20221214110147:hw:/오목:false:null:
+20221214110148:hw:!오목!8!7!p2:false:null:

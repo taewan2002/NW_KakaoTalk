@@ -1,0 +1,22 @@
+20221214112409:whitekuj02:아니:false:null:
+20221214112413:whitekuj02:이거 왜이래:false:null:
+20221214112419:whitekuj02:도데체 뭔데:false:null:
+20221214112424:whitekuj02:짜증날라 그래:false:null:
+20221214112425:whitekuj02:어?:false:null:
+20221214112537:whitekuj02:안옴?:false:null:
+20221214112539:whitekuj02:뭐래:false:null:
+20221214112540:whitekuj02:뭐해:false:null:
+20221214112607:whitekuj02:/오목:false:null:
+20221214112613:whitekuj02:실시간으로:false:null:
+20221214112616:whitekuj02:보내고 이쓴ㄴ데:false:null:
+20221214112634:whitekuj02:!오목!7!7!p2:false:null:
+20221214112636:whitekuj02:!오목!8!7!p1:false:null:
+20221214112638:whitekuj02:!오목!8!8!p2:false:null:
+20221214112639:whitekuj02:!오목!7!8!p1:false:null:
+20221214112640:whitekuj02:!오목!8!9!p2:false:null:
+20221214112641:whitekuj02:!오목!7!9!p1:false:null:
+20221214112642:whitekuj02:!오목!8!10!p2:false:null:
+20221214112643:whitekuj02:!오목!7!10!p1:false:null:
+20221214112644:whitekuj02:!오목!8!11!p2:false:null:
+20221214112645:whitekuj02:!오목!7!11!p1:false:null:
+20221214112646:whitekuj02:!오목!8!12!p2:false:null:
