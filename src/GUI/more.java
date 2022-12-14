@@ -27,16 +27,6 @@ public class more extends JFrame {
 
 
 
-        // 탈퇴하기
-        get_data Data = new get_data();
-        Data.setType55(user_id);
-        Data.start();
-        if(Data.getTf()){
-            JOptionPane.showMessageDialog(null, "탈퇴되었습니다.");
-            new login();
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "탈퇴에 실패하였습니다.");
-        }
+
     }
 }
