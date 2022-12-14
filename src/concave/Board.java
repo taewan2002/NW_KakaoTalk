@@ -47,15 +47,23 @@ public class Board {
         //guiB.layeredPane.add(contentPane);
 
 
+
+
         if (player.getPlayerColor() == 1)
         {
             btn2.setBackground(new Color(0,0,0));
+            guiB.order2.setBackground(new Color(227,200,150));
+            guiB.order1.setBackground(new Color(255,255,255));
         }
         else
         {
             btn2.setBackground(new Color(255,255,255));
+            guiB.order2.setBackground(new Color(0,0,0));
+            guiB.order1.setBackground(new Color(227,200,150));
         }
         guiB.panel.add(btn2);
+        //guiB.panel.add(guiB.order1);
+        //guiB.panel.add(guiB.order2);
 
         guiB.panel.setVisible(true);
 

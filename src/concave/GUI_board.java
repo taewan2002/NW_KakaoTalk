@@ -18,6 +18,9 @@ public class GUI_board extends JFrame{
 
     public static myPanel panel;
 
+    public static JButton order1;
+    public static JButton order2;
+
     public static JLayeredPane layeredPane;
 
     public GUI_board(GameMain ad) {
@@ -58,7 +61,6 @@ public class GUI_board extends JFrame{
         setLocation((windowSize.width - frameSize.width) / 2,
                 (windowSize.height - frameSize.height) / 2);
 
-
         for (int i=0;i<15;i++)
         {
             for (int j=0;j<15;j++)
@@ -75,6 +77,21 @@ public class GUI_board extends JFrame{
 
             }
         }
+
+        order1 = new JButton();
+        order1.setBounds(0, 532, 70, 80);
+        order2 = new JButton();
+        order2.setBounds(395, 532, 70, 80);
+
+        order1.setBorderPainted(false);
+        order2.setBorderPainted(false);
+
+        order1.setBackground(new Color(255,255,255));
+        order2.setBackground(new Color(0,0,0));
+
+
+        panel.add(order1);
+        panel.add(order2);
 
         panel.setVisible(true);
 

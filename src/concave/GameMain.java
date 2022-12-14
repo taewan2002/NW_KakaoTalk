@@ -98,11 +98,19 @@ public class GameMain {
                 System.out.println("!오목!" + Integer.toString(x) + "!" + Integer.toString(y) + "!" + playerOne.getPlayerName());
                 message = "!오목!" + Integer.toString(x) + "!" + Integer.toString(y) + "!" + playerOne.getPlayerName();
                 client.send_messege(4,room_id, user_id, message,false,null);
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
                 //board.show();
                 if (board.win(x, y, playerOne))
                 {
                     JOptionPane aa=new JOptionPane();
-                    aa.showMessageDialog(null, "승리자는 " + playerOne.getPlayerName() + "입니다.");
+//                    aa.showMessageDialog(null, "승리자는 " + playerOne.getPlayerName() + "입니다.");
+                    aa.showMessageDialog(null, "승리자는 " + user_id + "입니다.");
                     break;
                 }
                 //System.out.println(playerTwo.getPlayerName() + "이 둘 차례입니다.");
@@ -118,10 +126,18 @@ public class GameMain {
                 System.out.println("!오목!" + Integer.toString(x) + "!" + Integer.toString(y) + "!" + playerTwo.getPlayerName());
                 message = "!오목!" + Integer.toString(x) + "!" + Integer.toString(y) + "!" + playerTwo.getPlayerName();
                 client.send_messege(4,room_id, user_id, message,false,null);
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
                 if (board.win(x, y, playerTwo))
                 {
                     JOptionPane aa=new JOptionPane();
-                    aa.showMessageDialog(null, "승리자는 " + playerTwo.getPlayerName() + "입니다.");
+//                    aa.showMessageDialog(null, "승리자는 " + playerOne.getPlayerName() + "입니다.");
+                    aa.showMessageDialog(null, "승리자는 " + user_id + "입니다.");
                     break;
                 }
             }
@@ -140,11 +156,19 @@ public class GameMain {
                 System.out.println("!오목!" + Integer.toString(x) + "!" + Integer.toString(y) + "!" + playerTwo.getPlayerName());
                 message = "!오목!" + Integer.toString(x) + "!" + Integer.toString(y) + "!" + playerTwo.getPlayerName();
                 client.send_messege(4,room_id, user_id, message,false,null);
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
                 //board.show();
                 if (board.win(x, y, playerTwo))
                 {
                     JOptionPane aa=new JOptionPane();
-                    aa.showMessageDialog(null, "승리자는 " + playerTwo.getPlayerName() + "입니다.");
+//                    aa.showMessageDialog(null, "승리자는 " + playerOne.getPlayerName() + "입니다.");
+                    aa.showMessageDialog(null, "승리자는 " + user_id + "입니다.");
                     break;
                 }
                 //System.out.println(playerOne.getPlayerName() + "이 둘 차례입니다.");
@@ -157,13 +181,21 @@ public class GameMain {
                     x = getX();
                     y = getY();
                 }
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
                 System.out.println("!오목!" + Integer.toString(x) + "!" + Integer.toString(y) + "!" + playerOne.getPlayerName());
                 message = "!오목!" + Integer.toString(x) + "!" + Integer.toString(y) + "!" + playerOne.getPlayerName();
                 client.send_messege(4,room_id, user_id, message,false,null);
                 if (board.win(x, y, playerOne))
                 {
                     JOptionPane aa=new JOptionPane();
-                    aa.showMessageDialog(null, "승리자는 " + playerOne.getPlayerName() + "입니다.");
+//                    aa.showMessageDialog(null, "승리자는 " + playerOne.getPlayerName() + "입니다.");
+                    aa.showMessageDialog(null, "승리자는 " + user_id + "입니다.");
                     break;
                 }
             }
