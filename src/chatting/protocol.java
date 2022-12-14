@@ -21,6 +21,7 @@ public class protocol implements Serializable {
     private String email;
     private String phone;
     private String name;
+    private String friend;
     private boolean tf;
     public protocol(){}
 
@@ -33,12 +34,12 @@ public class protocol implements Serializable {
     // 방 목록 요청 type = 6
     // 방 참여자 목록 요청 type = 7
     // 아이디찾기 type = 8
-    // 비밀번호 변경하기 위한 확인 type = 9 -> 여긴 똑같아
-    // 비밀번호 변경 type = 10 -> 여긴 똑같아
+    // 비밀번호 변경하기 위한 확인 type = 9
+    // 비밀번호 변경 type = 10
     // 로그인 여부 확인 type = 50
     // 내정보 요청 type = 51
-    // 친구 추가 type = 52
-    // 친구 삭제 type = 53
+    // 친구 추가 type = 16
+    // 친구 삭제 type = 53 -> 이거 아직 안했다
     // 친구 목록 요청 type = 54
     // 탈퇴하기 type = 55
 
@@ -58,7 +59,7 @@ public class protocol implements Serializable {
         this.list = list;
     }
 
-    // 방에서 나가기 3, 방 참여자 목록 불러오기 7, 아이디 찾기 8, 비밀번호 변경
+    // 방에서 나가기 3, 방 참여자 목록 불러오기 7, 아이디 찾기 8, 비밀번호 변경, 친구 삭제
     public protocol(int a, String b, String c){
         this.typeofrequest = a;
         this.sender = b;
@@ -67,6 +68,7 @@ public class protocol implements Serializable {
         this.name = b;
         this.email = c;
         this.password = c;
+        this.friend = c;
     }
 
     // 체팅 보내기 4
@@ -137,6 +139,9 @@ public class protocol implements Serializable {
     }
     public String getPassword() {
         return password;
+    }
+    public String getFriend() {
+        return friend;
     }
     public boolean getTf(){return tf;}
 

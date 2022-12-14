@@ -95,22 +95,6 @@ public class get_data{
         this.user_id = user_id;
         this.list = friend;
     }
-    public void setType19(int typeofrequest, String user_id){
-        this.typeofrequest = typeofrequest;
-        this.user_id = user_id;
-    }
-    public void setType20(int typeofrequest, String user_id){
-        this.typeofrequest = typeofrequest;
-        this.user_id = user_id;
-    }
-    public void setType16(int typeofrequest, String user_id) {
-        this.typeofrequest = typeofrequest;
-        this.user_id = user_id;
-    }
-    public void setType22(int typeofrequest, String user_id) {
-        this.typeofrequest = typeofrequest;
-        this.user_id = user_id;
-    }
     public void setType50(String user_id){
         // 온라인 유저 목록 불러오기
         this.typeofrequest = 50;
@@ -248,7 +232,7 @@ public class get_data{
                         }
                     }
                 }else if (typeofrequest == 10) {
-                // 비밀번호 변경을 위한 확인
+                // 비밀번호 변경하기
                 protocol p = new protocol(typeofrequest, user_id, password);
                 request(p);
                 this.ois = new ObjectInputStream(is);
@@ -284,24 +268,6 @@ public class get_data{
                     }
                 }
             }
-            else if(typeofrequest == 49){
-                protocol p = new protocol(typeofrequest, user_id, feed_id);
-                request(p);
-                this.ois = new ObjectInputStream(is);
-                while(true){
-                    try{
-                        protocol t = (protocol) ois.readObject();
-                        if(t.getTypeofrequest() == 49){
-                            // this.heart_yes_or_no = String.valueOf(t.getHeart());
-                            break;
-                        }
-                    }
-                    catch(Exception e){
-                        e.getStackTrace();
-                        break;
-                    }
-                }
-            }
             else if(typeofrequest == 50){
                 protocol p = new protocol(typeofrequest, user_id, list);
                 request(p);
@@ -327,7 +293,7 @@ public class get_data{
                 this.ois = new ObjectInputStream(is);
                 while(true){
                     try{
-                        // 온라인 유저 목록 요청
+                        // 내 정보 요청
                         protocol t = (protocol) ois.readObject();
                         if(t.getTypeofrequest() == 51){
                             email = t.getEmail();
@@ -348,7 +314,7 @@ public class get_data{
                 this.ois = new ObjectInputStream(is);
                 while(true){
                     try{
-                        // 온라인 유저 목록 요청
+                        // 친구 목록 요청
                         protocol t = (protocol) ois.readObject();
                         if(t.getTypeofrequest() == 54){
                             list = t.getList();
@@ -453,6 +419,7 @@ public class get_data{
                 }
             }
             else if(typeofrequest == 16) {
+                // 찬구추가
                 protocol p = new protocol(typeofrequest, user_id);
                 request(p);
                 this.ois = new ObjectInputStream(is);
