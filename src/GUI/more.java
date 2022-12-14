@@ -24,9 +24,5 @@ public class more extends JFrame {
         Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
         setLocation((windowSize.width - frameSize.width) / 2,
                 (windowSize.height - frameSize.height) / 2);
-
-
-
-
     }
 }

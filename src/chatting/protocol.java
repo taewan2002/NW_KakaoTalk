@@ -23,25 +23,25 @@ public class protocol implements Serializable {
     private String name;
     private String friend;
     private boolean tf;
-    public protocol(){}
-
-    // 요청 프로토콜
-    // 방 생성 type = 1
-    // 방 초대 type = 2
-    // 방에서 나가기 type = 3
-    // 메시지 보내기 type = 4
-    // 로그아웃인 경우 type = 5
-    // 방 목록 요청 type = 6
-    // 방 참여자 목록 요청 type = 7
-    // 아이디찾기 type = 8
-    // 비밀번호 변경하기 위한 확인 type = 9
-    // 비밀번호 변경 type = 10
-    // 로그인 여부 확인 type = 50
-    // 내정보 요청 type = 51
-    // 친구 추가 type = 16
-    // 친구 삭제 type = 53 -> 이거 아직 안했다
-    // 친구 목록 요청 type = 54
-    // 탈퇴하기 type = 55
+    public protocol(){
+        // server - client protocol
+        // 방 생성 type = 1
+        // 방 초대 type = 2
+        // 방에서 나가기 type = 3
+        // 메시지 보내기 type = 4
+        // 로그아웃인 경우 type = 5
+        // 방 목록 요청 type = 6
+        // 방 참여자 목록 요청 type = 7
+        // 아이디찾기 type = 8
+        // 비밀번호 변경하기 위한 확인 type = 9
+        // 비밀번호 변경 type = 10
+        // 로그인 여부 확인 type = 50
+        // 내정보 요청 type = 51
+        // 친구 추가 type = 16
+        // 친구 삭제 type = 53 -> 이거 아직 안했다
+        // 친구 목록 요청 type = 54
+        // 탈퇴하기 type = 55
+    }
 
 
     // 방 생성 1, 로그인 여부 확인 50, 친구추가 16

@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1c437c3d-3b45-414f-929f-611a89f11dfc" name="Changes" comment="README.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI/chats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/chats.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI/more.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/more.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/chatting/protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/chatting/protocol.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +85,7 @@
       <recent name="$PROJECT_DIR$/openAPI" />
     </key>
   </component>
-  <component name="RunManager" selected="애플리케이션.Main">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="ApiTestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="public_data.ApiTestApplication" />
       <module name="KakaoTalk" />
@@ -154,11 +154,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="애플리케이션.Main" />
-        <item itemvalue="애플리케이션.test" />
-        <item itemvalue="애플리케이션.stockData" />
-        <item itemvalue="애플리케이션.getData2" />
-        <item itemvalue="애플리케이션.ApiTestApplication" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -322,6 +318,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="README.md" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main 커버리지 결과" MODIFIED="1670746914059" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/KakaoTalk$Main.ic" NAME="Main Coverage Results" MODIFIED="1670747029056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
