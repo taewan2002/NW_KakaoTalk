@@ -280,7 +280,7 @@ public class chattingRoom extends JFrame {
                     });
 
                     bullon.add(concave1,gbc);
-                }else if (message.substring(0,1).equals("!")){
+                }else if (message.length() > 0 && message.substring(0,1).equals("!")){
                     String[] modNum = message.split("!");
                     gmain.gamemain.temp_x = Integer.parseInt(modNum[2]);
                     gmain.gamemain.temp_y = Integer.parseInt(modNum[3]);
@@ -354,7 +354,7 @@ public class chattingRoom extends JFrame {
 
                     bullon.add(concave1,gbc);
                 }
-                else if (message.substring(0,1).equals("!")){
+                else if (message.length() > 0 && message.substring(0,1).equals("!")){
                     String[] modNum = message.split("!");
                     gmain.gamemain.temp_x = Integer.parseInt(modNum[2]);
                     gmain.gamemain.temp_y = Integer.parseInt(modNum[3]);
