@@ -3,6 +3,7 @@
 ## Basic information
 * description: Gachon Univ. 21, Network Term Project - KakaoTalk Clone
 * https://www.youtube.com/watch?v=vGXFO11I8CE
+* Server : https://github.com/taewan2002/NW_KakaoTalk_Server
 * author: 조태완, 김의진, 구승현, 이현우
 * version: 1.0.0
 * university: Gachon University
